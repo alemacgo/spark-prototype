@@ -13,6 +13,10 @@
 		A9212C7619EFCCCF00247FCA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9212C7519EFCCCF00247FCA /* Images.xcassets */; };
 		A9212C7919EFCCCF00247FCA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9212C7719EFCCCF00247FCA /* LaunchScreen.xib */; };
 		A9212C8519EFCCCF00247FCA /* PrototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212C8419EFCCCF00247FCA /* PrototypeTests.swift */; };
+		A9212CC119EFD85900247FCA /* YesterdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC019EFD85900247FCA /* YesterdayViewController.swift */; };
+		A9212CC319EFDCAF00247FCA /* HorizontalTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */; };
+		A9212CC519EFE31B00247FCA /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC419EFE31B00247FCA /* WishListViewController.swift */; };
+		A9212CC719F00E0100247FCA /* VerticalTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		A9212C7E19EFCCCF00247FCA /* PrototypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrototypeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9212C8319EFCCCF00247FCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9212C8419EFCCCF00247FCA /* PrototypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeTests.swift; sourceTree = "<group>"; };
+		A9212CC019EFD85900247FCA /* YesterdayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YesterdayViewController.swift; sourceTree = "<group>"; };
+		A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTransitionManager.swift; sourceTree = "<group>"; };
+		A9212CC419EFE31B00247FCA /* WishListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTransitionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +85,12 @@
 		A9212C6B19EFCCCF00247FCA /* Prototype */ = {
 			isa = PBXGroup;
 			children = (
-				A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */,
-				A9212C7019EFCCCF00247FCA /* ViewController.swift */,
 				A9212C7219EFCCCF00247FCA /* Main.storyboard */,
+				A9212C7019EFCCCF00247FCA /* ViewController.swift */,
+				A9212CC419EFE31B00247FCA /* WishListViewController.swift */,
+				A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */,
+				A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */,
+				A9212CC019EFD85900247FCA /* YesterdayViewController.swift */,
 				A9212C7519EFCCCF00247FCA /* Images.xcassets */,
 				A9212C7719EFCCCF00247FCA /* LaunchScreen.xib */,
 				A9212C6C19EFCCCF00247FCA /* Supporting Files */,
@@ -90,6 +101,7 @@
 		A9212C6C19EFCCCF00247FCA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */,
 				A9212C6D19EFCCCF00247FCA /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -212,7 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9212CC319EFDCAF00247FCA /* HorizontalTransitionManager.swift in Sources */,
+				A9212CC519EFE31B00247FCA /* WishListViewController.swift in Sources */,
+				A9212CC119EFD85900247FCA /* YesterdayViewController.swift in Sources */,
 				A9212C7119EFCCCF00247FCA /* ViewController.swift in Sources */,
+				A9212CC719F00E0100247FCA /* VerticalTransitionManager.swift in Sources */,
 				A9212C6F19EFCCCF00247FCA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
