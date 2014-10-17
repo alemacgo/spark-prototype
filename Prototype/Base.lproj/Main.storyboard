@@ -56,12 +56,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p2W-vl-elj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="x5E-bt-3nz"/>
-                                </connections>
-                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKQ-DN-xdi">
                                 <rect key="frame" x="236" y="482" width="32" height="30"/>
                                 <state key="normal" title="User">
@@ -83,23 +77,22 @@
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="jAD-yb-nUf" appends="YES" id="Oh6-sn-YDL"/>
                             <outletCollection property="gestureRecognizers" destination="qzh-N3-Fc8" appends="YES" id="yLF-1j-Hgv"/>
+                            <outletCollection property="gestureRecognizers" destination="rz6-mj-9jY" appends="YES" id="A0J-85-qQq"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="scrollView" destination="p2W-vl-elj" id="qRc-1x-RPU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="CKX-uy-cPU" userLabel="Exit" sceneMemberID="exit"/>
-                <swipeGestureRecognizer direction="right" id="jAD-yb-nUf">
-                    <connections>
-                        <segue destination="hdY-Oy-nT8" kind="custom" identifier="todayToYesterday" id="hF4-Ja-T2T"/>
-                    </connections>
-                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="down" id="qzh-N3-Fc8">
                     <connections>
                         <segue destination="LUy-cd-Z1K" kind="custom" identifier="todayToWishList" id="Ne2-Qb-ifI"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="rz6-mj-9jY"/>
+                <swipeGestureRecognizer direction="up" id="jAD-yb-nUf">
+                    <connections>
+                        <segue destination="ZKA-RZ-09S" kind="custom" identifier="todayToFeed" id="Xjm-ng-U1z"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -185,8 +178,39 @@
             </objects>
             <point key="canvasLocation" x="764" y="444"/>
         </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="3mh-KY-p4U">
+            <objects>
+                <viewController id="ZKA-RZ-09S" customClass="FeedViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="smA-z5-qWh"/>
+                        <viewControllerLayoutGuide type="bottom" id="vz1-vs-rdJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9nm-3C-Q10">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEs-Wc-yK4" customClass="ContainerView" customModule="Prototype" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZKA-RZ-09S" id="tck-vs-1gx"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="scrollView" destination="cEs-Wc-yK4" id="frz-DX-D8i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kug-Uf-ysU" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="256" y="1152"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aCu-Ne-IxR"/>
+        <segue reference="Ne2-Qb-ifI"/>
     </inferredMetricsTieBreakers>
 </document>

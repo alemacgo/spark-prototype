@@ -18,6 +18,7 @@
 		A9212CC319EFDCAF00247FCA /* HorizontalTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */; };
 		A9212CC519EFE31B00247FCA /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC419EFE31B00247FCA /* WishListViewController.swift */; };
 		A9212CC719F00E0100247FCA /* VerticalTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */; };
+		A92F33BB19F1812600D6CC0C /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92F33BA19F1812600D6CC0C /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTransitionManager.swift; sourceTree = "<group>"; };
 		A9212CC419EFE31B00247FCA /* WishListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTransitionManager.swift; sourceTree = "<group>"; };
+		A92F33BA19F1812600D6CC0C /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A93F13AE19F13EB600F8F325 /* Lookback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Lookback-Bridging-Header.h"; path = "../Pods/Lookback-Bridging-Header.h"; sourceTree = "<group>"; };
 		E05940378844149AA29BD605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF68885985DE1CB3E6B9D217 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				A9212C7219EFCCCF00247FCA /* Main.storyboard */,
+				A92F33BA19F1812600D6CC0C /* FeedViewController.swift */,
 				A9212C7019EFCCCF00247FCA /* TodayViewController.swift */,
 				A9212CC419EFE31B00247FCA /* WishListViewController.swift */,
 				A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */,
@@ -291,6 +294,7 @@
 				A9212C7119EFCCCF00247FCA /* TodayViewController.swift in Sources */,
 				A9212CC719F00E0100247FCA /* VerticalTransitionManager.swift in Sources */,
 				A9212C6F19EFCCCF00247FCA /* AppDelegate.swift in Sources */,
+				A92F33BB19F1812600D6CC0C /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
