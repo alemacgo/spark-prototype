@@ -1,0 +1,1 @@
+pod 'Lookback', :configurations => ['Debug']

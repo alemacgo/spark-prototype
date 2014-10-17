@@ -1,0 +1,10 @@
+PODS:
+  - Lookback (0.6.5)
+
+DEPENDENCIES:
+  - Lookback
+
+SPEC CHECKSUMS:
+  Lookback: 59f217e51c1f2bcdf23d00522ef14b66be8557d1
+
+COCOAPODS: 0.34.2

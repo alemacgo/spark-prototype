@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1B97BED1-7E57-4669-BAC8-52B9261F0B14</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Prototype</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C66DF3615B4B6BBD3601D409273F2AB57057B040</key>
+		<string>https://github.com/alemacgo/spark-prototype.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Prototype.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C66DF3615B4B6BBD3601D409273F2AB57057B040</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/alemacgo/spark-prototype.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C66DF3615B4B6BBD3601D409273F2AB57057B040</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C66DF3615B4B6BBD3601D409273F2AB57057B040</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Prototype</string>
+		</dict>
+	</array>
+</dict>
+</plist>
