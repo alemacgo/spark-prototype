@@ -38,7 +38,15 @@ class WishListViewController: UIViewController {
     */
     
     @IBAction func didSwipeUp(sender: UISwipeGestureRecognizer) {
-        println("swiped!")
+        switch (originViewController) {
+            case .Today:
+                performSegueWithIdentifier("exitWishListToToday", sender: self)
+            case .Yesterday:
+                performSegueWithIdentifier("exitWishListToYesterday", sender: self)
+            default:
+                break
+        }
+        
     }
 
 }
