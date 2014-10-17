@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TodayViewController: UIViewController {
     let horizontalManager = HorizontalTransitionManager()
     let verticalManager = VerticalTransitionManager()
 
@@ -28,6 +28,8 @@ class ViewController: UIViewController {
         // the segue to use our custom TransitionManager object to manage the transition animation
         if segue.identifier! == "todayToWishList" {
             toViewController.transitioningDelegate = self.verticalManager
+            let wishListViewController = toViewController as WishListViewController
+            wishListViewController.originViewController = .Today
         }
         else if segue.identifier! == "todayToYesterday" {
             toViewController.transitioningDelegate = self.horizontalManager

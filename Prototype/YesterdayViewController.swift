@@ -9,6 +9,7 @@
 import UIKit
 
 class YesterdayViewController: UIViewController {
+    let verticalManager = VerticalTransitionManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,4 +21,16 @@ class YesterdayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // this gets a reference to the screen that we're about to transition to
+        let toViewController = segue.destinationViewController as UIViewController
+        
+        // instead of using the default transition animation, we'll ask
+        // the segue to use our custom TransitionManager object to manage the transition animation
+        if segue.identifier! == "yesterdayToWishList" {
+            toViewController.transitioningDelegate = self.verticalManager
+            let wishListViewController = toViewController as WishListViewController
+            wishListViewController.originViewController = .Yesterday
+        }
+    }
 }

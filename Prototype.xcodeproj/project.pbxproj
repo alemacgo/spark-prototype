@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A9212C6F19EFCCCF00247FCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */; };
-		A9212C7119EFCCCF00247FCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212C7019EFCCCF00247FCA /* ViewController.swift */; };
+		A9212C7119EFCCCF00247FCA /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212C7019EFCCCF00247FCA /* TodayViewController.swift */; };
 		A9212C7419EFCCCF00247FCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9212C7219EFCCCF00247FCA /* Main.storyboard */; };
 		A9212C7619EFCCCF00247FCA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9212C7519EFCCCF00247FCA /* Images.xcassets */; };
 		A9212C7919EFCCCF00247FCA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9212C7719EFCCCF00247FCA /* LaunchScreen.xib */; };
@@ -33,7 +33,7 @@
 		A9212C6919EFCCCF00247FCA /* Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9212C6D19EFCCCF00247FCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A9212C7019EFCCCF00247FCA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A9212C7019EFCCCF00247FCA /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		A9212C7319EFCCCF00247FCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A9212C7519EFCCCF00247FCA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A9212C7819EFCCCF00247FCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				A9212C7219EFCCCF00247FCA /* Main.storyboard */,
-				A9212C7019EFCCCF00247FCA /* ViewController.swift */,
+				A9212C7019EFCCCF00247FCA /* TodayViewController.swift */,
 				A9212CC419EFE31B00247FCA /* WishListViewController.swift */,
 				A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */,
 				A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */,
@@ -227,7 +227,7 @@
 				A9212CC319EFDCAF00247FCA /* HorizontalTransitionManager.swift in Sources */,
 				A9212CC519EFE31B00247FCA /* WishListViewController.swift in Sources */,
 				A9212CC119EFD85900247FCA /* YesterdayViewController.swift in Sources */,
-				A9212C7119EFCCCF00247FCA /* ViewController.swift in Sources */,
+				A9212C7119EFCCCF00247FCA /* TodayViewController.swift in Sources */,
 				A9212CC719F00E0100247FCA /* VerticalTransitionManager.swift in Sources */,
 				A9212C6F19EFCCCF00247FCA /* AppDelegate.swift in Sources */,
 			);
@@ -423,6 +423,7 @@
 				A9212C8A19EFCCCF00247FCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9212C8B19EFCCCF00247FCA /* Build configuration list for PBXNativeTarget "PrototypeTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +432,7 @@
 				A9212C8D19EFCCCF00247FCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

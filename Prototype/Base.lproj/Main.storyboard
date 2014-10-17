@@ -34,16 +34,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOS-iQ-QoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="up" id="D8m-u9-Yhe">
                     <connections>
-                        <segue destination="CKX-uy-cPU" kind="unwind" unwindAction="unwindToViewController:" id="KAh-5L-Zfw"/>
+                        <action selector="didSwipeUp:" destination="LUy-cd-Z1K" id="dLJ-al-NiX"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="6" y="-214"/>
+            <point key="canvasLocation" x="-124" y="-214"/>
         </scene>
-        <!--View Controller-->
+        <!--Today View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TodayViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -90,7 +90,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="206" y="444"/>
+            <point key="canvasLocation" x="256" y="444"/>
         </scene>
         <!--Yesterday View Controller-->
         <scene sceneID="5MC-Rd-384">
@@ -115,6 +115,7 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Jxn-C2-dqk" appends="YES" id="20Z-Ua-Ket"/>
+                            <outletCollection property="gestureRecognizers" destination="dC3-HQ-V9B" appends="YES" id="cI0-Zd-a8f"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -125,8 +126,13 @@
                         <segue destination="CKX-uy-cPU" kind="unwind" unwindAction="unwindToViewController:" id="Cco-YJ-aE5"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="dC3-HQ-V9B">
+                    <connections>
+                        <segue destination="LUy-cd-Z1K" kind="custom" identifier="yesterdayToWishList" id="aCu-Ne-IxR"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-222" y="450"/>
+            <point key="canvasLocation" x="-534" y="444"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dpz-6s-rm2">
@@ -163,7 +169,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CM4-b6-hj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="444"/>
+            <point key="canvasLocation" x="764" y="444"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ne2-Qb-ifI"/>
+    </inferredMetricsTieBreakers>
 </document>

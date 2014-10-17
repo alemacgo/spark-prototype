@@ -8,8 +8,14 @@
 
 import UIKit
 
-class WishListViewController: UIViewController {
+enum OriginViewControllers {
+    case Yesterday
+    case Today
+}
 
+class WishListViewController: UIViewController {
+    var originViewController = OriginViewControllers.Today
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,5 +36,9 @@ class WishListViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func didSwipeUp(sender: UISwipeGestureRecognizer) {
+        println("swiped!")
+    }
 
 }
