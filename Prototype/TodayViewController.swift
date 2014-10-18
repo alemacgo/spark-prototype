@@ -34,15 +34,16 @@ class TodayViewController: UIViewController, UIScrollViewDelegate {
         
         // instead of using the default transition animation, we'll ask
         // the segue to use our custom TransitionManager object to manage the transition animation
-        if segue.identifier! == "todayToWishList" {
-            toViewController.transitioningDelegate = self.verticalManager
-            let wishListViewController = toViewController as WishListViewController
-            wishListViewController.originViewController = .Today
+        if let identifier = SegueIdentifier(rawValue: segue.identifier!) {
+            switch identifier {
+                case .TodayToWishList:
+                    toViewController.transitioningDelegate = self.verticalManager
+                    let wishListViewController = toViewController as WishListViewController
+                    wishListViewController.originViewController = .Today
+                case SegueIdentifier.TodayToYesterday:
+                    toViewController.transitioningDelegate = self.horizontalManager
+            }
         }
-        else if segue.identifier! == "todayToYesterday" {
-            toViewController.transitioningDelegate = self.horizontalManager
-        }
-
     }
 }
 

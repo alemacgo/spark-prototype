@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Wish List View Controller-->
@@ -89,7 +89,11 @@
                         <segue destination="LUy-cd-Z1K" kind="custom" identifier="todayToWishList" id="Ne2-Qb-ifI"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="rz6-mj-9jY"/>
+                <swipeGestureRecognizer direction="right" id="rz6-mj-9jY">
+                    <connections>
+                        <segue destination="hdY-Oy-nT8" kind="custom" identifier="todayToYesterday" id="yIA-6P-yO9"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="jAD-yb-nUf">
                     <connections>
                         <segue destination="ZKA-RZ-09S" kind="custom" identifier="todayToFeed" id="Xjm-ng-U1z"/>

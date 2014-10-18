@@ -10,18 +10,19 @@ import UIKit
 var i = 0
 class ContainerView : UIScrollView {
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.panGestureRecognizer
         println("touched \(i)")
         i++
         println(nextResponder())
-        nextResponder()?.touchesBegan(touches, withEvent: event)
+        //nextResponder()?.touchesBegan(touches, withEvent: event)
     }
     
     override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        nextResponder()?.touchesBegan(touches, withEvent: event)
+        //nextResponder()?.touchesBegan(touches, withEvent: event)
     }
     
     override func touchesCancelled(touches: NSSet, withEvent event: UIEvent) {
-        nextResponder()?.touchesBegan(touches, withEvent: event)
+        //nextResponder()?.touchesBegan(touches, withEvent: event)
     }
 
 }
