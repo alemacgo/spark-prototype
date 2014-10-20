@@ -4,6 +4,51 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="yZa-Yc-hPA">
+            <objects>
+                <viewController id="x9E-2C-jt8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WI2-5p-kc3"/>
+                        <viewControllerLayoutGuide type="bottom" id="atj-Fe-zrA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P4G-cx-Wbi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8R-zb-D0Q">
+                                <rect key="frame" x="135" y="273" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1d-UD-Gmi">
+                                <rect key="frame" x="262" y="20" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3G6-NO-iZl" kind="unwind" unwindAction="unwindWishListFromCreate:" id="BVF-y4-cx9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="9Eg-BC-U0N" appends="YES" id="uni-KC-8LN"/>
+                        </connections>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OT5-B0-7GQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="9Eg-BC-U0N">
+                    <connections>
+                        <segue destination="3G6-NO-iZl" kind="unwind" unwindAction="unwindWishListFromCreate:" id="isd-zj-iMR"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-104" y="-852"/>
+        </scene>
         <!--Wish List View Controller-->
         <scene sceneID="aAX-xD-ynF">
             <objects>
@@ -22,11 +67,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIC-XC-HXM">
+                                <rect key="frame" x="258" y="20" width="46" height="30"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="x9E-2C-jt8" kind="custom" identifier="wishListToCreate" id="J85-xa-NC3"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.29677635732323238" green="0.29677635732323238" blue="0.29677635732323238" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="D8m-u9-Yhe" appends="YES" id="Vne-U8-8Ew"/>
+                            <outletCollection property="gestureRecognizers" destination="7Rf-iT-wqb" appends="YES" id="rON-jF-t70"/>
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -36,9 +91,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOS-iQ-QoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3G6-NO-iZl" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="up" id="D8m-u9-Yhe">
                     <connections>
                         <action selector="didSwipeUp:" destination="LUy-cd-Z1K" id="dLJ-al-NiX"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="7Rf-iT-wqb">
+                    <connections>
+                        <action selector="didSwipeDown:" destination="LUy-cd-Z1K" id="h9A-gA-s53"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -71,6 +132,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="today" translatesAutoresizingMaskIntoConstraints="NO" id="oIb-8H-Qhe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -120,6 +184,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yesterday" translatesAutoresizingMaskIntoConstraints="NO" id="TID-ck-kjY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -207,8 +274,8 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bn3-J2-HFk">
-                                <rect key="frame" x="142" y="20" width="35" height="30"/>
-                                <state key="normal" title="Back">
+                                <rect key="frame" x="142" y="15" width="44" height="44"/>
+                                <state key="normal" image="uparrow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -216,7 +283,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -247,8 +314,8 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVc-AZ-ZqJ">
-                                <rect key="frame" x="142" y="20" width="35" height="30"/>
-                                <state key="normal" title="Back">
+                                <rect key="frame" x="142" y="15" width="44" height="44"/>
+                                <state key="normal" image="uparrow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -269,6 +336,11 @@
             <point key="canvasLocation" x="-534" y="1152"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="today" width="407" height="722"/>
+        <image name="uparrow" width="40" height="12"/>
+        <image name="yesterday" width="320" height="568"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aCu-Ne-IxR"/>
     </inferredMetricsTieBreakers>
