@@ -19,6 +19,10 @@ class YesterdayViewController: UIViewController {
     @IBAction func unwindYesterdayFromWishList(sender: UIStoryboardSegue) {
         
     }
+    
+    @IBAction func unwindYesterdayFromFeed(sender: UIStoryboardSegue) {
+        
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // this gets a reference to the screen that we're about to transition to

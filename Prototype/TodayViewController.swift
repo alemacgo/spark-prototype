@@ -28,6 +28,10 @@ class TodayViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    @IBAction func unwindTodayFromFeed(sender: UIStoryboardSegue) {
+        
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // this gets a reference to the screen that we're about to transition to
         let toViewController = segue.destinationViewController as UIViewController

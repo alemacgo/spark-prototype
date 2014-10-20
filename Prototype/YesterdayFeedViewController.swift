@@ -7,29 +7,10 @@
 //
 
 import UIKit
-var i = 0
-class ContainerView : UIScrollView {
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.panGestureRecognizer
-        println("touched \(i)")
-        i++
-        println(nextResponder())
-        //nextResponder()?.touchesBegan(touches, withEvent: event)
-    }
-    
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        //nextResponder()?.touchesBegan(touches, withEvent: event)
-    }
-    
-    override func touchesCancelled(touches: NSSet, withEvent event: UIEvent) {
-        //nextResponder()?.touchesBegan(touches, withEvent: event)
-    }
 
-}
-
-class FeedViewController: UIViewController, UIGestureRecognizerDelegate {
+class YesterdayFeedViewController: UIViewController {
     
-    @IBOutlet weak var scrollView: ContainerView!
+    @IBOutlet weak var scrollView: UIScrollView!
     var containerView: UIView!
     
     override func viewDidLoad() {
@@ -58,24 +39,18 @@ class FeedViewController: UIViewController, UIGestureRecognizerDelegate {
         scrollView.minimumZoomScale = minScale
         scrollView.maximumZoomScale = 1.0
         scrollView.zoomScale = 1.0
-
+        
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
