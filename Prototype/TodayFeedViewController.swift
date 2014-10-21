@@ -56,7 +56,24 @@ class TodayFeedViewController: UIViewController {
             }, nil)
         }
     }
+    
+    @IBAction func didTapOnWorld(sender: UIButton) {
+        if scrollView.center.y >= 655 {
+            return
+        }
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.scrollView.center.y += 250
+            }, nil)
+    }
 
+    @IBAction func didTapOnDice(sender: UIButton) {
+        if scrollView.center.y <= 405 {
+            return
+        }
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.scrollView.center.y -= 250
+            }, nil)
+    }
     /*
     // MARK: - Navigation
 
