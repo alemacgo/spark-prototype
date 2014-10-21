@@ -50,7 +50,7 @@ class TodayFeedViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         if let photoTaken = photoTaken {
             photoView.image = photoTaken
-            UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: nil, animations: {
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
                 self.feedStrip.center.y += 324
             }, nil)
         }

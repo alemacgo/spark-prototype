@@ -63,7 +63,9 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 }
             }
             
-            picker.dismissViewControllerAnimated(true, completion: nil)
+            picker.dismissViewControllerAnimated(false, completion: {
+                self.performSegueWithIdentifier("todayToFeed", sender: self)
+            })
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
