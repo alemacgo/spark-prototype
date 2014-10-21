@@ -18,42 +18,8 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
         picker.delegate = self
     }
     
-    @IBAction func unwindTodayFromWishList(sender: UIStoryboardSegue) {
-        
-    }
-    
-    @IBAction func unwindTodayFromYesterday(sender: UIStoryboardSegue) {
-        
-    }
-    
-    @IBAction func unwindTodayFromUser(sender: UIStoryboardSegue) {
-        
-    }
-    
-    @IBAction func unwindTodayFromFeed(sender: UIStoryboardSegue) {
-        
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // this gets a reference to the screen that we're about to transition to
-        let toViewController = segue.destinationViewController as UIViewController
-        
-        // instead of using the default transition animation, we'll ask
-        // the segue to use our custom TransitionManager object to manage the transition animation
-        if let identifier = SegueIdentifier(rawValue: segue.identifier!) {
-            switch identifier {
-                case .TodayToWishList:
-                    toViewController.transitioningDelegate = self.verticalManager
-                    let wishListViewController = toViewController as WishListViewController
-                    wishListViewController.originViewController = .Today
-                case SegueIdentifier.TodayToYesterday:
-                    toViewController.transitioningDelegate = self.horizontalManager
-            }
-        }
-    }
-    
     // Taking photos
-    @IBOutlet weak var imageView: UIImageView!
+    var photoTaken: UIImage?
     let picker = UIImagePickerController()
     @IBOutlet weak var cameraButton: UIButton!
     
@@ -91,10 +57,9 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
                             theImage = UIGraphicsGetImageFromCurrentImageContext();
                             UIGraphicsEndImageContext();
                         }
-                        imageView.image = theImage
+                        photoTaken = theImage
                         cameraButton.hidden = true
                     }
-                    
                 }
             }
             
@@ -124,6 +89,45 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
         picker.cameraOverlayView?.addSubview(overlayIV)
         
         self.presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    // Segues
+    @IBAction func unwindTodayFromWishList(sender: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindTodayFromYesterday(sender: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindTodayFromUser(sender: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindTodayFromFeed(sender: UIStoryboardSegue) {
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // this gets a reference to the screen that we're about to transition to
+        let toViewController = segue.destinationViewController as UIViewController
+        
+        // instead of using the default transition animation, we'll ask
+        // the segue to use our custom TransitionManager object to manage the transition animation
+        if let identifier = SegueIdentifier(rawValue: segue.identifier!) {
+            switch identifier {
+            case .TodayToWishList:
+                toViewController.transitioningDelegate = self.verticalManager
+                let wishListViewController = toViewController as WishListViewController
+                wishListViewController.originViewController = .Today
+            case SegueIdentifier.TodayToYesterday:
+                toViewController.transitioningDelegate = self.horizontalManager
+            case SegueIdentifier.TodayToFeed:
+                if let photoTaken = photoTaken {
+                    (toViewController as TodayFeedViewController).photoTaken = photoTaken
+                }
+            }
+        }
     }
 }
 

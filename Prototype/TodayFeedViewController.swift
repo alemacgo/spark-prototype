@@ -12,6 +12,7 @@ class TodayFeedViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     var containerView: UIView!
+    var photoTaken: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,6 @@ class TodayFeedViewController: UIViewController {
      
         let imageView = UIImageView(image: UIImage(named: "todayfeed"))
         imageView.frame = CGRect(origin: CGPointMake(0, 320), size: CGSizeMake(320, 4*568))
-        println(imageView.frame)
         containerView.addSubview(imageView)
         
         let firstPictureSize = CGSizeMake(320, 320)
@@ -45,6 +45,10 @@ class TodayFeedViewController: UIViewController {
         scrollView.zoomScale = 1.0
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        println(photoTaken)
     }
 
     /*
