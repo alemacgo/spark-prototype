@@ -286,7 +286,15 @@
                                     <outletCollection property="gestureRecognizers" destination="aw8-hN-Bhz" appends="YES" id="8yV-3q-n0v"/>
                                 </connections>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEs-Wc-yK4">
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxd-zr-mnv">
+                                <rect key="frame" x="0.0" y="121" width="320" height="250"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="Osw-gm-RRr">
+                                        <rect key="frame" x="0.0" y="0.0" width="640" height="250"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEs-Wc-yK4">
                                 <rect key="frame" x="0.0" y="121" width="320" height="568"/>
                                 <connections>
                                     <outlet property="delegate" destination="ZKA-RZ-09S" id="tck-vs-1gx"/>
@@ -325,6 +333,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="mapView" destination="pxd-zr-mnv" id="IvU-7h-PVF"/>
                         <outlet property="scrollView" destination="cEs-Wc-yK4" id="frz-DX-D8i"/>
                     </connections>
                 </viewController>
@@ -383,6 +392,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="map" width="1443" height="792"/>
         <image name="today" width="407" height="722"/>
         <image name="todayfeedbar" width="320" height="568"/>
         <image name="uparrow" width="40" height="12"/>

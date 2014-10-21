@@ -15,6 +15,7 @@ class TodayFeedViewController: UIViewController {
     var feedStrip: UIImageView!
     var photoTaken: UIImage?
     var photoView: UIImageView!
+    @IBOutlet weak var mapView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,7 @@ class TodayFeedViewController: UIViewController {
         scrollView.zoomScale = 1.0
 
         // Do any additional setup after loading the view.
+        mapView.contentSize = mapView.subviews[0].size!
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -61,6 +63,11 @@ class TodayFeedViewController: UIViewController {
         if scrollView.center.y >= 655 {
             return
         }
+        /*
+        let map = UIView(frame: CGRectMake(0, 121, 320, 250))
+        map.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        self.view.addSubview(map)*/
+        mapView.hidden = false
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
             self.scrollView.center.y += 250
             }, nil)
@@ -70,9 +77,13 @@ class TodayFeedViewController: UIViewController {
         if scrollView.center.y <= 405 {
             return
         }
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.scrollView.center.y -= 250
-            }, nil)
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil,
+            animations: {
+                self.scrollView.center.y -= 250
+            },
+            completion: {completed in
+                self.mapView.hidden = true
+            })
     }
     /*
     // MARK: - Navigation
