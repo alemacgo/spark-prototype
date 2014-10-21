@@ -12,7 +12,9 @@ class TodayFeedViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     var containerView: UIView!
+    var feedStrip: UIImageView!
     var photoTaken: UIImage?
+    var photoView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +23,13 @@ class TodayFeedViewController: UIViewController {
         let containerSize = CGSizeMake(320, 4*568+320)
         containerView = UIView(frame: CGRect(origin: CGPointMake(0, 0), size:containerSize))
         scrollView.addSubview(containerView)
-     
-        let imageView = UIImageView(image: UIImage(named: "todayfeed"))
-        imageView.frame = CGRect(origin: CGPointMake(0, 320), size: CGSizeMake(320, 4*568))
-        containerView.addSubview(imageView)
         
-        let firstPictureSize = CGSizeMake(320, 320)
-        let picture = UIView(frame: CGRect(origin: CGPointMake(0, 0), size: firstPictureSize))
-        picture.backgroundColor = UIColor.blackColor()
-        containerView.addSubview(picture)
+        photoView = UIImageView(frame: CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 320)))
+        containerView.addSubview(photoView)
+        
+        feedStrip = UIImageView(image: UIImage(named: "todayfeed"))
+        feedStrip.frame = CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 4*568))
+        containerView.addSubview(feedStrip)
 
         // Tell the scroll view the size of the contents
         scrollView.contentSize = containerSize;
@@ -48,7 +48,12 @@ class TodayFeedViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        println(photoTaken)
+        if let photoTaken = photoTaken {
+            photoView.image = photoTaken
+            UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: nil, animations: {
+                self.feedStrip.center.y += 324
+            }, nil)
+        }
     }
 
     /*
