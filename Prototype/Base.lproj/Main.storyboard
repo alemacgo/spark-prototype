@@ -135,6 +135,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="today" translatesAutoresizingMaskIntoConstraints="NO" id="oIb-8H-Qhe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YGJ-Wx-4bs">
+                                <rect key="frame" x="0.0" y="294" width="320" height="320"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M33-Tp-pGj">
+                                <rect key="frame" x="101" y="362" width="120" height="120"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCameraButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="msx-56-FZE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -145,6 +157,10 @@
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="cameraButton" destination="M33-Tp-pGj" id="L6u-UF-otF"/>
+                        <outlet property="imageView" destination="YGJ-Wx-4bs" id="lOZ-s1-cLf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="CKX-uy-cPU" userLabel="Exit" sceneMemberID="exit"/>
@@ -342,6 +358,6 @@
         <image name="yesterday" width="320" height="568"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aCu-Ne-IxR"/>
+        <segue reference="Ne2-Qb-ifI"/>
     </inferredMetricsTieBreakers>
 </document>
