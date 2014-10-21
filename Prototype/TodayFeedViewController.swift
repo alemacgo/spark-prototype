@@ -20,7 +20,7 @@ class TodayFeedViewController: UIViewController {
         super.viewDidLoad()
         
         // Set up the container view to hold your custom view hierarchy
-        let containerSize = CGSizeMake(320, 4*568+320)
+        let containerSize = CGSizeMake(320, 2255+325+121)
         containerView = UIView(frame: CGRect(origin: CGPointMake(0, 0), size:containerSize))
         scrollView.addSubview(containerView)
         
@@ -28,7 +28,7 @@ class TodayFeedViewController: UIViewController {
         containerView.addSubview(photoView)
         
         feedStrip = UIImageView(image: UIImage(named: "todayfeed"))
-        feedStrip.frame = CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 4*568))
+        feedStrip.frame = CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 2255))
         containerView.addSubview(feedStrip)
 
         // Tell the scroll view the size of the contents
@@ -50,8 +50,9 @@ class TodayFeedViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         if let photoTaken = photoTaken {
             photoView.image = photoTaken
+            //photoView.contentMode ?
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-                self.feedStrip.center.y += 324
+                self.feedStrip.center.y += 325
             }, nil)
         }
     }

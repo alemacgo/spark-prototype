@@ -17,7 +17,7 @@ class YesterdayFeedViewController: UIViewController {
         super.viewDidLoad()
         
         // Set up the container view to hold your custom view hierarchy
-        let containerSize = CGSizeMake(320, 4*568)
+        let containerSize = CGSizeMake(320, 2255)
         containerView = UIView(frame: CGRect(origin: CGPointMake(0, 0), size:containerSize))
         scrollView.addSubview(containerView)
         
