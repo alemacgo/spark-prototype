@@ -17,13 +17,20 @@ class TodayFeedViewController: UIViewController {
         super.viewDidLoad()
         
         // Set up the container view to hold your custom view hierarchy
-        let containerSize = CGSizeMake(320, 4*568)
+        let containerSize = CGSizeMake(320, 4*568+320)
         containerView = UIView(frame: CGRect(origin: CGPointMake(0, 0), size:containerSize))
         scrollView.addSubview(containerView)
-        
+     
         let imageView = UIImageView(image: UIImage(named: "todayfeed"))
+        imageView.frame = CGRect(origin: CGPointMake(0, 320), size: CGSizeMake(320, 4*568))
+        println(imageView.frame)
         containerView.addSubview(imageView)
         
+        let firstPictureSize = CGSizeMake(320, 320)
+        let picture = UIView(frame: CGRect(origin: CGPointMake(0, 0), size: firstPictureSize))
+        picture.backgroundColor = UIColor.blackColor()
+        containerView.addSubview(picture)
+
         // Tell the scroll view the size of the contents
         scrollView.contentSize = containerSize;
         
