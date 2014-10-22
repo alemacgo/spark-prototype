@@ -8,7 +8,11 @@
 
 import UIKit
 
-class TodayFeedViewController: UIViewController {
+let LisbonCenter = CGPoint(x: 1141.5, y: 446.0)
+let todayFeed = UIImage(named: "todayfeed")
+let yesterdayFeed = UIImage(named: "yesterdayfeed")
+
+class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     var containerView: UIView!
@@ -16,6 +20,7 @@ class TodayFeedViewController: UIViewController {
     var photoTaken: UIImage?
     var photoView: UIImageView!
     @IBOutlet weak var mapView: UIScrollView!
+    var feedViewDelegate: FeedViewDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +33,7 @@ class TodayFeedViewController: UIViewController {
         photoView = UIImageView(frame: CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 320)))
         containerView.addSubview(photoView)
         
-        feedStrip = UIImageView(image: UIImage(named: "todayfeed"))
+        feedStrip = UIImageView(image: todayFeed)
         feedStrip.frame = CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 2255))
         containerView.addSubview(feedStrip)
 
@@ -46,7 +51,11 @@ class TodayFeedViewController: UIViewController {
         scrollView.zoomScale = 1.0
 
         // Do any additional setup after loading the view.
+        mapView.delegate = self
+        feedViewDelegate = FeedViewDelegate(mapView: mapView)
+        scrollView.delegate = feedViewDelegate
         mapView.contentSize = mapView.subviews[0].size!
+        mapView.contentOffset = LisbonCenter
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -85,6 +94,36 @@ class TodayFeedViewController: UIViewController {
                 self.mapView.hidden = true
             })
     }
+   
+    var willFocusOnWest = false
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if targetContentOffset.memory.x < 700 {
+            willFocusOnWest = true
+        }
+        else {
+            willFocusOnWest = false
+        }
+    }
+    
+    func updateFeed() {
+        if (willFocusOnWest) {
+            feedStrip.image = yesterdayFeed
+        }
+        else {
+            feedStrip.image = todayFeed
+        }
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            updateFeed()
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        updateFeed()
+    }
+    
     /*
     // MARK: - Navigation
 

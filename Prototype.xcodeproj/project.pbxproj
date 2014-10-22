@@ -20,6 +20,7 @@
 		A9212CC519EFE31B00247FCA /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC419EFE31B00247FCA /* WishListViewController.swift */; };
 		A9212CC719F00E0100247FCA /* VerticalTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */; };
 		A92F33BB19F1812600D6CC0C /* TodayFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92F33BA19F1812600D6CC0C /* TodayFeedViewController.swift */; };
+		A96B5EF519F7D12A004D8606 /* FeedViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */; };
 		A994298319F326B6002EF706 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A994298219F326B6002EF706 /* SegueIdentifier.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTransitionManager.swift; sourceTree = "<group>"; };
 		A92F33BA19F1812600D6CC0C /* TodayFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayFeedViewController.swift; sourceTree = "<group>"; };
 		A93F13AE19F13EB600F8F325 /* Lookback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Lookback-Bridging-Header.h"; path = "../Pods/Lookback-Bridging-Header.h"; sourceTree = "<group>"; };
+		A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewDelegate.swift; sourceTree = "<group>"; };
 		A994298219F326B6002EF706 /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
 		E05940378844149AA29BD605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF68885985DE1CB3E6B9D217 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,11 +120,10 @@
 			children = (
 				A9212C7219EFCCCF00247FCA /* Main.storyboard */,
 				A92F33BA19F1812600D6CC0C /* TodayFeedViewController.swift */,
+				A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */,
 				A910DCAC19F5610A00824EA7 /* YesterdayFeedViewController.swift */,
 				A9212C7019EFCCCF00247FCA /* TodayViewController.swift */,
 				A9212CC419EFE31B00247FCA /* WishListViewController.swift */,
-				A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */,
-				A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */,
 				A9212CC019EFD85900247FCA /* YesterdayViewController.swift */,
 				A9212C7519EFCCCF00247FCA /* Images.xcassets */,
 				A9212C7719EFCCCF00247FCA /* LaunchScreen.xib */,
@@ -134,8 +135,10 @@
 		A9212C6C19EFCCCF00247FCA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A93F13AE19F13EB600F8F325 /* Lookback-Bridging-Header.h */,
 				A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */,
+				A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */,
+				A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */,
+				A93F13AE19F13EB600F8F325 /* Lookback-Bridging-Header.h */,
 				A9212C6D19EFCCCF00247FCA /* Info.plist */,
 				A994298219F326B6002EF706 /* SegueIdentifier.swift */,
 			);
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9212CC319EFDCAF00247FCA /* HorizontalTransitionManager.swift in Sources */,
+				A96B5EF519F7D12A004D8606 /* FeedViewDelegate.swift in Sources */,
 				A9212CC519EFE31B00247FCA /* WishListViewController.swift in Sources */,
 				A9212CC119EFD85900247FCA /* YesterdayViewController.swift in Sources */,
 				A910DCAD19F5610A00824EA7 /* YesterdayFeedViewController.swift in Sources */,
