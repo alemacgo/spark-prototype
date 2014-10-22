@@ -21,6 +21,7 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
     var photoView: UIImageView!
     @IBOutlet weak var mapView: UIScrollView!
     var feedViewDelegate: FeedViewDelegate!
+    @IBOutlet weak var selectedMode: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +63,12 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
         if let photoTaken = photoTaken {
             photoView.image = photoTaken
             //photoView.contentMode ?
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-                self.feedStrip.center.y += 325
-            }, nil)
+            move({self.feedStrip.center.y += 325})
         }
     }
     
     @IBAction func didTapOnWorld(sender: UIButton) {
+        move({self.selectedMode.center.x = 161})
         if scrollView.center.y >= 655 {
             return
         }
@@ -77,22 +77,20 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
         map.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
         self.view.addSubview(map)*/
         mapView.hidden = false
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.scrollView.center.y += 250
-            }, nil)
+        move({self.scrollView.center.y += 250})
     }
 
     @IBAction func didTapOnDice(sender: UIButton) {
+        move({self.selectedMode.center.x = 101})
         if scrollView.center.y <= 405 {
             return
         }
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil,
-            animations: {
-                self.scrollView.center.y -= 250
-            },
-            completion: {completed in
-                self.mapView.hidden = true
-            })
+        move({self.scrollView.center.y -= 250}, {self.mapView.hidden = true})
+    }
+    
+    
+    @IBAction func didTapOnClock(sender: UIButton) {
+        move({self.selectedMode.center.x = 221})
     }
    
     var willFocusOnWest = false
@@ -122,6 +120,15 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         updateFeed()
+    }
+    
+    func move(action: () -> Void, completion: () -> Void = {}) {
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+                action()
+        },
+            completion: {completed in
+                completion()
+        })
     }
     
     /*
