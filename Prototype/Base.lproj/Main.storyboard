@@ -227,8 +227,22 @@
                                     <outletCollection property="gestureRecognizers" destination="aw8-hN-Bhz" appends="YES" id="8yV-3q-n0v"/>
                                 </connections>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rp1-n5-ywu">
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rp1-n5-ywu">
                                 <rect key="frame" x="0.0" y="121" width="320" height="250"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:00 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Jl-Nb-jnd">
+                                        <rect key="frame" x="123" y="70" width="74" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="p9q-4y-bfS">
+                                        <rect key="frame" x="20" y="110" width="280" height="31"/>
+                                        <connections>
+                                            <action selector="didMoveSlider:" destination="ZKA-RZ-09S" eventType="valueChanged" id="kg6-sU-AWD"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxd-zr-mnv">
@@ -288,9 +302,12 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="hourLabel" destination="5Jl-Nb-jnd" id="KPM-qM-gyS"/>
                         <outlet property="mapView" destination="pxd-zr-mnv" id="IvU-7h-PVF"/>
                         <outlet property="scrollView" destination="cEs-Wc-yK4" id="frz-DX-D8i"/>
                         <outlet property="selectedMode" destination="xDZ-fg-w4f" id="U4e-VH-RAN"/>
+                        <outlet property="slider" destination="p9q-4y-bfS" id="PSD-Hd-slR"/>
+                        <outlet property="sliderView" destination="rp1-n5-ywu" id="qP1-8T-ER3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kug-Uf-ysU" sceneMemberID="firstResponder"/>

@@ -22,6 +22,9 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var mapView: UIScrollView!
     var feedViewDelegate: FeedViewDelegate!
     @IBOutlet weak var selectedMode: UIImageView!
+    @IBOutlet weak var sliderView: UIView!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var hourLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,26 +65,19 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidAppear(animated: Bool) {
         if let photoTaken = photoTaken {
             photoView.image = photoTaken
-            //photoView.contentMode ?
             move({self.feedStrip.center.y += 325})
         }
+    }
+
+    @IBAction func didTapOnDice(sender: UIButton) {
+        move({self.selectedMode.center.x = 101})
+        move({self.scrollView.center.y = 405}, {self.mapView.hidden = true; self.sliderView.hidden = true})
     }
     
     @IBAction func didTapOnWorld(sender: UIButton) {
         move({self.selectedMode.center.x = 161})
         mapView.hidden = false
-        move({self.scrollView.center.y = 655})
-    }
-
-    @IBAction func didTapOnDice(sender: UIButton) {
-        move({self.selectedMode.center.x = 101})
-        move({self.scrollView.center.y = 405}, {self.mapView.hidden = true})
-    }
-    
-    
-    @IBAction func didTapOnClock(sender: UIButton) {
-        move({self.selectedMode.center.x = 221})
-        mapView.hidden = true
+        sliderView.hidden = true
         move({self.scrollView.center.y = 655})
     }
    
@@ -121,6 +117,19 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
             completion: {completed in
                 completion()
         })
+    }
+    
+    @IBAction func didTapOnClock(sender: UIButton) {
+        move({self.selectedMode.center.x = 221})
+        sliderView.hidden = false
+        mapView.hidden = true
+        move({self.scrollView.center.y = 655})
+        hourLabel.hidden = false
+    }
+    
+    @IBAction func didMoveSlider(sender: UISlider) {
+        // Updating the view here makes the photo feed slide back up
+        hourLabel.text = valueToHour(sender.value)
     }
     
     /*

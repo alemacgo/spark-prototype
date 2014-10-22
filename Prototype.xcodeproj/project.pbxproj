@@ -20,6 +20,7 @@
 		A92F33BB19F1812600D6CC0C /* TodayFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92F33BA19F1812600D6CC0C /* TodayFeedViewController.swift */; };
 		A96B5EF519F7D12A004D8606 /* FeedViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */; };
 		A994298319F326B6002EF706 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A994298219F326B6002EF706 /* SegueIdentifier.swift */; };
+		A9E8509719F823B300750100 /* ValueToHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E8509619F823B300750100 /* ValueToHour.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		A93F13AE19F13EB600F8F325 /* Lookback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Lookback-Bridging-Header.h"; path = "../Pods/Lookback-Bridging-Header.h"; sourceTree = "<group>"; };
 		A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewDelegate.swift; sourceTree = "<group>"; };
 		A994298219F326B6002EF706 /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
+		A9E8509619F823B300750100 /* ValueToHour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueToHour.swift; sourceTree = "<group>"; };
+		A9E8509819F823CB00750100 /* Scratchpad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratchpad.playground; sourceTree = "<group>"; };
 		E05940378844149AA29BD605 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF68885985DE1CB3E6B9D217 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,6 +119,7 @@
 			children = (
 				A9212C7219EFCCCF00247FCA /* Main.storyboard */,
 				A92F33BA19F1812600D6CC0C /* TodayFeedViewController.swift */,
+				A9E8509619F823B300750100 /* ValueToHour.swift */,
 				A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */,
 				A9212C7019EFCCCF00247FCA /* TodayViewController.swift */,
 				A9212CC419EFE31B00247FCA /* WishListViewController.swift */,
@@ -129,6 +133,7 @@
 		A9212C6C19EFCCCF00247FCA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A9E8509819F823CB00750100 /* Scratchpad.playground */,
 				A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */,
 				A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */,
 				A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */,
@@ -291,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E8509719F823B300750100 /* ValueToHour.swift in Sources */,
 				A9212CC319EFDCAF00247FCA /* HorizontalTransitionManager.swift in Sources */,
 				A96B5EF519F7D12A004D8606 /* FeedViewDelegate.swift in Sources */,
 				A9212CC519EFE31B00247FCA /* WishListViewController.swift in Sources */,
