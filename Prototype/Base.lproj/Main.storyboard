@@ -227,6 +227,10 @@
                                     <outletCollection property="gestureRecognizers" destination="aw8-hN-Bhz" appends="YES" id="8yV-3q-n0v"/>
                                 </connections>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rp1-n5-ywu">
+                                <rect key="frame" x="0.0" y="121" width="320" height="250"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxd-zr-mnv">
                                 <rect key="frame" x="0.0" y="121" width="320" height="250"/>
                                 <subviews>

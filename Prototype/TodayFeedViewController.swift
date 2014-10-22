@@ -69,28 +69,20 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func didTapOnWorld(sender: UIButton) {
         move({self.selectedMode.center.x = 161})
-        if scrollView.center.y >= 655 {
-            return
-        }
-        /*
-        let map = UIView(frame: CGRectMake(0, 121, 320, 250))
-        map.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
-        self.view.addSubview(map)*/
         mapView.hidden = false
-        move({self.scrollView.center.y += 250})
+        move({self.scrollView.center.y = 655})
     }
 
     @IBAction func didTapOnDice(sender: UIButton) {
         move({self.selectedMode.center.x = 101})
-        if scrollView.center.y <= 405 {
-            return
-        }
-        move({self.scrollView.center.y -= 250}, {self.mapView.hidden = true})
+        move({self.scrollView.center.y = 405}, {self.mapView.hidden = true})
     }
     
     
     @IBAction func didTapOnClock(sender: UIButton) {
         move({self.selectedMode.center.x = 221})
+        mapView.hidden = true
+        move({self.scrollView.center.y = 655})
     }
    
     var willFocusOnWest = false
