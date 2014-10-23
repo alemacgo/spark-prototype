@@ -12,6 +12,7 @@ import MobileCoreServices
 class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let horizontalManager = HorizontalTransitionManager()
     let verticalManager = VerticalTransitionManager()
+    let reverseVerticalManager = ReverseVerticalTransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,6 +126,7 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
             case SegueIdentifier.TodayToProfile:
                 toViewController.transitioningDelegate = self.horizontalManager
             case SegueIdentifier.TodayToFeed:
+                toViewController.transitioningDelegate = self.reverseVerticalManager
                 if let photoTaken = photoTaken {
                     (toViewController as TodayFeedViewController).photoTaken = photoTaken
                 }

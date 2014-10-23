@@ -19,6 +19,7 @@
 		A9212CC719F00E0100247FCA /* VerticalTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */; };
 		A92F33BB19F1812600D6CC0C /* TodayFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92F33BA19F1812600D6CC0C /* TodayFeedViewController.swift */; };
 		A93773D419F9691400503F9C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93773D319F9691400503F9C /* ProfileViewController.swift */; };
+		A93773D619F97CC600503F9C /* ReverseVerticalTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93773D519F97CC600503F9C /* ReverseVerticalTransitionManager.swift */; };
 		A96B5EF519F7D12A004D8606 /* FeedViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */; };
 		A994298319F326B6002EF706 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A994298219F326B6002EF706 /* SegueIdentifier.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTransitionManager.swift; sourceTree = "<group>"; };
 		A92F33BA19F1812600D6CC0C /* TodayFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayFeedViewController.swift; sourceTree = "<group>"; };
 		A93773D319F9691400503F9C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A93773D519F97CC600503F9C /* ReverseVerticalTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseVerticalTransitionManager.swift; sourceTree = "<group>"; };
 		A93F13AE19F13EB600F8F325 /* Lookback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Lookback-Bridging-Header.h"; path = "../Pods/Lookback-Bridging-Header.h"; sourceTree = "<group>"; };
 		A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewDelegate.swift; sourceTree = "<group>"; };
 		A994298219F326B6002EF706 /* SegueIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */,
 				A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */,
 				A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */,
+				A93773D519F97CC600503F9C /* ReverseVerticalTransitionManager.swift */,
 				A93F13AE19F13EB600F8F325 /* Lookback-Bridging-Header.h */,
 				A9212C6D19EFCCCF00247FCA /* Info.plist */,
 				A994298219F326B6002EF706 /* SegueIdentifier.swift */,
@@ -305,6 +308,7 @@
 				A93773D419F9691400503F9C /* ProfileViewController.swift in Sources */,
 				A9212C6F19EFCCCF00247FCA /* AppDelegate.swift in Sources */,
 				A92F33BB19F1812600D6CC0C /* TodayFeedViewController.swift in Sources */,
+				A93773D619F97CC600503F9C /* ReverseVerticalTransitionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
