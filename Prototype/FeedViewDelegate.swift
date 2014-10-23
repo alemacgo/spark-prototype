@@ -10,13 +10,14 @@ import UIKit
 
 class FeedViewDelegate: NSObject, UIScrollViewDelegate {
     
-    let mapView:UIScrollView
+    let mapView: UIScrollView
+    let originalCenter: CGFloat
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        if scrollView.center.y != 405 {
+        if scrollView.center.y != originalCenter {
             UIView.animateWithDuration(1.0, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil,
                 animations: {
-                    scrollView.center.y -= 250
+                    scrollView.center.y -= self.mapView.frame.size.height
                 },
                 completion: {completed in
                     self.mapView.hidden = true
@@ -24,8 +25,9 @@ class FeedViewDelegate: NSObject, UIScrollViewDelegate {
         }
     }
     
-    init(mapView: UIScrollView) {
+    init(mapView: UIScrollView, originalCenter: CGFloat) {
         self.mapView = mapView
+        self.originalCenter = originalCenter
         super.init()
     }
 }

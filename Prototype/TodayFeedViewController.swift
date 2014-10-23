@@ -12,7 +12,7 @@ let LisbonCenter = CGPoint(x: 1141.5, y: 446.0)
 let todayFeed = UIImage(named: "todayfeed")
 let yesterdayFeed = UIImage(named: "yesterdayfeed")
 
-class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
+class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     var containerView: UIView!
@@ -23,6 +23,9 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
     var feedViewDelegate: FeedViewDelegate!
     @IBOutlet weak var selectedMode: UIImageView!
     @IBOutlet weak var timeView: UIScrollView!
+    
+    var feedOriginalCenter: CGFloat!
+    var filterViewHeight: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,27 +42,19 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
         feedStrip.frame = CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 2255))
         containerView.addSubview(feedStrip)
 
-        // Tell the scroll view the size of the contents
         scrollView.contentSize = containerSize;
-        
-        // Set up the minimum & maximum zoom scale
-        let scrollViewFrame = scrollView.frame
-        let scaleWidth = scrollViewFrame.size.width / scrollView.contentSize.width
-        let scaleHeight = scrollViewFrame.size.height / scrollView.contentSize.height
-        let minScale = min(scaleWidth, scaleHeight)
-        
-        scrollView.minimumZoomScale = minScale
-        scrollView.maximumZoomScale = 1.0
-        scrollView.zoomScale = 1.0
 
         // Do any additional setup after loading the view.
         mapView.delegate = self
-        feedViewDelegate = FeedViewDelegate(mapView: mapView)
+        feedViewDelegate = FeedViewDelegate(mapView: mapView, originalCenter:scrollView.center.y)
         scrollView.delegate = feedViewDelegate
         mapView.contentSize = mapView.subviews[0].size!
         mapView.contentOffset = LisbonCenter
         
         timeView.contentSize = timeView.subviews[0].size!
+        
+        feedOriginalCenter = scrollView.center.y
+        filterViewHeight = mapView.frame.size.height
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -71,14 +66,15 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
 
     @IBAction func didTapOnDice(sender: UIButton) {
         move({self.selectedMode.center.x = 101})
-        move({self.scrollView.center.y = 405}, {self.mapView.hidden = true; self.timeView.hidden = true})
+        move({self.scrollView.center.y = self.feedOriginalCenter},
+            {self.mapView.hidden = true; self.timeView.hidden = true})
     }
     
     @IBAction func didTapOnWorld(sender: UIButton) {
         move({self.selectedMode.center.x = 161})
         mapView.hidden = false
         timeView.hidden = true
-        move({self.scrollView.center.y = 655})
+        move({self.scrollView.center.y = self.feedOriginalCenter + self.filterViewHeight})
     }
    
     var willFocusOnWest = false
@@ -123,10 +119,20 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
         move({self.selectedMode.center.x = 221})
         timeView.hidden = false
         mapView.hidden = true
-        move({self.scrollView.center.y = 655})
+        move({self.scrollView.center.y = self.feedOriginalCenter + self.filterViewHeight})
     }
     
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     
+    var x = 1
+    @IBAction func didTapOnFeed(sender: UILongPressGestureRecognizer) {
+        //println("\(x)"); x+=1
+        move({self.scrollView.center.y = self.feedOriginalCenter},
+            {self.mapView.hidden = true; self.timeView.hidden = true})
+    }
+ 
     /*
     // MARK: - Navigation
 
