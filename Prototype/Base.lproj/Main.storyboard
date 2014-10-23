@@ -80,10 +80,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voy-D9-OjU">
-                                <rect key="frame" x="0.0" y="240" width="320" height="65"/>
+                                <rect key="frame" x="0.0" y="240" width="320" height="75"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="readyWish" translatesAutoresizingMaskIntoConstraints="NO" id="che-mH-kiu">
-                                        <rect key="frame" x="0.0" y="0.0" width="960" height="65"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="j1O-dL-Orm"/>
@@ -393,7 +393,7 @@
         <image name="pickYellow" width="34" height="40"/>
         <image name="profileLog" width="320" height="537"/>
         <image name="profilemenu" width="320" height="107"/>
-        <image name="readyWish" width="960" height="90"/>
+        <image name="readyWish" width="960" height="75"/>
         <image name="selectedmode" width="26" height="4"/>
         <image name="swipeleft" width="41" height="31"/>
         <image name="swipeleftred" width="41" height="31"/>
