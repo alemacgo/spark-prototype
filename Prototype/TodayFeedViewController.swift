@@ -22,9 +22,7 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var mapView: UIScrollView!
     var feedViewDelegate: FeedViewDelegate!
     @IBOutlet weak var selectedMode: UIImageView!
-    @IBOutlet weak var sliderView: UIView!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var timeView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +58,8 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = feedViewDelegate
         mapView.contentSize = mapView.subviews[0].size!
         mapView.contentOffset = LisbonCenter
+        
+        timeView.contentSize = timeView.subviews[0].size!
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -71,13 +71,13 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
 
     @IBAction func didTapOnDice(sender: UIButton) {
         move({self.selectedMode.center.x = 101})
-        move({self.scrollView.center.y = 405}, {self.mapView.hidden = true; self.sliderView.hidden = true})
+        move({self.scrollView.center.y = 405}, {self.mapView.hidden = true; self.timeView.hidden = true})
     }
     
     @IBAction func didTapOnWorld(sender: UIButton) {
         move({self.selectedMode.center.x = 161})
         mapView.hidden = false
-        sliderView.hidden = true
+        timeView.hidden = true
         move({self.scrollView.center.y = 655})
     }
    
@@ -121,16 +121,11 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func didTapOnClock(sender: UIButton) {
         move({self.selectedMode.center.x = 221})
-        sliderView.hidden = false
+        timeView.hidden = false
         mapView.hidden = true
         move({self.scrollView.center.y = 655})
-        hourLabel.hidden = false
     }
     
-    @IBAction func didMoveSlider(sender: UISlider) {
-        // Updating the view here makes the photo feed slide back up
-        hourLabel.text = valueToHour(sender.value)
-    }
     
     /*
     // MARK: - Navigation
