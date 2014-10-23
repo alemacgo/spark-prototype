@@ -321,7 +321,7 @@
                                 <rect key="frame" x="0.0" y="184" width="320" height="182"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="timestrip" translatesAutoresizingMaskIntoConstraints="NO" id="Ekk-ta-uA1">
-                                        <rect key="frame" x="0.0" y="0.0" width="640" height="182"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="953" height="182"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -333,6 +333,9 @@
                                     </imageView>
                                 </subviews>
                             </scrollView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="triangle" translatesAutoresizingMaskIntoConstraints="NO" id="Rfd-6f-ZyS">
+                                <rect key="frame" x="0.0" y="345" width="320" height="396"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GAn-nN-4md">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
                                 <state key="normal">
@@ -424,9 +427,10 @@
         <image name="swipeleftred" width="41" height="31"/>
         <image name="swiperight" width="41" height="31"/>
         <image name="swiperightgreen" width="41" height="31"/>
-        <image name="timestrip" width="640" height="250"/>
+        <image name="timestrip" width="953" height="182"/>
         <image name="today" width="320" height="568"/>
         <image name="todayfeedbar" width="320" height="184"/>
+        <image name="triangle" width="320" height="396"/>
         <image name="wish1" width="960" height="75"/>
         <image name="wishlist" width="320" height="568"/>
     </resources>
