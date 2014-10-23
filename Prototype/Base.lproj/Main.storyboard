@@ -97,6 +97,9 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swiperightgreen" translatesAutoresizingMaskIntoConstraints="NO" id="CG6-jA-UfA">
                                 <rect key="frame" x="270" y="206" width="41" height="31"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swipeleftred" translatesAutoresizingMaskIntoConstraints="NO" id="ACM-Ra-72c">
+                                <rect key="frame" x="10" y="206" width="41" height="31"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.29677635732323238" green="0.29677635732323238" blue="0.29677635732323238" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -109,6 +112,7 @@
                     <connections>
                         <outlet property="swipeButton" destination="Voy-D9-OjU" id="jRl-au-0iO"/>
                         <outlet property="swipeLeftImage" destination="9Na-b1-WzR" id="fWS-xi-WIr"/>
+                        <outlet property="swipeLeftRedImage" destination="ACM-Ra-72c" id="f10-fm-dUj"/>
                         <outlet property="swipeRightGreenImage" destination="CG6-jA-UfA" id="EZH-3u-DMu"/>
                         <outlet property="swipeRightImage" destination="LS6-Vs-e5O" id="9Ro-hf-im5"/>
                         <segue destination="CKX-uy-cPU" kind="unwind" identifier="exitWishListToToday" unwindAction="unwindTodayFromWishList:" id="l09-LG-XsF"/>
@@ -354,6 +358,7 @@
         <image name="readyWish" width="960" height="90"/>
         <image name="selectedmode" width="26" height="4"/>
         <image name="swipeleft" width="41" height="31"/>
+        <image name="swipeleftred" width="41" height="31"/>
         <image name="swiperight" width="41" height="31"/>
         <image name="swiperightgreen" width="41" height="31"/>
         <image name="timestrip" width="640" height="250"/>

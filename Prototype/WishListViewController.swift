@@ -13,11 +13,8 @@ enum OriginViewControllers {
     case Today
 }
 
-enum VotingOutcomes: CGFloat {
-    case Reject = 640
-    case Neutral = 320
-    case Accept = 0
-}
+let votingReject: CGFloat = 480
+let votingAccept: CGFloat = 160
 
 class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIScrollViewDelegate {
     var originViewController = OriginViewControllers.Today
@@ -26,6 +23,7 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     @IBOutlet weak var swipeRightImage: UIImageView!
     @IBOutlet weak var swipeRightGreenImage: UIImageView!
     @IBOutlet weak var swipeLeftImage: UIImageView!
+    @IBOutlet weak var swipeLeftRedImage: UIImageView!
     @IBOutlet weak var swipeButton: UIScrollView!
     
     override func viewDidLoad() {
@@ -41,7 +39,7 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     
     @IBAction func didTouchSwipeButton(sender: UILongPressGestureRecognizer) {
         if sender.state == .Ended {
-            UIView.animateWithDuration(0.5, delay: 0.7, options: nil, animations: {
+            UIView.animateWithDuration(0.5, delay: 0.5, options: nil, animations: {
                 self.swipeRightImage.layer.opacity = 0
                 self.swipeLeftImage.layer.opacity = 0
             }, completion: nil)
@@ -55,30 +53,30 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        println(scrollView.contentOffset)
+        let vote = scrollView.contentOffset.x
+        if vote >= votingReject {
+            swipeRightGreenImage.layer.opacity = 0
+            swipeLeftRedImage.layer.opacity = 1
+        }
+        else if vote <= votingAccept {
+            swipeRightGreenImage.layer.opacity = 1
+            swipeLeftRedImage.layer.opacity = 0
+        }
+        else {
+            swipeRightGreenImage.layer.opacity = 0
+            swipeLeftRedImage.layer.opacity = 0
+        }
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        if let vote = VotingOutcomes(rawValue: scrollView.contentOffset.x) {
-            switch vote {
-                case .Accept:
-                    UIView.animateWithDuration(1.0, animations: {
-                            println("e")
-                            self.swipeRightGreenImage.layer.opacity = 1
-                        }, completion: {completed in
-                            UIView.animateWithDuration(0.5, animations: {
-                                self.swipeRightGreenImage.layer.opacity = 0
-                            })
-                        }
-                )
-                case .Reject:
-                    println("reject")
-                default:
-                    break
-            }
+        if scrollView.contentOffset.x <= votingAccept || scrollView.contentOffset.x >= votingReject {
+            UIView.animateWithDuration(0.8, animations: {
+                self.swipeRightGreenImage.layer.opacity = 0
+                self.swipeLeftRedImage.layer.opacity = 0
+            })
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
