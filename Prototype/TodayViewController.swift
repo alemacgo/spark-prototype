@@ -122,7 +122,7 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 toViewController.transitioningDelegate = self.verticalManager
                 let wishListViewController = toViewController as WishListViewController
                 wishListViewController.originViewController = .Today
-            case SegueIdentifier.TodayToYesterday:
+            case SegueIdentifier.TodayToProfile:
                 toViewController.transitioningDelegate = self.horizontalManager
             case SegueIdentifier.TodayToFeed:
                 if let photoTaken = photoTaken {
