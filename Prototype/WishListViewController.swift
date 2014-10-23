@@ -26,6 +26,10 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     @IBOutlet weak var swipeLeftRedImage: UIImageView!
     @IBOutlet weak var swipeButton: UIScrollView!
     
+    @IBOutlet weak var star0: UIImageView!
+    var stars: [UIImageView]!
+    var currentStar: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeButton.contentSize = swipeButton.subviews[0].size!
@@ -33,6 +37,10 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
         swipeRightImage.layer.opacity = 0
         swipeLeftImage.layer.opacity = 0
         swipeRightGreenImage.layer.opacity = 0
+        
+        star0.layer.opacity = 0
+        stars = [star0]
+        currentStar = 0
         // Do any additional setup after loading the view.
     }
     
@@ -57,10 +65,16 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
         if vote >= votingReject {
             swipeRightGreenImage.layer.opacity = 0
             swipeLeftRedImage.layer.opacity = 1
+            UIView.animateWithDuration(0.5, animations: {
+                self.stars[self.currentStar].layer.opacity = 0
+            })
         }
         else if vote <= votingAccept {
             swipeRightGreenImage.layer.opacity = 1
             swipeLeftRedImage.layer.opacity = 0
+            UIView.animateWithDuration(0.5, animations: {
+                self.stars[self.currentStar].layer.opacity = 1
+            })
         }
         else {
             swipeRightGreenImage.layer.opacity = 0

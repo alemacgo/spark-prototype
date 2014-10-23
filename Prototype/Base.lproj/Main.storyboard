@@ -89,9 +89,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voy-D9-OjU">
-                                <rect key="frame" x="0.0" y="240" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="221" width="320" height="75"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="readyWish" translatesAutoresizingMaskIntoConstraints="NO" id="che-mH-kiu">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish1" translatesAutoresizingMaskIntoConstraints="NO" id="che-mH-kiu">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -104,16 +104,16 @@
                                 </connections>
                             </scrollView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swipeleft" translatesAutoresizingMaskIntoConstraints="NO" id="9Na-b1-WzR">
-                                <rect key="frame" x="10" y="206" width="41" height="31"/>
+                                <rect key="frame" x="20" y="178" width="41" height="31"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swiperight" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-Vs-e5O">
-                                <rect key="frame" x="270" y="206" width="41" height="31"/>
+                                <rect key="frame" x="260" y="178" width="41" height="31"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swiperightgreen" translatesAutoresizingMaskIntoConstraints="NO" id="CG6-jA-UfA">
-                                <rect key="frame" x="270" y="206" width="41" height="31"/>
+                                <rect key="frame" x="260" y="178" width="41" height="31"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swipeleftred" translatesAutoresizingMaskIntoConstraints="NO" id="ACM-Ra-72c">
-                                <rect key="frame" x="10" y="206" width="41" height="31"/>
+                                <rect key="frame" x="20" y="178" width="41" height="31"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIC-XC-HXM">
                                 <rect key="frame" x="137" y="41" width="50" height="50"/>
@@ -124,6 +124,9 @@
                                     <segue destination="x9E-2C-jt8" kind="custom" identifier="wishListToCreate" id="J85-xa-NC3"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="oc3-JM-IM0">
+                                <rect key="frame" x="43" y="64" width="13" height="13"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.29677635732323238" green="0.29677635732323238" blue="0.29677635732323238" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -134,6 +137,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="star0" destination="oc3-JM-IM0" id="AlY-eV-OBv"/>
                         <outlet property="swipeButton" destination="Voy-D9-OjU" id="jRl-au-0iO"/>
                         <outlet property="swipeLeftImage" destination="9Na-b1-WzR" id="fWS-xi-WIr"/>
                         <outlet property="swipeLeftRedImage" destination="ACM-Ra-72c" id="f10-fm-dUj"/>
@@ -402,8 +406,8 @@
         <image name="pickYellow" width="34" height="40"/>
         <image name="profileLog" width="320" height="537"/>
         <image name="profilemenu" width="320" height="119"/>
-        <image name="readyWish" width="960" height="75"/>
         <image name="selectedmode" width="26" height="4"/>
+        <image name="star" width="13" height="13"/>
         <image name="swipeleft" width="41" height="31"/>
         <image name="swipeleftred" width="41" height="31"/>
         <image name="swiperight" width="41" height="31"/>
@@ -411,6 +415,7 @@
         <image name="timestrip" width="640" height="250"/>
         <image name="today" width="320" height="568"/>
         <image name="todayfeedbar" width="320" height="184"/>
+        <image name="wish1" width="960" height="75"/>
         <image name="wishlist" width="320" height="568"/>
     </resources>
 </document>

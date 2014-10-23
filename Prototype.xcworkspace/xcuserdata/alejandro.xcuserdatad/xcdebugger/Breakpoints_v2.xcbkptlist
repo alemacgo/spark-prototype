@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prototype/WishListViewController.swift"
-            timestampString = "435771696.863669"
+            timestampString = "435782502.935395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "WishListViewController"
             landmarkType = "3">
          </BreakpointContent>
