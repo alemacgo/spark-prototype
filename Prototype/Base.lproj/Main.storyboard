@@ -64,12 +64,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wishlist" translatesAutoresizingMaskIntoConstraints="NO" id="jRO-wr-llR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Peek-a-boo!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBd-58-dLZ">
-                                <rect key="frame" x="112" y="400" width="96" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIC-XC-HXM">
                                 <rect key="frame" x="258" y="20" width="46" height="30"/>
                                 <state key="normal" title="Create">
@@ -80,7 +74,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voy-D9-OjU">
-                                <rect key="frame" x="0.0" y="200" width="320" height="65"/>
+                                <rect key="frame" x="0.0" y="240" width="320" height="65"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="readyWish" translatesAutoresizingMaskIntoConstraints="NO" id="che-mH-kiu">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="65"/>
@@ -90,7 +84,19 @@
                                         </connections>
                                     </imageView>
                                 </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="DW6-kW-bBh"/>
+                                </connections>
                             </scrollView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swipeleft" translatesAutoresizingMaskIntoConstraints="NO" id="9Na-b1-WzR">
+                                <rect key="frame" x="10" y="206" width="41" height="31"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swiperight" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-Vs-e5O">
+                                <rect key="frame" x="270" y="206" width="41" height="31"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swiperightgreen" translatesAutoresizingMaskIntoConstraints="NO" id="CG6-jA-UfA">
+                                <rect key="frame" x="270" y="206" width="41" height="31"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.29677635732323238" green="0.29677635732323238" blue="0.29677635732323238" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -101,8 +107,10 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="peekaboo" destination="VBd-58-dLZ" id="wwk-O5-eV5"/>
                         <outlet property="swipeButton" destination="Voy-D9-OjU" id="jRl-au-0iO"/>
+                        <outlet property="swipeLeftImage" destination="9Na-b1-WzR" id="fWS-xi-WIr"/>
+                        <outlet property="swipeRightGreenImage" destination="CG6-jA-UfA" id="EZH-3u-DMu"/>
+                        <outlet property="swipeRightImage" destination="LS6-Vs-e5O" id="9Ro-hf-im5"/>
                         <segue destination="CKX-uy-cPU" kind="unwind" identifier="exitWishListToToday" unwindAction="unwindTodayFromWishList:" id="l09-LG-XsF"/>
                     </connections>
                 </viewController>
@@ -345,6 +353,9 @@
         <image name="map" width="1450" height="742"/>
         <image name="readyWish" width="960" height="90"/>
         <image name="selectedmode" width="26" height="4"/>
+        <image name="swipeleft" width="41" height="31"/>
+        <image name="swiperight" width="41" height="31"/>
+        <image name="swiperightgreen" width="41" height="31"/>
         <image name="timestrip" width="640" height="250"/>
         <image name="today" width="407" height="722"/>
         <image name="todayfeedbar" width="320" height="568"/>

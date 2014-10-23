@@ -13,33 +13,69 @@ enum OriginViewControllers {
     case Today
 }
 
-class WishListViewController: UIViewController, UIGestureRecognizerDelegate {
+enum VotingOutcomes: CGFloat {
+    case Reject = 640
+    case Neutral = 320
+    case Accept = 0
+}
+
+class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIScrollViewDelegate {
     var originViewController = OriginViewControllers.Today
     let verticalManager = VerticalTransitionManager()
-
-    @IBOutlet weak var peekaboo: UILabel!
     
+    @IBOutlet weak var swipeRightImage: UIImageView!
+    @IBOutlet weak var swipeRightGreenImage: UIImageView!
+    @IBOutlet weak var swipeLeftImage: UIImageView!
     @IBOutlet weak var swipeButton: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeButton.contentSize = swipeButton.subviews[0].size!
         swipeButton.contentOffset.x = 320
-        peekaboo.layer.opacity = 0
+        swipeRightImage.layer.opacity = 0
+        swipeLeftImage.layer.opacity = 0
+        swipeRightGreenImage.layer.opacity = 0
         // Do any additional setup after loading the view.
     }
     
     
     @IBAction func didTouchSwipeButton(sender: UILongPressGestureRecognizer) {
         if sender.state == .Ended {
-            UIView.animateWithDuration(0.5, animations: {
-                self.peekaboo.layer.opacity = 0.0
-            })
+            UIView.animateWithDuration(0.5, delay: 0.7, options: nil, animations: {
+                self.swipeRightImage.layer.opacity = 0
+                self.swipeLeftImage.layer.opacity = 0
+            }, completion: nil)
         }
         else {
             UIView.animateWithDuration(0.5, animations: {
-                self.peekaboo.layer.opacity = 1.0
+                self.swipeRightImage.layer.opacity = 1
+                self.swipeLeftImage.layer.opacity = 1
             })
+        }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        println(scrollView.contentOffset)
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if let vote = VotingOutcomes(rawValue: scrollView.contentOffset.x) {
+            switch vote {
+                case .Accept:
+                    UIView.animateWithDuration(1.0, animations: {
+                            println("e")
+                            self.swipeRightGreenImage.layer.opacity = 1
+                        }, completion: {completed in
+                            UIView.animateWithDuration(0.5, animations: {
+                                self.swipeRightGreenImage.layer.opacity = 0
+                            })
+                        }
+                )
+                case .Reject:
+                    println("reject")
+                default:
+                    break
+            }
         }
     }
 
