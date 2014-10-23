@@ -246,17 +246,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPU-eC-gDm">
-                                <rect key="frame" x="142" y="273" width="36" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xF9-8n-PZW">
-                                <rect key="frame" x="0.0" y="107" width="320" height="461"/>
+                                <rect key="frame" x="0.0" y="119" width="320" height="461"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="profileLog" translatesAutoresizingMaskIntoConstraints="NO" id="gFm-WM-l0B">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="537"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="807"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -270,6 +264,24 @@
                                 </state>
                                 <connections>
                                     <segue destination="CKX-uy-cPU" kind="unwind" unwindAction="unwindTodayFromUser:" id="cdb-Mh-Uy3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3g-Bl-kS8">
+                                <rect key="frame" x="88" y="71" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapTrophy:" destination="ZKf-5c-lT5" eventType="touchUpInside" id="5K3-pd-8Dg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpc-3b-BrQ">
+                                <rect key="frame" x="140" y="71" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapBook:" destination="ZKf-5c-lT5" eventType="touchUpInside" id="eeQ-Ue-Wl1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -405,7 +417,7 @@
         <image name="pickRed" width="34" height="39"/>
         <image name="pickYellow" width="34" height="40"/>
         <image name="profileLog" width="320" height="537"/>
-        <image name="profilemenu" width="320" height="119"/>
+        <image name="profilemenu" width="320" height="136"/>
         <image name="selectedmode" width="26" height="4"/>
         <image name="star" width="13" height="13"/>
         <image name="swipeleft" width="41" height="31"/>
