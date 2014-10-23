@@ -122,7 +122,6 @@
 				A9212C7219EFCCCF00247FCA /* Main.storyboard */,
 				A93773D319F9691400503F9C /* ProfileViewController.swift */,
 				A92F33BA19F1812600D6CC0C /* TodayFeedViewController.swift */,
-				A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */,
 				A9212C7019EFCCCF00247FCA /* TodayViewController.swift */,
 				A9212CC419EFE31B00247FCA /* WishListViewController.swift */,
 				A9212C7519EFCCCF00247FCA /* Images.xcassets */,
@@ -136,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				A9E8509819F823CB00750100 /* Scratchpad.playground */,
+				A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */,
 				A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */,
 				A9212CC219EFDCAF00247FCA /* HorizontalTransitionManager.swift */,
 				A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */,

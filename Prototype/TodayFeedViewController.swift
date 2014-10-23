@@ -9,8 +9,28 @@
 import UIKit
 
 let LisbonCenter = CGPoint(x: 1141.5, y: 446.0)
-let todayFeed = UIImage(named: "todayfeed")
-let yesterdayFeed = UIImage(named: "yesterdayfeed")
+let randomFeed = UIImage(named: "randomfeed")
+
+let mapFeedEast = UIImage(named: "mapfeedeast")
+let mapFeedWest = UIImage(named: "mapfeedwest")
+let previousMapFeedEast = UIImage(named: "previousmapfeedeast")
+let previousMapFeedWest = UIImage(named: "previousmapfeedwest")
+
+let timeFeedBefore = UIImage(named: "timefeedbefore")
+let timeFeedAfter = UIImage(named: "timefeedafter")
+let previoustimeFeedBefore = UIImage(named: "previoustimefeedbefore")
+let previoustimeFeedAfter = UIImage(named: "previoustimefeedafter")
+
+enum Time {
+    case Previous
+    case Current
+}
+
+enum Mode {
+    case Random
+    case Map
+    case Time
+}
 
 class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     
@@ -27,19 +47,22 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
     var feedOriginalCenter: CGFloat!
     var filterViewHeight: CGFloat!
     
+    var time = Time.Current
+    var mode = Mode.Random
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set up the container view to hold your custom view hierarchy
-        let containerSize = CGSizeMake(320, 2255+325+121)
+        let containerSize = CGSizeMake(320, 1216+325)
         containerView = UIView(frame: CGRect(origin: CGPointMake(0, 0), size:containerSize))
         scrollView.addSubview(containerView)
         
         photoView = UIImageView(frame: CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 320)))
         containerView.addSubview(photoView)
         
-        feedStrip = UIImageView(image: todayFeed)
-        feedStrip.frame = CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 2255))
+        feedStrip = UIImageView(image: randomFeed)
+        feedStrip.frame = CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 1216))
         containerView.addSubview(feedStrip)
 
         scrollView.contentSize = containerSize;
@@ -55,6 +78,8 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
         
         feedOriginalCenter = scrollView.center.y
         filterViewHeight = mapView.frame.size.height
+        
+        updateFeed()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -65,16 +90,18 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
     }
 
     @IBAction func didTapOnDice(sender: UIButton) {
-        move({self.selectedMode.center.x = 101})
-        move({self.scrollView.center.y = self.feedOriginalCenter},
-            {self.mapView.hidden = true; self.timeView.hidden = true})
+        mode = .Random
+        updateFeed()
     }
     
     @IBAction func didTapOnWorld(sender: UIButton) {
-        move({self.selectedMode.center.x = 161})
-        mapView.hidden = false
-        timeView.hidden = true
-        move({self.scrollView.center.y = self.feedOriginalCenter + self.filterViewHeight})
+        mode = .Map
+        updateFeed()
+    }
+    
+    @IBAction func didTapOnClock(sender: UIButton) {
+        mode = .Time
+        updateFeed()
     }
    
     var willFocusOnWest = false
@@ -88,11 +115,28 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
     }
     
     func updateFeed() {
-        if (willFocusOnWest) {
-            feedStrip.image = yesterdayFeed
-        }
-        else {
-            feedStrip.image = todayFeed
+        switch (mode) {
+            case .Random:
+                feedStrip.image = randomFeed
+                move({self.selectedMode.center.x = 108})
+                move({self.scrollView.center.y = self.feedOriginalCenter},
+                    {self.mapView.hidden = true; self.timeView.hidden = true})
+            case .Map:
+                if (willFocusOnWest) {
+                    feedStrip.image = mapFeedWest
+                }
+                else {
+                    feedStrip.image = mapFeedEast
+                }
+                move({self.selectedMode.center.x = 161})
+                mapView.hidden = false
+                timeView.hidden = true
+                move({self.scrollView.center.y = self.feedOriginalCenter + self.filterViewHeight})
+            default:    // case .Time:
+                timeView.hidden = false
+                mapView.hidden = true
+                move({self.selectedMode.center.x = 212})
+                move({self.scrollView.center.y = self.feedOriginalCenter + self.filterViewHeight})
         }
     }
     
@@ -113,13 +157,6 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
             completion: {completed in
                 completion()
         })
-    }
-    
-    @IBAction func didTapOnClock(sender: UIButton) {
-        move({self.selectedMode.center.x = 221})
-        timeView.hidden = false
-        mapView.hidden = true
-        move({self.scrollView.center.y = self.feedOriginalCenter + self.filterViewHeight})
     }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
