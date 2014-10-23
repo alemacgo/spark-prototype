@@ -61,8 +61,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wish List" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXM-Nq-AyQ">
-                                <rect key="frame" x="125" y="273" width="70" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wishlist" translatesAutoresizingMaskIntoConstraints="NO" id="jRO-wr-llR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Peek-a-boo!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBd-58-dLZ">
+                                <rect key="frame" x="112" y="400" width="96" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -76,6 +79,18 @@
                                     <segue destination="x9E-2C-jt8" kind="custom" identifier="wishListToCreate" id="J85-xa-NC3"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voy-D9-OjU">
+                                <rect key="frame" x="0.0" y="200" width="320" height="65"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="readyWish" translatesAutoresizingMaskIntoConstraints="NO" id="che-mH-kiu">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="65"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="j1O-dL-Orm"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.29677635732323238" green="0.29677635732323238" blue="0.29677635732323238" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -86,6 +101,8 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="peekaboo" destination="VBd-58-dLZ" id="wwk-O5-eV5"/>
+                        <outlet property="swipeButton" destination="Voy-D9-OjU" id="jRl-au-0iO"/>
                         <segue destination="CKX-uy-cPU" kind="unwind" identifier="exitWishListToToday" unwindAction="unwindTodayFromWishList:" id="l09-LG-XsF"/>
                     </connections>
                 </viewController>
@@ -101,6 +118,12 @@
                         <action selector="didSwipeDown:" destination="LUy-cd-Z1K" id="h9A-gA-s53"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.01" id="y63-KW-sZp">
+                    <connections>
+                        <action selector="didTouchSwipeButton:" destination="LUy-cd-Z1K" id="m0g-G4-0pv"/>
+                        <outlet property="delegate" destination="LUy-cd-Z1K" id="Q0Y-JJ-7io"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-104" y="-210"/>
         </scene>
@@ -320,9 +343,11 @@
     </scenes>
     <resources>
         <image name="map" width="1450" height="742"/>
+        <image name="readyWish" width="960" height="90"/>
         <image name="selectedmode" width="26" height="4"/>
         <image name="timestrip" width="640" height="250"/>
         <image name="today" width="407" height="722"/>
         <image name="todayfeedbar" width="320" height="568"/>
+        <image name="wishlist" width="320" height="568"/>
     </resources>
 </document>

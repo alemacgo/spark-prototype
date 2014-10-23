@@ -13,14 +13,34 @@ enum OriginViewControllers {
     case Today
 }
 
-class WishListViewController: UIViewController {
+class WishListViewController: UIViewController, UIGestureRecognizerDelegate {
     var originViewController = OriginViewControllers.Today
     let verticalManager = VerticalTransitionManager()
 
+    @IBOutlet weak var peekaboo: UILabel!
+    
+    @IBOutlet weak var swipeButton: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        swipeButton.contentSize = swipeButton.subviews[0].size!
+        swipeButton.contentOffset.x = 320
+        peekaboo.layer.opacity = 0
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func didTouchSwipeButton(sender: UILongPressGestureRecognizer) {
+        if sender.state == .Ended {
+            UIView.animateWithDuration(0.5, animations: {
+                self.peekaboo.layer.opacity = 0.0
+            })
+        }
+        else {
+            UIView.animateWithDuration(0.5, animations: {
+                self.peekaboo.layer.opacity = 1.0
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,13 +69,17 @@ class WishListViewController: UIViewController {
         }
         
     }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 
     @IBAction func didSwipeDown(sender: UISwipeGestureRecognizer) {
         performSegueWithIdentifier("wishListToCreate", sender: self)
     }
     
     @IBAction func unwindWishListFromCreate(sender: UIStoryboardSegue) {
-        
+
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

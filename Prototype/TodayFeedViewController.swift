@@ -126,9 +126,7 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
         return true
     }
     
-    var x = 1
     @IBAction func didTapOnFeed(sender: UILongPressGestureRecognizer) {
-        //println("\(x)"); x+=1
         move({self.scrollView.center.y = self.feedOriginalCenter},
             {self.mapView.hidden = true; self.timeView.hidden = true})
     }
