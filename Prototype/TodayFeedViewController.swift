@@ -102,6 +102,9 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
             mode = .Random
             updateFeed()
             move({self.feedStrip.center.y += 325})
+            /*let label = UIImageView(image: UIImage(named: "lisbonlabel"))
+            label.center.y = 150
+            containerView.addSubview(label)*/
         }
     }
 
