@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZKA-RZ-09S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create View Controller-->
         <scene sceneID="yZa-Yc-hPA">
             <objects>
-                <viewController id="x9E-2C-jt8" sceneMemberID="viewController">
+                <viewController id="x9E-2C-jt8" customClass="CreateViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WI2-5p-kc3"/>
                         <viewControllerLayoutGuide type="bottom" id="atj-Fe-zrA"/>
@@ -46,15 +46,42 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="pickYellow" translatesAutoresizingMaskIntoConstraints="NO" id="wRU-TK-4YJ">
                                 <rect key="frame" x="143" y="398" width="34" height="40"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="addblue" translatesAutoresizingMaskIntoConstraints="NO" id="BTe-TL-6j4">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="addblue" translatesAutoresizingMaskIntoConstraints="NO" id="BTe-TL-6j4">
                                 <rect key="frame" x="141" y="462" width="40" height="49"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="addgreen" translatesAutoresizingMaskIntoConstraints="NO" id="z3p-Pj-r9k">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="addgreen" translatesAutoresizingMaskIntoConstraints="NO" id="z3p-Pj-r9k">
                                 <rect key="frame" x="141" y="462" width="40" height="49"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="addpink" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-Il-Wv5">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="addpink" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-Il-Wv5">
                                 <rect key="frame" x="141" y="462" width="40" height="49"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HF-ay-VVX">
+                                <rect key="frame" x="138" y="462" width="46" height="54"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapDiamond:" destination="x9E-2C-jt8" eventType="touchUpInside" id="XLL-QD-zuD"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erh-Ch-vuy">
+                                <rect key="frame" x="10" y="78" width="300" height="438"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="badgealert" translatesAutoresizingMaskIntoConstraints="NO" id="Il6-rq-lpE">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="438"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YG-jC-Pgi">
+                                        <rect key="frame" x="225" y="19" width="44" height="44"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapCancel:" destination="x9E-2C-jt8" eventType="touchUpInside" id="gl8-0F-W4F"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <gestureRecognizers/>
@@ -63,6 +90,9 @@
                         </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="badgePopup" destination="erh-Ch-vuy" id="DAC-FS-RxT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OT5-B0-7GQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="up" id="9Eg-BC-U0N">
@@ -95,12 +125,57 @@
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="j1O-dL-Orm"/>
+                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="eL9-Ln-YSP"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="LUy-cd-Z1K" id="DW6-kW-bBh"/>
+                                </connections>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PH9-TG-MHg">
+                                <rect key="frame" x="0.0" y="294" width="320" height="75"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish2" translatesAutoresizingMaskIntoConstraints="NO" id="Z2B-bf-h5V">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="cbw-zp-XHB"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="6D4-9G-v3k"/>
+                                </connections>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhi-Gy-X9H">
+                                <rect key="frame" x="0.0" y="366" width="320" height="75"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish3" translatesAutoresizingMaskIntoConstraints="NO" id="dSa-W6-k6F">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="1Ni-UO-7C8"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="9aa-6D-ta1"/>
+                                </connections>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eao-tT-ku8">
+                                <rect key="frame" x="0.0" y="438" width="320" height="75"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish4" translatesAutoresizingMaskIntoConstraints="NO" id="hm2-RR-fnM">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="CTy-hB-bEL"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="hvT-JD-qN2"/>
                                 </connections>
                             </scrollView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swipeleft" translatesAutoresizingMaskIntoConstraints="NO" id="9Na-b1-WzR">
@@ -127,6 +202,18 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="oc3-JM-IM0">
                                 <rect key="frame" x="43" y="64" width="13" height="13"/>
                             </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="jhd-xq-V4t">
+                                <rect key="frame" x="128" y="28" width="13" height="13"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="xfA-pG-E6c">
+                                <rect key="frame" x="296" y="131" width="13" height="13"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="95V-Ai-tbD">
+                                <rect key="frame" x="288" y="41" width="13" height="13"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="mWb-2l-J0q">
+                                <rect key="frame" x="102" y="78" width="13" height="13"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.29677635732323238" green="0.29677635732323238" blue="0.29677635732323238" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -138,7 +225,14 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="star0" destination="oc3-JM-IM0" id="AlY-eV-OBv"/>
+                        <outlet property="star1" destination="mWb-2l-J0q" id="lig-ZN-j4p"/>
+                        <outlet property="star2" destination="xfA-pG-E6c" id="39M-8a-nn6"/>
+                        <outlet property="star3" destination="95V-Ai-tbD" id="Oft-3t-3xH"/>
+                        <outlet property="star4" destination="jhd-xq-V4t" id="BeC-oj-o9V"/>
                         <outlet property="swipeButton" destination="Voy-D9-OjU" id="jRl-au-0iO"/>
+                        <outlet property="swipeButton2" destination="PH9-TG-MHg" id="kfx-SW-e0g"/>
+                        <outlet property="swipeButton3" destination="dhi-Gy-X9H" id="p4y-4z-YHk"/>
+                        <outlet property="swipeButton4" destination="eao-tT-ku8" id="5ka-44-c8U"/>
                         <outlet property="swipeLeftImage" destination="9Na-b1-WzR" id="fWS-xi-WIr"/>
                         <outlet property="swipeLeftRedImage" destination="ACM-Ra-72c" id="f10-fm-dUj"/>
                         <outlet property="swipeRightGreenImage" destination="CG6-jA-UfA" id="EZH-3u-DMu"/>
@@ -431,6 +525,7 @@
         <image name="addblue" width="40" height="49"/>
         <image name="addgreen" width="40" height="49"/>
         <image name="addpink" width="40" height="49"/>
+        <image name="badgealert" width="300" height="438"/>
         <image name="create" width="320" height="568"/>
         <image name="createText" width="320" height="156"/>
         <image name="currentfeedbar" width="320" height="184"/>
@@ -452,6 +547,9 @@
         <image name="today" width="320" height="568"/>
         <image name="triangle" width="320" height="396"/>
         <image name="wish1" width="960" height="75"/>
+        <image name="wish2" width="960" height="75"/>
+        <image name="wish3" width="960" height="75"/>
+        <image name="wish4" width="960" height="75"/>
         <image name="wishlist" width="320" height="568"/>
     </resources>
 </document>

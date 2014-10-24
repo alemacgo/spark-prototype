@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		41AB18B91DB6AAF0FEAC6E2E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E05940378844149AA29BD605 /* libPods.a */; };
+		A9038B1819FAC92A0005F3AE /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9038B1719FAC92A0005F3AE /* CreateViewController.swift */; };
 		A9212C6F19EFCCCF00247FCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */; };
 		A9212C7119EFCCCF00247FCA /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212C7019EFCCCF00247FCA /* TodayViewController.swift */; };
 		A9212C7419EFCCCF00247FCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9212C7219EFCCCF00247FCA /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		7E6C81E56AE8ED8C2B582A5D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A9038B1719FAC92A0005F3AE /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		A9212C6919EFCCCF00247FCA /* Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9212C6D19EFCCCF00247FCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9212C6E19EFCCCF00247FCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				A9212C7219EFCCCF00247FCA /* Main.storyboard */,
+				A9038B1719FAC92A0005F3AE /* CreateViewController.swift */,
 				A93773D319F9691400503F9C /* ProfileViewController.swift */,
 				A92F33BA19F1812600D6CC0C /* TodayFeedViewController.swift */,
 				A9212C7019EFCCCF00247FCA /* TodayViewController.swift */,
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9038B1819FAC92A0005F3AE /* CreateViewController.swift in Sources */,
 				A9212CC319EFDCAF00247FCA /* HorizontalTransitionManager.swift in Sources */,
 				A96B5EF519F7D12A004D8606 /* FeedViewDelegate.swift in Sources */,
 				A9212CC519EFE31B00247FCA /* WishListViewController.swift in Sources */,

@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        //Lookback.setupWithAppToken("KLMmL6oHgjn8sfm2Z")
-        //Lookback.sharedLookback().shakeToRecord = true
+        Lookback.setupWithAppToken("KLMmL6oHgjn8sfm2Z")
+        Lookback.sharedLookback().shakeToRecord = true
         return true
     }
 
