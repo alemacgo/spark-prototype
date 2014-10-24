@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZKA-RZ-09S">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -310,14 +310,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="todayfeedbar" translatesAutoresizingMaskIntoConstraints="NO" id="DjO-rX-NPE">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="currentfeedbar" translatesAutoresizingMaskIntoConstraints="NO" id="DjO-rX-NPE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="184"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="aw8-hN-Bhz" appends="YES" id="8yV-3q-n0v"/>
                                 </connections>
                             </imageView>
-                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lht-gl-4uk">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lht-gl-4uk">
                                 <rect key="frame" x="0.0" y="184" width="320" height="182"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="timestrip" translatesAutoresizingMaskIntoConstraints="NO" id="Ekk-ta-uA1">
@@ -325,7 +325,7 @@
                                     </imageView>
                                 </subviews>
                             </scrollView>
-                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxd-zr-mnv">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxd-zr-mnv">
                                 <rect key="frame" x="0.0" y="184" width="320" height="182"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="Osw-gm-RRr">
@@ -389,6 +389,7 @@
                         <outlet property="scrollView" destination="eBs-DF-v6n" id="99h-kV-kK4"/>
                         <outlet property="selectedMode" destination="xDZ-fg-w4f" id="U4e-VH-RAN"/>
                         <outlet property="timeView" destination="lht-gl-4uk" id="4uz-KV-T0a"/>
+                        <outlet property="triangleView" destination="Rfd-6f-ZyS" id="V3E-a0-W61"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kug-Uf-ysU" sceneMemberID="firstResponder"/>
@@ -413,6 +414,7 @@
         <image name="addpink" width="40" height="49"/>
         <image name="create" width="320" height="568"/>
         <image name="createText" width="320" height="156"/>
+        <image name="currentfeedbar" width="320" height="184"/>
         <image name="map" width="1450" height="742"/>
         <image name="pickBlue" width="34" height="39"/>
         <image name="pickGreen" width="34" height="39"/>
@@ -429,7 +431,6 @@
         <image name="swiperightgreen" width="41" height="31"/>
         <image name="timestrip" width="953" height="182"/>
         <image name="today" width="320" height="568"/>
-        <image name="todayfeedbar" width="320" height="184"/>
         <image name="triangle" width="320" height="396"/>
         <image name="wish1" width="960" height="75"/>
         <image name="wishlist" width="320" height="568"/>

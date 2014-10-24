@@ -9,7 +9,12 @@
 import UIKit
 
 let LisbonCenter = CGPoint(x: 1141.5, y: 446.0)
+
+let currentFeedBar = UIImage(named: "currentfeedbar")
+let previousFeedBar = UIImage(named: "previousfeedbar")
+
 let randomFeed = UIImage(named: "randomfeed")
+let previousRandomFeed = UIImage(named: "previousrandomfeed")
 
 let mapFeedEast = UIImage(named: "mapfeedeast")
 let mapFeedWest = UIImage(named: "mapfeedwest")
@@ -21,7 +26,7 @@ let timeFeedAfter = UIImage(named: "timefeedafter")
 let previoustimeFeedBefore = UIImage(named: "previoustimefeedbefore")
 let previoustimeFeedAfter = UIImage(named: "previoustimefeedafter")
 
-enum Time {
+enum Challenge {
     case Previous
     case Current
 }
@@ -43,18 +48,21 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
     var feedViewDelegate: FeedViewDelegate!
     @IBOutlet weak var selectedMode: UIImageView!
     @IBOutlet weak var timeView: UIScrollView!
+    @IBOutlet weak var triangleView: UIImageView!
+    
+    @IBOutlet weak var feedBar: UIImageView!
     
     var feedOriginalCenter: CGFloat!
     var filterViewHeight: CGFloat!
     
-    var time = Time.Current
+    var challenge = Challenge.Current
     var mode = Mode.Random
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set up the container view to hold your custom view hierarchy
-        let containerSize = CGSizeMake(320, 1216+325)
+        let containerSize = CGSizeMake(320, 1230 + 325)
         containerView = UIView(frame: CGRect(origin: CGPointMake(0, 0), size:containerSize))
         scrollView.addSubview(containerView)
         
@@ -62,14 +70,13 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
         containerView.addSubview(photoView)
         
         feedStrip = UIImageView(image: randomFeed)
-        feedStrip.frame = CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 1216))
+        feedStrip.frame = CGRect(origin: CGPointMake(0, 0), size: CGSizeMake(320, 1230))
         containerView.addSubview(feedStrip)
-
-        scrollView.contentSize = containerSize;
 
         // Do any additional setup after loading the view.
         mapView.delegate = self
-        feedViewDelegate = FeedViewDelegate(mapView: mapView, originalCenter:scrollView.center.y)
+        feedViewDelegate = FeedViewDelegate(mapView: mapView, timeView: timeView,
+            triangleView: triangleView, originalCenter:scrollView.center.y)
         scrollView.delegate = feedViewDelegate
         mapView.contentSize = mapView.subviews[0].size!
         mapView.contentOffset = LisbonCenter
@@ -79,12 +86,17 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
         feedOriginalCenter = scrollView.center.y
         filterViewHeight = mapView.frame.size.height
         
+        mapView.layer.opacity = 0
+        timeView.layer.opacity = 0
+        
         updateFeed()
     }
     
     override func viewDidAppear(animated: Bool) {
         if let photoTaken = photoTaken {
             photoView.image = photoTaken
+            mode = .Random
+            updateFeed()
             move({self.feedStrip.center.y += 325})
         }
     }
@@ -103,8 +115,19 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
         mode = .Time
         updateFeed()
     }
+    
+    @IBAction func didTapOnPrevious(sender: UIButton) {
+        challenge = .Previous
+        updateFeed()
+    }
+    
+    @IBAction func didTapOnCurrent(sender: UIButton) {
+        challenge = .Current
+        updateFeed()
+    }
    
     var willFocusOnWest = false
+    var willFocusOnPast = false
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if targetContentOffset.memory.x < 700 {
             willFocusOnWest = true
@@ -115,27 +138,75 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
     }
     
     func updateFeed() {
+        if (challenge == .Previous) {
+            //feedBar.image = previousFeedBar
+        }
+        else {
+            //feedBar.image = currentFeedBar
+        }
         switch (mode) {
             case .Random:
-                feedStrip.image = randomFeed
-                move({self.selectedMode.center.x = 108})
-                move({self.scrollView.center.y = self.feedOriginalCenter},
-                    {self.mapView.hidden = true; self.timeView.hidden = true})
-            case .Map:
-                if (willFocusOnWest) {
-                    feedStrip.image = mapFeedWest
+                if (challenge == .Previous) {
+                    feedStrip.image = previousRandomFeed
                 }
                 else {
-                    feedStrip.image = mapFeedEast
+                    feedStrip.image = randomFeed
+                }
+                move({self.selectedMode.center.x = 108})
+                move({self.scrollView.center.y = self.feedOriginalCenter},
+                    {self.mapView.layer.opacity = 0; self.timeView.layer.opacity = 0})
+                triangleView.layer.opacity = 0
+                if (photoTaken != nil) {
+                    scrollView.contentSize.height = 1555
+                }
+                else {
+                    scrollView.contentSize.height = 1230
+                }
+            case .Map:
+                if (challenge == .Previous) {
+                    if (willFocusOnWest) {
+                        feedStrip.image = previousMapFeedWest
+                    }
+                    else {
+                        feedStrip.image = previousMapFeedEast
+                    }
+                }
+                else {
+                    if (willFocusOnWest) {
+                        feedStrip.image = mapFeedWest
+                    }
+                    else {
+                        feedStrip.image = mapFeedEast
+                    }
                 }
                 move({self.selectedMode.center.x = 161})
-                mapView.hidden = false
-                timeView.hidden = true
+                mapView.layer.opacity = 1
+                timeView.layer.opacity = 0
+                scrollView.contentSize.height = 400
+                triangleView.layer.opacity = 1
                 move({self.scrollView.center.y = self.feedOriginalCenter + self.filterViewHeight})
             default:    // case .Time:
-                timeView.hidden = false
-                mapView.hidden = true
+                if (challenge == .Previous) {
+                    if (willFocusOnPast) {
+                        feedStrip.image = previoustimeFeedBefore
+                    }
+                    else {
+                        feedStrip.image = previoustimeFeedAfter
+                    }
+                }
+                else {
+                    if (willFocusOnPast) {
+                        feedStrip.image = timeFeedBefore
+                    }
+                    else {
+                        feedStrip.image = timeFeedAfter
+                    }
+                }
                 move({self.selectedMode.center.x = 212})
+                mapView.layer.opacity = 0
+                timeView.layer.opacity = 1
+                triangleView.layer.opacity = 1
+                scrollView.contentSize.height = 400
                 move({self.scrollView.center.y = self.feedOriginalCenter + self.filterViewHeight})
         }
     }
@@ -163,10 +234,10 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
         return true
     }
     
-    @IBAction func didTapOnFeed(sender: UILongPressGestureRecognizer) {
+    /*@IBAction func didTapOnFeed(sender: UILongPressGestureRecognizer) {
         move({self.scrollView.center.y = self.feedOriginalCenter},
             {self.mapView.hidden = true; self.timeView.hidden = true})
-    }
+    }*/
  
     /*
     // MARK: - Navigation
