@@ -379,12 +379,31 @@
                                     <action selector="didTapOnWorld:" destination="ZKA-RZ-09S" eventType="touchUpInside" id="FDP-rq-6XW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLA-G9-tjq">
+                                <rect key="frame" x="160" y="47" width="160" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnCurrent:" destination="ZKA-RZ-09S" eventType="touchUpInside" id="EW8-ck-1IT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXH-ms-UAy">
+                                <rect key="frame" x="0.0" y="47" width="160" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnPrevious:" destination="ZKA-RZ-09S" eventType="touchUpInside" id="huV-5w-CFK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="feedBar" destination="DjO-rX-NPE" id="14U-gJ-N00"/>
                         <outlet property="mapView" destination="pxd-zr-mnv" id="IvU-7h-PVF"/>
                         <outlet property="scrollView" destination="eBs-DF-v6n" id="99h-kV-kK4"/>
                         <outlet property="selectedMode" destination="xDZ-fg-w4f" id="U4e-VH-RAN"/>

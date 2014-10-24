@@ -9,6 +9,7 @@
 import UIKit
 
 let LisbonCenter = CGPoint(x: 1141.5, y: 446.0)
+let ClockCenterX: CGFloat = 400
 
 let currentFeedBar = UIImage(named: "currentfeedbar")
 let previousFeedBar = UIImage(named: "previousfeedbar")
@@ -75,6 +76,8 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
 
         // Do any additional setup after loading the view.
         mapView.delegate = self
+        timeView.delegate = self
+        
         feedViewDelegate = FeedViewDelegate(mapView: mapView, timeView: timeView,
             triangleView: triangleView, originalCenter:scrollView.center.y)
         scrollView.delegate = feedViewDelegate
@@ -82,6 +85,7 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
         mapView.contentOffset = LisbonCenter
         
         timeView.contentSize = timeView.subviews[0].size!
+        timeView.contentOffset.x = ClockCenterX
         
         feedOriginalCenter = scrollView.center.y
         filterViewHeight = mapView.frame.size.height
@@ -129,20 +133,30 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
     var willFocusOnWest = false
     var willFocusOnPast = false
     func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if targetContentOffset.memory.x < 700 {
-            willFocusOnWest = true
+        if scrollView == mapView {
+            if targetContentOffset.memory.x < 700 {
+                willFocusOnWest = true
+            }
+            else {
+                willFocusOnWest = false
+            }
         }
         else {
-            willFocusOnWest = false
+            if targetContentOffset.memory.x < 300 {
+                willFocusOnPast = true
+            }
+            else {
+                willFocusOnPast = false
+            }
         }
     }
     
     func updateFeed() {
         if (challenge == .Previous) {
-            //feedBar.image = previousFeedBar
+            feedBar.image = previousFeedBar
         }
         else {
-            //feedBar.image = currentFeedBar
+            feedBar.image = currentFeedBar
         }
         switch (mode) {
             case .Random:
