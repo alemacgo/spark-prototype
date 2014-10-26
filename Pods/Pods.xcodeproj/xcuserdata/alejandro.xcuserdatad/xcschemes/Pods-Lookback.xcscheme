@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "988E76195959D548850FC3C4"
+               BlueprintIdentifier = "A1EF75BA45B783CBE342FBFC"
                BuildableName = "libPods-Lookback.a"
                BlueprintName = "Pods-Lookback"
                ReferencedContainer = "container:Pods.xcodeproj">

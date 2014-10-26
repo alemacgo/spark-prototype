@@ -9,20 +9,52 @@
 import UIKit
 import MobileCoreServices
 
+let feedPeek = UIImage(named: "feedpeek")
+let todayPhoto = UIImage(named: "todayphoto")
+
 class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let horizontalManager = HorizontalTransitionManager()
     let verticalManager = VerticalTransitionManager()
     let reverseVerticalManager = ReverseVerticalTransitionManager()
     
+    @IBOutlet weak var photoView: UIImageView!
+    
+    @IBOutlet weak var feedPeekView: UIImageView!
+    
+    @IBOutlet weak var placeholder1: UIImageView!
+    
+    @IBOutlet weak var background: UIImageView!
+    @IBOutlet weak var challengeTitle: UIImageView!
+    
+    @IBOutlet weak var imageLabel: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        photoView.layer.opacity = 0
+        feedPeekView.layer.opacity = 0
+        placeholder1.layer.opacity = 0
     }
     
     // Taking photos
-    var photoTaken: UIImage?
     let picker = UIImagePickerController()
     @IBOutlet weak var cameraButton: UIButton!
+    
+    override func viewWillAppear(animated: Bool) {
+        if self.photoView.image != nil {
+            background.image = todayPhoto
+            imageLabel.hidden = false
+            challengeTitle.hidden = true
+            feedPeekView.layer.opacity = 1
+            UIView.animateWithDuration(1, animations: {
+                self.placeholder1.layer.opacity = 1
+                }, completion: {completed in
+                    UIView.animateWithDuration(1, delay: 0.5, options: nil, animations: {
+                        self.photoView.layer.opacity = 1
+                        },
+                        nil)})
+        }
+    }
     
     func imagePickerController(picker: UIImagePickerController!,
         didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!){
@@ -45,6 +77,7 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
                         } else {
                             theImage = info[UIImagePickerControllerOriginalImage] as UIImage
                         }
+                        
                         let width = theImage.size.width
                         let height = theImage.size.height
                         if (height != width) {
@@ -58,16 +91,18 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
                             theImage = UIGraphicsGetImageFromCurrentImageContext();
                             UIGraphicsEndImageContext();
                         }
-                        photoTaken = theImage
+                        
+                        photoView.image = theImage
+                        feedPeekView.image = feedPeek
                         cameraButton.hidden = true
                     }
                 }
             }
             
-            picker.dismissViewControllerAnimated(false, completion: {
-                self.performSegueWithIdentifier("todayToFeed", sender: self)
+            picker.dismissViewControllerAnimated(false, {completed in
             })
     }
+    
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -127,9 +162,6 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 toViewController.transitioningDelegate = self.horizontalManager
             case SegueIdentifier.TodayToFeed:
                 toViewController.transitioningDelegate = self.reverseVerticalManager
-                if let photoTaken = photoTaken {
-                    (toViewController as TodayFeedViewController).photoTaken = photoTaken
-                }
             }
         }
     }

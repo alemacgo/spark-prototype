@@ -10,5 +10,7 @@
 #define Prototype_Lookback_Bridging_Header_h
 
 //#import "Lookback/Lookback.h"
+//#import "UIImage+Resize.h"
+//#import "BASSquareCropperViewController.h"
 
 #endif
