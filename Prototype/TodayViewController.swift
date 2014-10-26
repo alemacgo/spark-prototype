@@ -9,31 +9,59 @@
 import UIKit
 import MobileCoreServices
 
-let feedPeek = UIImage(named: "feedpeek")
 let todayPhoto = UIImage(named: "todayphoto")
+let randomFeed = UIImage(named: "randomfeed")
+let loadingImage = UIImage(named: "loading")
+let photoLabelImage = UIImage(named: "stockholmLabel")
 
-class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
     let horizontalManager = HorizontalTransitionManager()
     let verticalManager = VerticalTransitionManager()
-    let reverseVerticalManager = ReverseVerticalTransitionManager()
     
-    @IBOutlet weak var photoView: UIImageView!
+    var photoView: UIImageView!
+    var placeholder: UIImageView!
+    var photoLabel: UIImageView!
     
-    @IBOutlet weak var feedPeekView: UIImageView!
-    
-    @IBOutlet weak var placeholder1: UIImageView!
+    var lastContentOffset: CGFloat = 0
     
     @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var challengeTitle: UIImageView!
     
-    @IBOutlet weak var imageLabel: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var containerView: UIView!
+    var feedStrip: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        
+        // Set up the container view to hold your custom view hierarchy
+        let containerSize = CGSizeMake(320, 1555)
+        containerView = UIView(frame: CGRect(origin: CGPointMake(0, 0), size:containerSize))
+        scrollView.addSubview(containerView)
+        
+        placeholder = UIImageView(image: loadingImage)
+        placeholder.layer.opacity = 0
+        containerView.addSubview(placeholder)
+        
+        let photoSize = CGSizeMake(320, 320)
+        photoView = UIImageView(frame: CGRect(origin: CGPointMake(0, 0), size: photoSize))
+        containerView.addSubview(photoView)
         photoView.layer.opacity = 0
-        feedPeekView.layer.opacity = 0
-        placeholder1.layer.opacity = 0
+        
+        photoLabel = UIImageView(image: photoLabelImage)
+        photoLabel.center.y = 269+26
+        containerView.addSubview(photoLabel)
+        photoLabel.layer.opacity = 0
+        
+        scrollView.contentSize.height = containerSize.height
+        
+        feedStrip = UIImageView(image: randomFeed)
+        feedStrip.frame = CGRect(origin: CGPointMake(0, 320), size: CGSizeMake(320, 1230))
+        containerView.addSubview(feedStrip)
+        
+        scrollView.contentOffset = CGPointMake(0, 0)
     }
     
     // Taking photos
@@ -43,14 +71,14 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewWillAppear(animated: Bool) {
         if self.photoView.image != nil {
             background.image = todayPhoto
-            imageLabel.hidden = false
             challengeTitle.hidden = true
-            feedPeekView.layer.opacity = 1
+            scrollView.hidden = false
             UIView.animateWithDuration(1, animations: {
-                self.placeholder1.layer.opacity = 1
+                self.placeholder.layer.opacity = 1
                 }, completion: {completed in
                     UIView.animateWithDuration(1, delay: 0.5, options: nil, animations: {
                         self.photoView.layer.opacity = 1
+                        self.photoLabel.layer.opacity = 1
                         },
                         nil)})
         }
@@ -93,7 +121,6 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
                         }
                         
                         photoView.image = theImage
-                        feedPeekView.image = feedPeek
                         cameraButton.hidden = true
                     }
                 }
@@ -154,16 +181,24 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // the segue to use our custom TransitionManager object to manage the transition animation
         if let identifier = SegueIdentifier(rawValue: segue.identifier!) {
             switch identifier {
-            case .TodayToWishList:
-                toViewController.transitioningDelegate = self.verticalManager
-                let wishListViewController = toViewController as WishListViewController
-                wishListViewController.originViewController = .Today
-            case SegueIdentifier.TodayToProfile:
-                toViewController.transitioningDelegate = self.horizontalManager
-            case SegueIdentifier.TodayToFeed:
-                toViewController.transitioningDelegate = self.reverseVerticalManager
+                case .TodayToWishList:
+                    toViewController.transitioningDelegate = self.verticalManager
+                    let wishListViewController = toViewController as WishListViewController
+                    wishListViewController.originViewController = .Today
+                default: // SegueIdentifier.TodayToProfile:
+                    toViewController.transitioningDelegate = self.horizontalManager
             }
         }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if lastContentOffset > scrollView.contentOffset.y {
+            println("arriba")
+        }
+        else {
+            println("abajo")
+        }
+        lastContentOffset = scrollView.contentOffset.y
     }
 }
 
