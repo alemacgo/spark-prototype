@@ -31,6 +31,7 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var containerView: UIView!
     var feedStrip: UIImageView!
+    @IBOutlet weak var topBar: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,7 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
             background.image = todayPhoto
             challengeTitle.hidden = true
             scrollView.hidden = false
+            topBar.hidden = false
             UIView.animateWithDuration(1, animations: {
                 self.placeholder.layer.opacity = 1
                 }, completion: {completed in
@@ -190,15 +192,32 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
             }
         }
     }
+    /*
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            doit()
+        }
+    }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        doit()
+    }
+    
+    func doit() {
         if lastContentOffset > scrollView.contentOffset.y {
-            println("arriba")
+            topBar.frame.size.height = 133
+            scrollView.center.y = 294.5
+            
+            println(scrollView.center.y)
         }
         else {
-            println("abajo")
+            topBar.frame.size.height = 0
+            scrollView.center.y = 405
+            println(scrollView.center.y)
         }
         lastContentOffset = scrollView.contentOffset.y
     }
+*/
+    
 }
 

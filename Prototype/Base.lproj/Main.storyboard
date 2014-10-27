@@ -303,6 +303,9 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="LAh-XQ-bMM"/>
                                 </connections>
                             </scrollView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="topbar" translatesAutoresizingMaskIntoConstraints="NO" id="h9z-2C-g3Y">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -317,6 +320,7 @@
                         <outlet property="cameraButton" destination="M33-Tp-pGj" id="L6u-UF-otF"/>
                         <outlet property="challengeTitle" destination="Z1l-bc-2rX" id="lph-yH-jSe"/>
                         <outlet property="scrollView" destination="e8B-Ko-qQZ" id="qP7-LI-fGG"/>
+                        <outlet property="topBar" destination="h9z-2C-g3Y" id="lPC-X2-rdh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -450,6 +454,7 @@
         <image name="swiperight" width="41" height="31"/>
         <image name="swiperightgreen" width="41" height="31"/>
         <image name="today" width="320" height="568"/>
+        <image name="topbar" width="320" height="133"/>
         <image name="wish1" width="960" height="75"/>
         <image name="wish2" width="960" height="75"/>
         <image name="wish3" width="960" height="75"/>
