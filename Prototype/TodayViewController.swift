@@ -38,7 +38,7 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
         picker.delegate = self
         
         // Set up the container view to hold your custom view hierarchy
-        let containerSize = CGSizeMake(320, 1555)
+        let containerSize = CGSizeMake(320, 2432+350)
         containerView = UIView(frame: CGRect(origin: CGPointMake(0, 0), size:containerSize))
         scrollView.addSubview(containerView)
         
@@ -59,7 +59,7 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
         scrollView.contentSize.height = containerSize.height
         
         feedStrip = UIImageView(image: randomFeed)
-        feedStrip.frame = CGRect(origin: CGPointMake(0, 320), size: CGSizeMake(320, 1230))
+        feedStrip.frame = CGRect(origin: CGPointMake(0, 320), size: CGSizeMake(320, 2432))
         containerView.addSubview(feedStrip)
         
         scrollView.contentOffset = CGPointMake(0, 0)
