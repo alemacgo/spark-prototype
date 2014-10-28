@@ -396,26 +396,48 @@
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-Dw-Ogs">
                                 <rect key="frame" x="140" y="470" width="39" height="37"/>
                             </pageControl>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YhH-vQ-zMI">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem systemItem="favorites" id="XfA-Ny-LFv"/>
-                                    <tabBarItem systemItem="more" id="HHH-uj-oSS"/>
-                                </items>
-                            </tabBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnu-HB-W1Y">
+                                <rect key="frame" x="90" y="313" width="140" height="140"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCameraButton:" destination="NoF-7Z-qPh" eventType="touchUpInside" id="56h-eh-ZMn"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="topbar" translatesAutoresizingMaskIntoConstraints="NO" id="cdF-8l-QDf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
+                            </imageView>
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7zd-q5-sm5">
+                                <rect key="frame" x="0.0" y="131" width="320" height="437"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QzA-0a-W3K"/>
+                                </connections>
+                            </scrollView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="tabbar" translatesAutoresizingMaskIntoConstraints="NO" id="pxl-y9-x0k">
+                                <rect key="frame" x="0.0" y="519" width="320" height="50"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8C-qj-l0k">
+                                <rect key="frame" x="86" y="521" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="cameraButton" destination="Gnu-HB-W1Y" id="yRS-IS-WgQ"/>
                         <outlet property="pageControl" destination="eRg-Dw-Ogs" id="zvo-pY-jlJ"/>
-                        <outlet property="scrollView" destination="jo6-3R-YTW" id="3bm-r3-bBe"/>
+                        <outlet property="pageView" destination="jo6-3R-YTW" id="w2Q-QX-X4W"/>
+                        <outlet property="scrollView" destination="7zd-q5-sm5" id="4sK-WL-Gbx"/>
+                        <outlet property="topBar" destination="cdF-8l-QDf" id="Ybl-b5-agU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlU-UR-w6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="260" y="1125"/>
+            <point key="canvasLocation" x="-104" y="1079"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="dpz-6s-rm2">
@@ -505,6 +527,7 @@
         <image name="swipeleftred" width="41" height="31"/>
         <image name="swiperight" width="41" height="31"/>
         <image name="swiperightgreen" width="41" height="31"/>
+        <image name="tabbar" width="320" height="47"/>
         <image name="today" width="320" height="568"/>
         <image name="topbar" width="320" height="133"/>
         <image name="wish1" width="960" height="75"/>
