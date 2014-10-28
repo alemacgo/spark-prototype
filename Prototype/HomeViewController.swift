@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     var photoLabel: UIImageView!
     var feedStrip: UIImageView!
     
+    @IBOutlet weak var cameraImage: UIImageView!
     @IBOutlet weak var tabBar: UIImageView!
     var mode = Mode.Random
 
@@ -110,6 +111,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                         
                         photoView.image = theImage
                         cameraButton.hidden = true
+                        cameraImage.hidden = true
                     }
                 }
             }
@@ -121,6 +123,9 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
 
     func showFeed() {
         move({self.scrollView.hidden = false; self.tabBar.center.y = 50; self.scrollView.center.y = 310})
+        self.cameraImage.hidden = true
+        self.cameraButton.hidden = true
+        
         /*if (self.photoView.image != nil) {
             UIView.animateWithDuration(1, animations: {
                 self.placeholder.layer.opacity = 1
@@ -136,6 +141,10 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     
     @IBAction func hideFeed(sender: UILongPressGestureRecognizer) {
         move({self.tabBar.center.y = 544; self.scrollView.center.y = 804}, {self.scrollView.hidden = true})
+        if scrollView.contentOffset.x == 320 {
+            self.cameraImage.hidden = false
+            self.cameraButton.hidden = false
+        }
     }
     
     @IBAction func didTapOnDice(sender: UIButton) {
@@ -171,13 +180,32 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         if scrollView.contentOffset.x == 0 {
             pageControl.currentPage = 0
+            cameraButton.hidden = true
+            cameraImage.hidden = true
         }
         else if scrollView.contentOffset.x == 320 {
             pageControl.currentPage = 1
+            if (photoView.image == nil) {
+                cameraImage.hidden = true
+                cameraButton.hidden = true
+            }
+            cameraButton.hidden = false
+            cameraImage.hidden = false
+            UIView.animateWithDuration(0.5, animations: {
+                self.cameraImage.layer.opacity = 1
+            })
         }
         else { // scrollView.contentOffset.x == 0
             pageControl.currentPage = 2
+            cameraButton.hidden = true
+            cameraImage.hidden = true
         }
+    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        UIView.animateWithDuration(0.2, animations: {
+            self.cameraImage.layer.opacity = 0
+        })
     }
     
     func move(action: () -> Void, completion: () -> Void = {}) {
