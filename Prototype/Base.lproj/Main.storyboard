@@ -405,23 +405,27 @@
                                     <action selector="didTapCameraButton:" destination="NoF-7Z-qPh" eventType="touchUpInside" id="56h-eh-ZMn"/>
                                 </connections>
                             </button>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="topbar" translatesAutoresizingMaskIntoConstraints="NO" id="cdF-8l-QDf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="133"/>
-                            </imageView>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7zd-q5-sm5">
-                                <rect key="frame" x="0.0" y="131" width="320" height="437"/>
+                                <rect key="frame" x="0.0" y="568" width="320" height="516"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="QzA-0a-W3K"/>
                                 </connections>
                             </scrollView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="tabbar" translatesAutoresizingMaskIntoConstraints="NO" id="pxl-y9-x0k">
                                 <rect key="frame" x="0.0" y="519" width="320" height="50"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kZd-wl-MTK" appends="YES" id="btg-bK-3ON"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8C-qj-l0k">
                                 <rect key="frame" x="86" y="521" width="44" height="44"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapOnDice:" destination="NoF-7Z-qPh" eventType="touchUpInside" id="KqN-bE-eOI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -432,10 +436,15 @@
                         <outlet property="pageControl" destination="eRg-Dw-Ogs" id="zvo-pY-jlJ"/>
                         <outlet property="pageView" destination="jo6-3R-YTW" id="w2Q-QX-X4W"/>
                         <outlet property="scrollView" destination="7zd-q5-sm5" id="4sK-WL-Gbx"/>
-                        <outlet property="topBar" destination="cdF-8l-QDf" id="Ybl-b5-agU"/>
+                        <outlet property="tabBar" destination="pxl-y9-x0k" id="PEw-eO-BG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlU-UR-w6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.01" id="kZd-wl-MTK">
+                    <connections>
+                        <action selector="hideFeed:" destination="NoF-7Z-qPh" id="Qdm-xx-gip"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-104" y="1079"/>
         </scene>

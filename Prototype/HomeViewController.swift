@@ -9,22 +9,30 @@
 import UIKit
 import MobileCoreServices
 
+enum Mode {
+    case Random
+    case Map
+    case Time
+}
+
 class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var pageView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var topBar: UIImageView!
     
     var containerView: UIView!
     var placeholder: UIImageView!
     var photoView: UIImageView!
     var photoLabel: UIImageView!
     var feedStrip: UIImageView!
+    
+    @IBOutlet weak var tabBar: UIImageView!
+    var mode = Mode.Random
 
     override func viewDidLoad() {
-        pageView.contentSize = scrollView.subviews[0].size!
-        pageView.contentOffset.x = 320
+        super.viewDidLoad()
+        pageView.contentSize = pageView.subviews[0].size!
         
         picker.delegate = self
         
@@ -52,8 +60,11 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         feedStrip = UIImageView(image: randomFeed)
         feedStrip.frame = CGRect(origin: CGPointMake(0, 320), size: CGSizeMake(320, 2432))
         containerView.addSubview(feedStrip)
-        
-        scrollView.contentOffset = CGPointMake(0, 0)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        pageView.contentOffset.x = 320
+        scrollView.contentOffset = CGPointMake(0, 300)
     }
     
     
@@ -104,14 +115,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             }
             
             picker.dismissViewControllerAnimated(false, {completed in
-                // = .Random
+                self.mode = .Random
                 self.showFeed()})
     }
 
     func showFeed() {
-        scrollView.hidden = false
-        self.topBar.hidden = false
-        if (self.photoView.image != nil) {
+        move({self.scrollView.hidden = false; self.tabBar.center.y = 50; self.scrollView.center.y = 310})
+        /*if (self.photoView.image != nil) {
             UIView.animateWithDuration(1, animations: {
                 self.placeholder.layer.opacity = 1
                 }, completion: {completed in
@@ -121,7 +131,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                         },
                         nil)
             })
-        }
+        }*/
+    }
+    
+    @IBAction func hideFeed(sender: UILongPressGestureRecognizer) {
+        move({self.tabBar.center.y = 544; self.scrollView.center.y = 804}, {self.scrollView.hidden = true})
+    }
+    
+    @IBAction func didTapOnDice(sender: UIButton) {
+        mode = .Random
+        showFeed()
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -159,6 +178,16 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         else { // scrollView.contentOffset.x == 0
             pageControl.currentPage = 2
         }
+    }
+    
+    func move(action: () -> Void, completion: () -> Void = {}) {
+        UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.3, options: nil, animations: {
+            action()
+            },
+            completion: {completed in
+                completion()
+
+        })
     }
 
 }
