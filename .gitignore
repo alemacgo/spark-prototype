@@ -1,2 +1,4 @@
 *.xcodeproj/xcuserdata/
 xcuserdata/*
+Pods/Pods.xcodeproj/xcuserdata/
+*.swp
