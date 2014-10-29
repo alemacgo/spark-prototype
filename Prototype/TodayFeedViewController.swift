@@ -101,7 +101,6 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
             photoView.image = photoTaken
             mode = .Random
             updateFeed()
-            move({self.feedStrip.center.y += 325})
             /*let label = UIImageView(image: UIImage(named: "lisbonlabel"))
             label.center.y = 150
             containerView.addSubview(label)*/
@@ -163,6 +162,11 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
         }
         switch (mode) {
             case .Random:
+                feedStrip.center.y = 615
+                if (photoView.image != nil) {
+                    move({self.feedStrip.center.y += 325})
+                }
+                photoView.hidden = false
                 if (challenge == .Previous) {
                     feedStrip.image = previousRandomFeed
                 }
@@ -180,6 +184,8 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
                     scrollView.contentSize.height = 1230
                 }
             case .Map:
+                feedStrip.center.y = 615
+                photoView.hidden = true
                 if (challenge == .Previous) {
                     if (willFocusOnWest) {
                         feedStrip.image = previousMapFeedWest
@@ -203,6 +209,8 @@ class TodayFeedViewController: UIViewController, UIScrollViewDelegate, UIGesture
                 triangleView.layer.opacity = 1
                 move({self.scrollView.center.y = self.feedOriginalCenter + self.filterViewHeight})
             default:    // case .Time:
+                feedStrip.center.y = 615
+                photoView.hidden = true
                 if (challenge == .Previous) {
                     if (willFocusOnPast) {
                         feedStrip.image = previoustimeFeedBefore
