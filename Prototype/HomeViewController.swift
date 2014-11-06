@@ -15,6 +15,17 @@ enum Mode {
     case Time
 }
 
+enum ScrollDirection {
+    case None
+    case Crazy
+    case Right
+    case Left
+    case Up
+    case Down
+    case Horizontal
+    case Vertical
+}
+
 class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var pageView: UIScrollView!
@@ -64,7 +75,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     }
     
     override func viewDidAppear(animated: Bool) {
-        pageView.contentOffset = CGPointMake(960, 568)
+        pageView.contentOffset = CGPointMake(1280, 568)
         scrollView.contentOffset = CGPointMake(0, 300)
     }
     
@@ -199,8 +210,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             cameraButton.hidden = true
             cameraImage.hidden = true
         }
-        else { // scrollView.contentOffset.x == 960
+        else if scrollView.contentOffset.x == 960 {
             pageControl.currentPage = 3
+            cameraButton.hidden = true
+            cameraImage.hidden = true
+        }
+        else { // scrollView.contentOffset.x == 1280
+            pageControl.currentPage = 4
             cameraButton.hidden = true
             cameraImage.hidden = true
         }
