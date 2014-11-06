@@ -64,10 +64,9 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     }
     
     override func viewDidAppear(animated: Bool) {
-        pageView.contentOffset.x = 320
+        pageView.contentOffset = CGPointMake(960, 568)
         scrollView.contentOffset = CGPointMake(0, 300)
     }
-    
     
     // Taking photos
     let picker = UIImagePickerController()
@@ -195,17 +194,33 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
                 self.cameraImage.layer.opacity = 1
             })
         }
-        else { // scrollView.contentOffset.x == 0
+        else if scrollView.contentOffset.x == 640 {
             pageControl.currentPage = 2
             cameraButton.hidden = true
             cameraImage.hidden = true
         }
+        else { // scrollView.contentOffset.x == 960
+            pageControl.currentPage = 3
+            cameraButton.hidden = true
+            cameraImage.hidden = true
+        }
+        println(scrollView.contentOffset)
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         UIView.animateWithDuration(0.2, animations: {
             self.cameraImage.layer.opacity = 0
         })
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        /*
+        if scrollView.contentOffset.x != 0 {
+            scrollView.contentOffset.y = 0
+        }
+        if scrollView.contentOffset.y != 0 {
+            scrollView.contentOffset.x = 0
+        }*/
     }
     
     func move(action: () -> Void, completion: () -> Void = {}) {

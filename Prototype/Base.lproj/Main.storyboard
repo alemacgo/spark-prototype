@@ -259,7 +259,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-104" y="-210"/>
+            <point key="canvasLocation" x="-104" y="-207"/>
         </scene>
         <!--Today View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -365,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="755-xb-TxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="418" y="437"/>
+            <point key="canvasLocation" x="448" y="444"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="PMU-ot-QEm">
@@ -379,48 +379,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="daynight" translatesAutoresizingMaskIntoConstraints="NO" id="N6J-Hw-q0Y">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo6-3R-YTW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo6-3R-YTW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="homescreen" translatesAutoresizingMaskIntoConstraints="NO" id="GG9-80-zbF">
-                                        <rect key="frame" x="0.0" y="0.0" width="960" height="519"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="GG9-80-zbF">
+                                        <rect key="frame" x="0.0" y="0.0" width="1280" height="1704"/>
                                     </imageView>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="NoF-7Z-qPh" id="q8J-kP-EsO"/>
                                 </connections>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-Dw-Ogs">
-                                <rect key="frame" x="140" y="482" width="39" height="37"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="3" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-Dw-Ogs">
+                                <rect key="frame" x="125" y="482" width="69" height="37"/>
                             </pageControl>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7zd-q5-sm5">
-                                <rect key="frame" x="0.0" y="568" width="320" height="516"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="QzA-0a-W3K"/>
                                 </connections>
                             </scrollView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="tabbar" translatesAutoresizingMaskIntoConstraints="NO" id="pxl-y9-x0k">
-                                <rect key="frame" x="0.0" y="519" width="320" height="50"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="kZd-wl-MTK" appends="YES" id="btg-bK-3ON"/>
-                                </connections>
-                            </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="VzI-d5-e6r">
                                 <rect key="frame" x="51" y="272" width="217" height="224"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8C-qj-l0k">
-                                <rect key="frame" x="86" y="521" width="44" height="44"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapOnDice:" destination="NoF-7Z-qPh" eventType="touchUpInside" id="KqN-bE-eOI"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnu-HB-W1Y">
                                 <rect key="frame" x="90" y="291" width="140" height="140"/>
                                 <state key="normal">
@@ -440,7 +420,6 @@
                         <outlet property="pageControl" destination="eRg-Dw-Ogs" id="zvo-pY-jlJ"/>
                         <outlet property="pageView" destination="jo6-3R-YTW" id="w2Q-QX-X4W"/>
                         <outlet property="scrollView" destination="7zd-q5-sm5" id="4sK-WL-Gbx"/>
-                        <outlet property="tabBar" destination="pxl-y9-x0k" id="PEw-eO-BG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlU-UR-w6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -521,13 +500,12 @@
         <image name="addblue" width="40" height="49"/>
         <image name="addgreen" width="40" height="49"/>
         <image name="addpink" width="40" height="49"/>
+        <image name="backgrounds" width="1280" height="1704"/>
         <image name="badgealert" width="300" height="438"/>
         <image name="camera" width="217" height="224"/>
         <image name="create" width="320" height="568"/>
         <image name="createText" width="320" height="156"/>
-        <image name="daynight" width="320" height="509"/>
         <image name="download" width="320" height="568"/>
-        <image name="homescreen" width="960" height="509"/>
         <image name="message" width="203" height="98"/>
         <image name="pickBlue" width="34" height="39"/>
         <image name="pickGreen" width="34" height="39"/>
@@ -541,7 +519,6 @@
         <image name="swipeleftred" width="41" height="31"/>
         <image name="swiperight" width="41" height="31"/>
         <image name="swiperightgreen" width="41" height="31"/>
-        <image name="tabbar" width="320" height="47"/>
         <image name="today" width="320" height="568"/>
         <image name="topbar" width="320" height="133"/>
         <image name="wish1" width="960" height="75"/>
