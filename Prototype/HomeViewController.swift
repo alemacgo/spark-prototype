@@ -41,6 +41,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     @IBOutlet weak var cameraImage: UIImageView!
     @IBOutlet weak var tabBar: UIImageView!
     var mode = Mode.Random
+    var initialContentOffset = CGPointMake(0, 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -220,23 +221,15 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             cameraButton.hidden = true
             cameraImage.hidden = true
         }
-        println(scrollView.contentOffset)
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        
+        initialContentOffset = scrollView.contentOffset
+        
         UIView.animateWithDuration(0.2, animations: {
             self.cameraImage.layer.opacity = 0
         })
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        /*
-        if scrollView.contentOffset.x != 0 {
-            scrollView.contentOffset.y = 0
-        }
-        if scrollView.contentOffset.y != 0 {
-            scrollView.contentOffset.x = 0
-        }*/
     }
     
     func move(action: () -> Void, completion: () -> Void = {}) {
@@ -248,5 +241,95 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
 
         })
     }
+    
+    func pageMargins(point: CGPoint) -> CGPoint {
+        var result = CGPoint()
+        if point.x < 160 {
+            result.x = 0
+        }
+        else if point.x < 480 {
+            result.x = 320
+        }
+        else if point.x < 800 {
+            result.x = 640
+        }
+        else if point.x < 1120 {
+            result.x = 960
+        }
+        else {
+            result.x = 1280
+        }
+        
+        if point.y < 284 {
+            result.y = 0
+        }
+        else if point.y < 852 {
+            result.y = 568
+        }
+        else {
+            result.y = 1704
+        }
+        return result
+    }
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let scrollDirection = determineScrollDirectionAxis(scrollView)
+        if scrollDirection == .None {
+            var newOffset: CGPoint
+            
+            println(initialContentOffset)
+            if abs(scrollView.contentOffset.x) > abs(scrollView.contentOffset.y) {
+                newOffset = CGPointMake(scrollView.contentOffset.x, initialContentOffset.y)
+            }
+            else {
+                newOffset = CGPointMake(initialContentOffset.x, scrollView.contentOffset.y)
+            }
+            scrollView.setContentOffset(newOffset, animated: false)
+        }
+    }
+
+    func determineScrollDirection(scrollView: UIScrollView) -> ScrollDirection {
+        var scrollDirection: ScrollDirection
+        
+        // If the scrolling direction is changed on both X and Y it means the
+        // scrolling started in one corner and goes diagonal. This will be
+        // called ScrollDirectionCrazy
+        
+        if initialContentOffset.x != scrollView.contentOffset.x &&
+            initialContentOffset.y != scrollView.contentOffset.y {
+                scrollDirection = .Crazy
+        }
+        else {
+            if initialContentOffset.x > scrollView.contentOffset.x {
+                scrollDirection = .Left
+            }
+            else if initialContentOffset.x < scrollView.contentOffset.x {
+                scrollDirection = .Right
+            }
+            else if initialContentOffset.y > scrollView.contentOffset.y {
+                scrollDirection = .Up
+            }
+            else if initialContentOffset.y < scrollView.contentOffset.y {
+                scrollDirection = .Down
+            }
+            else {
+                scrollDirection = .None
+            }
+        }
+        return scrollDirection
+    }
+    
+    func determineScrollDirectionAxis(scrollView: UIScrollView) -> ScrollDirection {
+        let scrollDirection = determineScrollDirection(scrollView)
+        switch (scrollDirection) {
+        case .Left, .Right:
+            return .Horizontal
+        case .Up, .Down:
+            return .Vertical
+        default:
+            return .None
+        }
+    }
+
 
 }
