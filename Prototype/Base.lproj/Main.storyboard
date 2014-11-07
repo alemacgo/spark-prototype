@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NoF-7Z-qPh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M1b-uH-Q4w">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -367,70 +367,6 @@
             </objects>
             <point key="canvasLocation" x="448" y="444"/>
         </scene>
-        <!--Home View Controller-->
-        <scene sceneID="PMU-ot-QEm">
-            <objects>
-                <viewController id="NoF-7Z-qPh" customClass="HomeViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="oR7-d7-Zbb"/>
-                        <viewControllerLayoutGuide type="bottom" id="8PF-Rj-ouY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="obV-Hc-vtX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo6-3R-YTW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="GG9-80-zbF">
-                                        <rect key="frame" x="0.0" y="0.0" width="1600" height="1704"/>
-                                    </imageView>
-                                </subviews>
-                                <connections>
-                                    <outlet property="delegate" destination="NoF-7Z-qPh" id="q8J-kP-EsO"/>
-                                </connections>
-                            </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="4" translatesAutoresizingMaskIntoConstraints="NO" id="eRg-Dw-Ogs">
-                                <rect key="frame" x="120" y="482" width="81" height="37"/>
-                            </pageControl>
-                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7zd-q5-sm5">
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QzA-0a-W3K"/>
-                                </connections>
-                            </scrollView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="VzI-d5-e6r">
-                                <rect key="frame" x="51" y="272" width="217" height="224"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnu-HB-W1Y">
-                                <rect key="frame" x="90" y="291" width="140" height="140"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapCameraButton:" destination="NoF-7Z-qPh" eventType="touchUpInside" id="56h-eh-ZMn"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="cameraButton" destination="Gnu-HB-W1Y" id="yRS-IS-WgQ"/>
-                        <outlet property="cameraImage" destination="VzI-d5-e6r" id="aew-gD-M2e"/>
-                        <outlet property="pageControl" destination="eRg-Dw-Ogs" id="zvo-pY-jlJ"/>
-                        <outlet property="pageView" destination="jo6-3R-YTW" id="w2Q-QX-X4W"/>
-                        <outlet property="scrollView" destination="7zd-q5-sm5" id="4sK-WL-Gbx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QlU-UR-w6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.01" id="kZd-wl-MTK">
-                    <connections>
-                        <action selector="hideFeed:" destination="NoF-7Z-qPh" id="Qdm-xx-gip"/>
-                    </connections>
-                </pongPressGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="-104" y="1079"/>
-        </scene>
         <!--Profile View Controller-->
         <scene sceneID="dpz-6s-rm2">
             <objects>
@@ -494,6 +430,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CM4-b6-hj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-565" y="444"/>
+        </scene>
+        <!--Master View Controller-->
+        <scene sceneID="JNd-jR-aKq">
+            <objects>
+                <viewController id="M1b-uH-Q4w" customClass="MasterViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4HY-rF-UpW"/>
+                        <viewControllerLayoutGuide type="bottom" id="XsA-0u-2ml"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lNt-Tb-vQ1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cq8-Ib-eGw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="lJr-ch-RkU">
+                                        <rect key="frame" x="0.0" y="0.0" width="1600" height="1704"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-PZ-pCL">
+                                        <rect key="frame" x="1331" y="845" width="217" height="224"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                        </accessibility>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKS-eO-ohx">
+                                        <rect key="frame" x="1370" y="863" width="140" height="140"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" button="YES" notEnabled="YES"/>
+                                        </accessibility>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapCameraButton:" destination="M1b-uH-Q4w" eventType="touchUpInside" id="vK5-EI-WxA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <connections>
+                                    <outlet property="delegate" destination="M1b-uH-Q4w" id="wSZ-16-PNn"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="4" translatesAutoresizingMaskIntoConstraints="NO" id="JJo-Vu-zSQ">
+                                <rect key="frame" x="120" y="482" width="81" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="cameraButton" destination="hKS-eO-ohx" id="Yqk-Ea-Fz9"/>
+                        <outlet property="cameraImage" destination="ca0-PZ-pCL" id="YgM-cN-BSQ"/>
+                        <outlet property="pageControl" destination="JJo-Vu-zSQ" id="034-1f-Was"/>
+                        <outlet property="pageView" destination="cq8-Ib-eGw" id="F1W-Ha-qdD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xXE-bH-6cM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-104" y="1101"/>
         </scene>
     </scenes>
     <resources>

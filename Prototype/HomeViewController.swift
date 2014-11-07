@@ -15,17 +15,6 @@ enum Mode {
     case Time
 }
 
-enum ScrollDirection {
-    case None
-    case Crazy
-    case Right
-    case Left
-    case Up
-    case Down
-    case Horizontal
-    case Vertical
-}
-
 class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var pageView: UIScrollView!
@@ -46,6 +35,9 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
     override func viewDidLoad() {
         super.viewDidLoad()
         pageView.contentSize = pageView.subviews[0].size!
+        println(pageView.contentSize)
+        pageView.setContentOffset(CGPointMake(1280, 568), animated: false)
+        println(pageView.contentOffset)
         
         picker.delegate = self
         
@@ -73,11 +65,6 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
         feedStrip = UIImageView(image: randomFeed)
         feedStrip.frame = CGRect(origin: CGPointMake(0, 320), size: CGSizeMake(320, 2432))
         containerView.addSubview(feedStrip)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        pageView.contentOffset = CGPointMake(1280, 568)
-        scrollView.contentOffset = CGPointMake(0, 300)
     }
     
     // Taking photos
@@ -238,46 +225,13 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             },
             completion: {completed in
                 completion()
-
         })
-    }
-    
-    func pageMargins(point: CGPoint) -> CGPoint {
-        var result = CGPoint()
-        if point.x < 160 {
-            result.x = 0
-        }
-        else if point.x < 480 {
-            result.x = 320
-        }
-        else if point.x < 800 {
-            result.x = 640
-        }
-        else if point.x < 1120 {
-            result.x = 960
-        }
-        else {
-            result.x = 1280
-        }
-        
-        if point.y < 284 {
-            result.y = 0
-        }
-        else if point.y < 852 {
-            result.y = 568
-        }
-        else {
-            result.y = 1704
-        }
-        return result
     }
 
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let scrollDirection = determineScrollDirectionAxis(scrollView)
         if scrollDirection == .None {
             var newOffset: CGPoint
-            
-            println(initialContentOffset)
             if abs(scrollView.contentOffset.x) > abs(scrollView.contentOffset.y) {
                 newOffset = CGPointMake(scrollView.contentOffset.x, initialContentOffset.y)
             }
@@ -287,7 +241,7 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             scrollView.setContentOffset(newOffset, animated: false)
         }
     }
-
+    
     func determineScrollDirection(scrollView: UIScrollView) -> ScrollDirection {
         var scrollDirection: ScrollDirection
         
@@ -330,6 +284,5 @@ class HomeViewController: UIViewController, UIScrollViewDelegate, UIImagePickerC
             return .None
         }
     }
-
-
+    
 }

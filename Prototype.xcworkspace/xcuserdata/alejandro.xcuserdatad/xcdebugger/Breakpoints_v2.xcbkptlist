@@ -29,5 +29,65 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Prototype/MasterViewController.swift"
+            timestampString = "437068739.289681"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "scrollViewDidEndDecelerating(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Prototype.MasterViewController.move (Prototype.MasterViewController)(() -&gt; (), completion : () -&gt; ()) -&gt; ()"
+                  moduleName = "Prototype"
+                  urlString = "file:///Users/alejandro/Code/Prototype/Prototype/MasterViewController.swift"
+                  timestampString = "437056510.15741"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Prototype.MasterViewController.(move (Prototype.MasterViewController) -&gt; (() -&gt; (), completion : () -&gt; ()) -&gt; ()).(default argument 1)"
+                  moduleName = "Prototype"
+                  urlString = "file:///Users/alejandro/Code/Prototype/Prototype/MasterViewController.swift"
+                  timestampString = "437056510.158331"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Prototype.MasterViewController.(move (Prototype.MasterViewController) -&gt; (() -&gt; (), completion : () -&gt; ()) -&gt; ()).(default argument 1).(closure #1)"
+                  moduleName = "Prototype"
+                  urlString = "file:///Users/alejandro/Code/Prototype/Prototype/MasterViewController.swift"
+                  timestampString = "437056510.15846"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
