@@ -27,6 +27,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var cameraImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
+    var canScrollHorizontally = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +103,14 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         initialContentOffset = scrollView.contentOffset
+        if (!canScrollHorizontally) {
+            println(scrollView.contentSize)
+            scrollView.contentSize = CGSizeMake(320, 1136)
+            scrollView.contentOffset = initialContentOffset
+        }
+        else {
+            scrollView.contentSize = CGSizeMake(1600, 1136)
+        }
     }
     
     // MARK: Page-specific code
@@ -121,7 +130,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
                 break
         }
         switch (scrollView.contentOffset.y) {
+            case 0:
+                canScrollHorizontally = false
             case 568:
+                canScrollHorizontally = true
                 UIView.animateWithDuration(0.3, animations: {
                     self.pageControl.layer.opacity = 1
                 })
