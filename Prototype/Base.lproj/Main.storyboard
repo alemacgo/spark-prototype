@@ -101,7 +101,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-104" y="-852"/>
+            <point key="canvasLocation" x="-165" y="-232"/>
         </scene>
         <!--Wish List View Controller-->
         <scene sceneID="aAX-xD-ynF">
@@ -195,9 +195,6 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="x9E-2C-jt8" kind="custom" identifier="wishListToCreate" id="J85-xa-NC3"/>
-                                </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="oc3-JM-IM0">
                                 <rect key="frame" x="43" y="64" width="13" height="13"/>
@@ -218,7 +215,6 @@
                         <color key="backgroundColor" red="0.29677635732323238" green="0.29677635732323238" blue="0.29677635732323238" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="D8m-u9-Yhe" appends="YES" id="Vne-U8-8Ew"/>
                             <outletCollection property="gestureRecognizers" destination="7Rf-iT-wqb" appends="YES" id="rON-jF-t70"/>
                         </connections>
                     </view>
@@ -242,14 +238,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOS-iQ-QoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="3G6-NO-iZl" userLabel="Exit" sceneMemberID="exit"/>
-                <swipeGestureRecognizer direction="up" id="D8m-u9-Yhe">
+                <swipeGestureRecognizer direction="up" id="7Rf-iT-wqb">
                     <connections>
-                        <action selector="didSwipeUp:" destination="LUy-cd-Z1K" id="dLJ-al-NiX"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="down" id="7Rf-iT-wqb">
-                    <connections>
-                        <action selector="didSwipeDown:" destination="LUy-cd-Z1K" id="h9A-gA-s53"/>
+                        <segue destination="3DL-7s-GNi" kind="unwind" unwindAction="unwindMasterFromFuture:" id="1LI-mU-JhM"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.01" id="y63-KW-sZp">
@@ -259,7 +250,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-104" y="-207"/>
+            <point key="canvasLocation" x="-165" y="1126"/>
         </scene>
         <!--Today View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -325,14 +316,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="CKX-uy-cPU" userLabel="Exit" sceneMemberID="exit"/>
-                <swipeGestureRecognizer direction="down" id="qzh-N3-Fc8">
-                    <connections>
-                        <segue destination="LUy-cd-Z1K" kind="custom" identifier="todayToWishList" id="Ne2-Qb-ifI"/>
-                    </connections>
-                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="qzh-N3-Fc8"/>
                 <swipeGestureRecognizer direction="up" id="jAD-yb-nUf"/>
             </objects>
-            <point key="canvasLocation" x="-104" y="437"/>
+            <point key="canvasLocation" x="-165" y="436"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qf1-su-R6v">
@@ -443,20 +430,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cq8-Ib-eGw">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cq8-Ib-eGw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="lJr-ch-RkU">
-                                        <rect key="frame" x="0.0" y="0.0" width="1600" height="1136"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1600" height="568"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-PZ-pCL">
-                                        <rect key="frame" x="1331" y="845" width="217" height="224"/>
+                                        <rect key="frame" x="1331" y="267" width="217" height="224"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
                                         </accessibility>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKS-eO-ohx">
-                                        <rect key="frame" x="1370" y="863" width="140" height="140"/>
+                                        <rect key="frame" x="1370" y="299" width="140" height="140"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" button="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -469,13 +456,18 @@
                                     </button>
                                 </subviews>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="delegate" destination="M1b-uH-Q4w" id="wSZ-16-PNn"/>
+                                    <outletCollection property="gestureRecognizers" destination="jvr-0M-ZeG" appends="YES" id="jJH-Q3-CX3"/>
                                 </connections>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="4" translatesAutoresizingMaskIntoConstraints="NO" id="JJo-Vu-zSQ">
                                 <rect key="frame" x="120" y="482" width="81" height="37"/>
                             </pageControl>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="bar" translatesAutoresizingMaskIntoConstraints="NO" id="vIq-L1-VRI">
+                                <rect key="frame" x="0.0" y="522" width="320" height="47"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -489,16 +481,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXE-bH-6cM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3DL-7s-GNi" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="down" id="jvr-0M-ZeG">
+                    <connections>
+                        <action selector="didSwipeDown:" destination="M1b-uH-Q4w" id="0Fc-fW-071"/>
+                        <segue destination="LUy-cd-Z1K" kind="custom" identifier="masterToFuture" id="9Fv-ep-Cnd"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-104" y="1101"/>
+            <point key="canvasLocation" x="-165" y="1765"/>
         </scene>
     </scenes>
     <resources>
         <image name="addblue" width="40" height="49"/>
         <image name="addgreen" width="40" height="49"/>
         <image name="addpink" width="40" height="49"/>
-        <image name="backgrounds" width="1600" height="1136"/>
+        <image name="backgrounds" width="1600" height="568"/>
         <image name="badgealert" width="300" height="438"/>
+        <image name="bar" width="320" height="47"/>
         <image name="camera" width="217" height="224"/>
         <image name="create" width="320" height="568"/>
         <image name="createText" width="320" height="156"/>

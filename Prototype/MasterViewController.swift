@@ -8,111 +8,22 @@
 
 import UIKit
 
-enum ScrollDirection {
-    case None
-    case Crazy
-    case Right
-    case Left
-    case Up
-    case Down
-    case Horizontal
-    case Vertical
-}
-
 class MasterViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var pageView: UIScrollView!
-    var initialContentOffset: CGPoint!
     @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var cameraImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
-    var canScrollHorizontally = true
+    
+    let verticalManager = VerticalTransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pageView.contentSize = pageView.subviews[0].size!
-        initialContentOffset = CGPointMake(1280, 568)
-        pageView.setContentOffset(CGPointMake(1280, 568), animated: false)
+        pageView.contentOffset = CGPointMake(1280, 0)
     }
-    
-    // MARK: Scroll View - Determine direction
-    
-    func determineScrollDirection(scrollView: UIScrollView) -> ScrollDirection {
-        var scrollDirection: ScrollDirection
-        
-        // If the scrolling direction is changed on both X and Y it means the
-        // scrolling started in one corner and goes diagonal. This will be
-        // called ScrollDirectionCrazy
-        
-        if initialContentOffset.x != scrollView.contentOffset.x &&
-            initialContentOffset.y != scrollView.contentOffset.y {
-                scrollDirection = .Crazy
-        }
-        else {
-            if initialContentOffset.x > scrollView.contentOffset.x {
-                scrollDirection = .Left
-            }
-            else if initialContentOffset.x < scrollView.contentOffset.x {
-                scrollDirection = .Right
-            }
-            else if initialContentOffset.y > scrollView.contentOffset.y {
-                scrollDirection = .Up
-            }
-            else if initialContentOffset.y < scrollView.contentOffset.y {
-                scrollDirection = .Down
-            }
-            else {
-                scrollDirection = .None
-            }
-        }
-        return scrollDirection
-    }
-    
-    func determineScrollDirectionAxis(scrollView: UIScrollView) -> ScrollDirection {
-        let scrollDirection = determineScrollDirection(scrollView)
-        switch (scrollDirection) {
-        case .Left, .Right:
-            return .Horizontal
-        case .Up, .Down:
-            return .Vertical
-        default:
-            return .None
-        }
-    }
-    
-    // MARK: Scroll View - Custom behaviors
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let scrollDirection = determineScrollDirectionAxis(scrollView)
-        if scrollDirection == .None {
-            var newOffset: CGPoint
-            if abs(scrollView.contentOffset.x) > abs(scrollView.contentOffset.y) {
-                newOffset = CGPointMake(scrollView.contentOffset.x, initialContentOffset.y)
-            }
-            else {
-                newOffset = CGPointMake(initialContentOffset.x, scrollView.contentOffset.y)
-            }
-            scrollView.setContentOffset(newOffset, animated: false)
-        }
-        else if scrollDirection == .Vertical {
-            UIView.animateWithDuration(0.3, animations: {
-                self.pageControl.layer.opacity = 0
-            })
-        }
-    }
-    
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        initialContentOffset = scrollView.contentOffset
-        if (!canScrollHorizontally) {
-            println(scrollView.contentSize)
-            scrollView.contentSize = CGSizeMake(320, 1136)
-            scrollView.contentOffset = initialContentOffset
-        }
-        else {
-            scrollView.contentSize = CGSizeMake(1600, 1136)
-        }
-    }
-    
+
     // MARK: Page-specific code
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         switch (scrollView.contentOffset.x) {
@@ -129,17 +40,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
             default:
                 break
         }
-        switch (scrollView.contentOffset.y) {
-            case 0:
-                canScrollHorizontally = false
-            case 568:
-                canScrollHorizontally = true
-                UIView.animateWithDuration(0.3, animations: {
-                    self.pageControl.layer.opacity = 1
-                })
-            default:
-                break
-        }
+    }
+    
+    @IBAction func didSwipeDown(sender: UISwipeGestureRecognizer) {
+        println("b")
     }
     
     // MARK: Camera functionality
@@ -155,5 +59,21 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
             completion: {completed in
                 completion()
         })
+    }
+    
+    // MARK: Segues
+    @IBAction func unwindMasterFromFuture(sender: UIStoryboardSegue) {
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // this gets a reference to the screen that we're about to transition to
+        let toViewController = segue.destinationViewController as UIViewController
+        
+        // instead of using the default transition animation, we'll ask
+        // the segue to use our custom TransitionManager object to manage the transition animation
+        if segue.identifier! == "masterToFuture" {
+            toViewController.transitioningDelegate = self.verticalManager
+        }
     }
 }

@@ -66,7 +66,7 @@ class VerticalTransitionManager: NSObject, UIViewControllerAnimatedTransitioning
     
     // return how many seconds the transiton animation will take
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
-        return 0.5
+        return 0.7
     }
     
     // MARK: UIViewControllerTransitioningDelegate protocol methods
