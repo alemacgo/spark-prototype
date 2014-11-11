@@ -17,6 +17,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var cameraButton: UIButton!
     
     let verticalManager = VerticalTransitionManager()
+    let reverseVerticalManager = ReverseVerticalTransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +43,6 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBAction func didSwipeDown(sender: UISwipeGestureRecognizer) {
-        println("b")
-    }
-    
     // MARK: Camera functionality
     @IBAction func didTapCameraButton(sender: UIButton) {
         println("a")
@@ -66,6 +63,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    @IBAction func unwindMasterFromFeed(sender: UIStoryboardSegue) {
+        
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // this gets a reference to the screen that we're about to transition to
         let toViewController = segue.destinationViewController as UIViewController
@@ -74,6 +75,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         // the segue to use our custom TransitionManager object to manage the transition animation
         if segue.identifier! == "masterToFuture" {
             toViewController.transitioningDelegate = self.verticalManager
+        }
+        if segue.identifier! == "masterToFeed" {
+            toViewController.transitioningDelegate = self.reverseVerticalManager
         }
     }
 }

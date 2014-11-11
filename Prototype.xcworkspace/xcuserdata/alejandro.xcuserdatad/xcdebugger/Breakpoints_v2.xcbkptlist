@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Prototype/MasterViewController.swift"
-            timestampString = "437075833.476548"
+            timestampString = "437424082.312751"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "scrollViewDidEndDecelerating(_:)"
             landmarkType = "5">
             <Locations>
