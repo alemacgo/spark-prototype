@@ -14,17 +14,39 @@ enum DisplayMode {
     case Map
 }
 
+enum Challenge {
+    case Smell
+}
+
+enum Longitude {
+    case East
+    case West
+}
+
+enum BarX: CGFloat {
+    case Clock = 121
+    case World = 192
+}
+
 let clockAscending = UIImage(named: "ascending")
 let clockDescending = UIImage(named: "descending")
 
+let smellAscending = UIImage(named: "smellAscending")
+let smellDescending = UIImage(named: "smellDescending")
+
 class FeedViewController: UIViewController {
   
-    @IBOutlet weak var feedView: UIScrollView!
     var displayMode: DisplayMode!
+    var challenge: Challenge!
+    
+    @IBOutlet weak var feedView: UIScrollView!
     @IBOutlet weak var clockIcon: UIImageView!
+    @IBOutlet weak var feedImage: UIImageView!
+    @IBOutlet weak var selectedModeBar: UIImageView!
     
     override func viewDidLoad() {
         feedView.contentSize = feedView.subviews[0].size!
+        challenge = .Smell
         displayMode = .Descending
         updateFeed()
     }
@@ -39,12 +61,34 @@ class FeedViewController: UIViewController {
         updateFeed()
     }
     
+    @IBAction func didTapOnWorld(sender: UIButton) {
+        displayMode = .Map
+        updateFeed()
+    }
+    
     func updateFeed() {
         if displayMode == .Descending {
             clockIcon.image = clockDescending
+            UIView.animateWithDuration(0.3) {
+                self.selectedModeBar.center.x = BarX.Clock.rawValue
+            }
         }
         else if displayMode == .Ascending {
             clockIcon.image = clockAscending
+        }
+        else { // Map mode
+            UIView.animateWithDuration(0.3) {
+                self.selectedModeBar.center.x = BarX.World.rawValue
+            }
+        }
+        
+        if challenge == .Smell {
+            if displayMode == .Descending {
+                feedImage.image = smellDescending
+            }
+            else if displayMode == .Ascending {
+                feedImage.image = smellAscending
+            }
         }
     }
 

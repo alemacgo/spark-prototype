@@ -443,7 +443,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
                                 <rect key="frame" x="0.0" y="137" width="320" height="431"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="feed-smell1" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
                                     </imageView>
                                 </subviews>
@@ -462,14 +462,22 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapOnWorld:" destination="HZk-wc-kWz" eventType="touchUpInside" id="rTT-32-rZj"/>
+                                </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="selectedmode" translatesAutoresizingMaskIntoConstraints="NO" id="Lt0-Bj-Tcs">
+                                <rect key="frame" x="108" y="128" width="26" height="4"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="clockIcon" destination="9Bn-Ef-8Oc" id="S4T-bS-9kh"/>
+                        <outlet property="feedImage" destination="whA-mn-klP" id="09Z-Xo-aro"/>
                         <outlet property="feedView" destination="emx-BC-JtT" id="MGv-Pq-cwo"/>
+                        <outlet property="selectedModeBar" destination="Lt0-Bj-Tcs" id="70V-Q8-f1l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tx8-Wi-ohl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -579,7 +587,6 @@
         <image name="createText" width="320" height="156"/>
         <image name="descending" width="30" height="30"/>
         <image name="download" width="320" height="568"/>
-        <image name="feed-smell1" width="320" height="1705"/>
         <image name="message" width="203" height="98"/>
         <image name="pickBlue" width="34" height="39"/>
         <image name="pickGreen" width="34" height="39"/>
@@ -588,6 +595,8 @@
         <image name="pickYellow" width="34" height="40"/>
         <image name="profileLog" width="320" height="537"/>
         <image name="profilemenu" width="320" height="136"/>
+        <image name="selectedmode" width="26" height="4"/>
+        <image name="smellDescending" width="320" height="1705"/>
         <image name="star" width="44" height="44"/>
         <image name="swipeleft" width="41" height="31"/>
         <image name="swipeleftred" width="41" height="31"/>
