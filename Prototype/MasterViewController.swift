@@ -15,6 +15,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var cameraImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var starButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
     
     let verticalManager = VerticalTransitionManager()
     let reverseVerticalManager = ReverseVerticalTransitionManager()
@@ -22,14 +24,27 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         pageView.contentSize = pageView.subviews[0].size!
-        pageView.contentOffset = CGPointMake(1280, 0)
+        pageView.contentOffset = CGPointMake(1600, 0)
     }
 
     // MARK: Page-specific code
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        UIView.animateWithDuration(0.5) {
+            self.pageControl.center.y = 494.5
+        }
+        UIView.animateWithDuration(0.3, delay: 0.2, options: nil, animations: {
+            self.starButton.layer.opacity = 1
+            self.downButton.layer.opacity = 1
+        }, completion: nil)
+        
         switch (scrollView.contentOffset.x) {
             case 0:
                 pageControl.currentPage = 0
+                UIView.animateWithDuration(0.5) {
+                    self.starButton.layer.opacity = 0
+                    self.downButton.layer.opacity = 0
+                    self.pageControl.center.y = 525
+                }
             case 320:
                 pageControl.currentPage = 1
             case 640:
@@ -38,6 +53,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
                 pageControl.currentPage = 3
             case 1280:
                 pageControl.currentPage = 4
+            case 1600:
+                pageControl.currentPage = 5
             default:
                 break
         }

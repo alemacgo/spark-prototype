@@ -443,16 +443,32 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
                                 <rect key="frame" x="0.0" y="137" width="320" height="431"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="randomfeed" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="2432"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="feed-smell1" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-G2-sNM">
+                                <rect key="frame" x="99" y="90" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnClock:" destination="HZk-wc-kWz" eventType="touchUpInside" id="HjU-Yj-7kL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzH-Uv-TCn">
+                                <rect key="frame" x="171" y="90" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="clockIcon" destination="9Bn-Ef-8Oc" id="S4T-bS-9kh"/>
                         <outlet property="feedView" destination="emx-BC-JtT" id="MGv-Pq-cwo"/>
                     </connections>
                 </viewController>
@@ -481,16 +497,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="lJr-ch-RkU">
-                                        <rect key="frame" x="0.0" y="0.0" width="1600" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="568"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-PZ-pCL">
-                                        <rect key="frame" x="1331" y="267" width="217" height="224"/>
+                                        <rect key="frame" x="1651" y="267" width="217" height="224"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
                                         </accessibility>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKS-eO-ohx">
-                                        <rect key="frame" x="1370" y="299" width="140" height="140"/>
+                                        <rect key="frame" x="1690" y="299" width="140" height="140"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" button="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -508,12 +524,12 @@
                                     <outlet property="delegate" destination="M1b-uH-Q4w" id="wSZ-16-PNn"/>
                                 </connections>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" currentPage="4" translatesAutoresizingMaskIntoConstraints="NO" id="JJo-Vu-zSQ">
-                                <rect key="frame" x="120" y="482" width="81" height="37"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="5" translatesAutoresizingMaskIntoConstraints="NO" id="JJo-Vu-zSQ">
+                                <rect key="frame" x="107" y="476" width="105" height="37"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh9-Fi-OKR">
-                                <rect key="frame" x="137" y="521" width="40" height="30"/>
-                                <state key="normal" title="Down">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh9-Fi-OKR">
+                                <rect key="frame" x="137" y="511" width="44" height="44"/>
+                                <state key="normal" image="arrow">
                                     <color key="titleColor" red="1" green="1" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -521,9 +537,9 @@
                                     <segue destination="HZk-wc-kWz" kind="custom" identifier="masterToFeed" id="Bq4-SJ-VPj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szg-Z4-bWA">
-                                <rect key="frame" x="144" y="23" width="30" height="30"/>
-                                <state key="normal" title="Star">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szg-Z4-bWA">
+                                <rect key="frame" x="137" y="23" width="44" height="44"/>
+                                <state key="normal" image="star">
                                     <color key="titleColor" red="1" green="1" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -539,8 +555,10 @@
                     <connections>
                         <outlet property="cameraButton" destination="hKS-eO-ohx" id="Yqk-Ea-Fz9"/>
                         <outlet property="cameraImage" destination="ca0-PZ-pCL" id="YgM-cN-BSQ"/>
+                        <outlet property="downButton" destination="vh9-Fi-OKR" id="ASQ-A3-pXu"/>
                         <outlet property="pageControl" destination="JJo-Vu-zSQ" id="034-1f-Was"/>
                         <outlet property="pageView" destination="cq8-Ib-eGw" id="F1W-Ha-qdD"/>
+                        <outlet property="starButton" destination="szg-Z4-bWA" id="YCq-3M-whT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXE-bH-6cM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -553,13 +571,15 @@
         <image name="addblue" width="40" height="49"/>
         <image name="addgreen" width="40" height="49"/>
         <image name="addpink" width="40" height="49"/>
-        <image name="backgrounds" width="1600" height="568"/>
+        <image name="arrow" width="44" height="44"/>
+        <image name="backgrounds" width="1920" height="568"/>
         <image name="badgealert" width="300" height="438"/>
         <image name="camera" width="217" height="224"/>
         <image name="create" width="320" height="568"/>
         <image name="createText" width="320" height="156"/>
         <image name="descending" width="30" height="30"/>
         <image name="download" width="320" height="568"/>
+        <image name="feed-smell1" width="320" height="1705"/>
         <image name="message" width="203" height="98"/>
         <image name="pickBlue" width="34" height="39"/>
         <image name="pickGreen" width="34" height="39"/>
@@ -568,8 +588,7 @@
         <image name="pickYellow" width="34" height="40"/>
         <image name="profileLog" width="320" height="537"/>
         <image name="profilemenu" width="320" height="136"/>
-        <image name="randomfeed" width="320" height="2432"/>
-        <image name="star" width="13" height="13"/>
+        <image name="star" width="44" height="44"/>
         <image name="swipeleft" width="41" height="31"/>
         <image name="swipeleftred" width="41" height="31"/>
         <image name="swiperight" width="41" height="31"/>
