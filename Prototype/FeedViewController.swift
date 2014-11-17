@@ -122,7 +122,9 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 }
             }
         }
-        feedView.contentOffset.y = 0 // Bring the feed to the top image
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.feedView.contentOffset.y = 0 // Bring the feed to the top image
+        }, completion: nil)
     }
     
     // MARK: Scroll View Custom Behaviors
