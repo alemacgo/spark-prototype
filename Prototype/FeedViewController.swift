@@ -47,6 +47,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
   
     var displayMode: DisplayMode!
     var challenge: Challenge!
+    var longitude: Longitude!
     
     @IBOutlet weak var feedView: UIScrollView!
     @IBOutlet weak var mapView: UIScrollView!
@@ -62,6 +63,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
 
         challenge = .Smell
         displayMode = .Descending
+        longitude = .East
         updateFeed()
     }
     
@@ -112,7 +114,12 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 feedImage.image = smellAscending
             }
             else if displayMode == .Map {
-                feedImage.image = smellEast
+                if longitude == .East {
+                    feedImage.image = smellEast
+                }
+                else {
+                    feedImage.image = smellWest
+                }
             }
         }
         feedView.contentOffset.y = 0 // Bring the feed to the top image
@@ -128,6 +135,29 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                         scrollView.center.y = FeedCenter.Original.rawValue
                     }, nil)
             }
+        }
+    }
+    
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if scrollView == mapView {
+            if targetContentOffset.memory.x < 700 {
+                longitude = .West
+            }
+            else {
+                longitude = .East
+            }
+        }
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView == mapView && !decelerate {
+            updateFeed()
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if scrollView == mapView {
+            updateFeed()
         }
     }
 
