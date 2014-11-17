@@ -16,6 +16,7 @@ enum DisplayMode {
 
 enum Challenge {
     case Smell
+    case Green
 }
 
 enum Longitude {
@@ -29,19 +30,29 @@ enum BarX: CGFloat {
 }
 
 enum FeedCenter: CGFloat {
-    case Original = 352.5
-    case Low = 534.5 // Original + mapView.frame.size.height
+    case Original = 355.5
+    case Low = 537.5 // Original + mapView.frame.size.height
 }
 
 let LisbonCenter = CGPoint(x: 1141.5, y: 446)
 
-let clockAscending = UIImage(named: "ascending")
-let clockDescending = UIImage(named: "descending")
-
+let smellClockAscending = UIImage(named: "smellClockAscending")
+let smellClockDescending = UIImage(named: "smellClockDescending")
+let smellTopBar = UIImage(named: "smellTopBar")
+let smellSelectedBar = UIImage(named: "smellSelectedBar")
 let smellAscending = UIImage(named: "smellAscending")
 let smellDescending = UIImage(named: "smellDescending")
 let smellEast = UIImage(named: "smellEast")
 let smellWest = UIImage(named: "smellWest")
+
+let greenClockAscending = UIImage(named: "greenClockAscending")
+let greenClockDescending = UIImage(named: "greenClockDescending")
+let greenTopBar = UIImage(named: "greenTopBar")
+let greenSelectedBar = UIImage(named: "greenSelectedBar")
+let greenAscending = UIImage(named: "greenAscending")
+let greenDescending = UIImage(named: "greenDescending")
+let greenEast = UIImage(named: "greenEast")
+let greenWest = UIImage(named: "greenWest")
 
 class FeedViewController: UIViewController, UIScrollViewDelegate {
   
@@ -54,14 +65,29 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var clockIcon: UIImageView!
     @IBOutlet weak var feedImage: UIImageView!
+    
+    @IBOutlet weak var topBar: UIImageView!
     @IBOutlet weak var selectedModeBar: UIImageView!
+    var clockAscending: UIImage!
+    var clockDescending: UIImage!
     
     override func viewDidLoad() {
         feedView.contentSize = feedView.subviews[0].size!
         mapView.contentSize = mapView.subviews[0].size!
         mapView.contentOffset = LisbonCenter
 
-        challenge = .Smell
+        switch (challenge!) {
+            case .Smell:
+                topBar.image = smellTopBar
+                selectedModeBar.image = smellSelectedBar
+                clockAscending = smellClockAscending
+                clockDescending = smellClockDescending
+            default: // Green
+                topBar.image = greenTopBar
+                selectedModeBar.image = greenSelectedBar
+                clockAscending = greenClockAscending
+                clockDescending = greenClockDescending
+        }
         displayMode = .Descending
         longitude = .East
         updateFeed()
@@ -122,6 +148,24 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 }
             }
         }
+        else if challenge == .Green {
+            if displayMode == .Descending {
+                feedImage.image = greenDescending
+            }
+            else if displayMode == .Ascending {
+                feedImage.image = greenAscending
+            }
+            else if displayMode == .Map {
+                if longitude == .East {
+                    feedImage.image = greenEast
+                }
+                else {
+                    feedImage.image = greenWest
+                }
+            }
+        }
+        
+        
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
             self.feedView.contentOffset.y = 0 // Bring the feed to the top image
         }, completion: nil)

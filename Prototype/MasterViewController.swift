@@ -21,10 +21,13 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     let verticalManager = VerticalTransitionManager()
     let reverseVerticalManager = ReverseVerticalTransitionManager()
     
+    var challenge: Challenge!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pageView.contentSize = pageView.subviews[0].size!
         pageView.contentOffset = CGPointMake(1600, 0)
+        challenge = .Smell
     }
 
     // MARK: Page-specific code
@@ -32,10 +35,12 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         UIView.animateWithDuration(0.5) {
             self.pageControl.center.y = 494.5
         }
-        UIView.animateWithDuration(0.3, delay: 0.2, options: nil, animations: {
-            self.starButton.layer.opacity = 1
-            self.downButton.layer.opacity = 1
-        }, completion: nil)
+        if (scrollView.contentOffset.x != 0) {
+            UIView.animateWithDuration(0.3, delay: 0.2, options: nil, animations: {
+                self.starButton.layer.opacity = 1
+                self.downButton.layer.opacity = 1
+            }, completion: nil)
+        }
         
         switch (scrollView.contentOffset.x) {
             case 0:
@@ -53,10 +58,21 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
                 pageControl.currentPage = 3
             case 1280:
                 pageControl.currentPage = 4
+                challenge = .Green
             case 1600:
                 pageControl.currentPage = 5
+                challenge = .Smell
             default:
                 break
+        }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.x < 320 {
+            UIView.animateWithDuration(0.5) {
+                self.starButton.layer.opacity = 0
+                self.downButton.layer.opacity = 0
+            }
         }
     }
     
@@ -95,6 +111,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         }
         if segue.identifier! == "masterToFeed" {
             toViewController.transitioningDelegate = self.reverseVerticalManager
+            (segue.destinationViewController as FeedViewController).challenge = challenge
         }
     }
 }

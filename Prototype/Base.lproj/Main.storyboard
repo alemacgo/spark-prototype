@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HZk-wc-kWz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M1b-uH-Q4w">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -430,18 +430,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="topbar" translatesAutoresizingMaskIntoConstraints="NO" id="cJu-pO-bcd">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellTopBar" translatesAutoresizingMaskIntoConstraints="NO" id="cJu-pO-bcd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="mjn-qM-GZS" appends="YES" id="Eet-v9-5nt"/>
                                 </connections>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="descending" translatesAutoresizingMaskIntoConstraints="NO" id="9Bn-Ef-8Oc">
-                                <rect key="frame" x="106" y="96" width="30" height="30"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellClockDescending" translatesAutoresizingMaskIntoConstraints="NO" id="9Bn-Ef-8Oc">
+                                <rect key="frame" x="106" y="98" width="30" height="30"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPy-FT-Xzy">
-                                <rect key="frame" x="0.0" y="137" width="320" height="182"/>
+                                <rect key="frame" x="0.0" y="140" width="320" height="182"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="Ykq-ki-beZ">
                                         <rect key="frame" x="0.0" y="0.0" width="2900" height="1484"/>
@@ -452,7 +452,7 @@
                                 </connections>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
-                                <rect key="frame" x="0.0" y="137" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="140" width="320" height="431"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
@@ -463,7 +463,7 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-G2-sNM">
-                                <rect key="frame" x="99" y="90" width="44" height="44"/>
+                                <rect key="frame" x="99" y="93" width="44" height="44"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -480,8 +480,8 @@
                                     <action selector="didTapOnWorld:" destination="HZk-wc-kWz" eventType="touchUpInside" id="rTT-32-rZj"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="selectedmode" translatesAutoresizingMaskIntoConstraints="NO" id="Lt0-Bj-Tcs">
-                                <rect key="frame" x="108" y="128" width="26" height="4"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellSelectedBar" translatesAutoresizingMaskIntoConstraints="NO" id="Lt0-Bj-Tcs">
+                                <rect key="frame" x="108" y="129" width="26" height="4"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -493,6 +493,7 @@
                         <outlet property="feedView" destination="emx-BC-JtT" id="MGv-Pq-cwo"/>
                         <outlet property="mapView" destination="gPy-FT-Xzy" id="dLZ-fe-UIG"/>
                         <outlet property="selectedModeBar" destination="Lt0-Bj-Tcs" id="70V-Q8-f1l"/>
+                        <outlet property="topBar" destination="cJu-pO-bcd" id="TTx-QV-SuM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tx8-Wi-ohl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -600,7 +601,6 @@
         <image name="camera" width="217" height="224"/>
         <image name="create" width="320" height="568"/>
         <image name="createText" width="320" height="156"/>
-        <image name="descending" width="30" height="30"/>
         <image name="download" width="320" height="568"/>
         <image name="map" width="1450" height="742"/>
         <image name="message" width="203" height="98"/>
@@ -611,15 +611,17 @@
         <image name="pickYellow" width="34" height="40"/>
         <image name="profileLog" width="320" height="537"/>
         <image name="profilemenu" width="320" height="136"/>
-        <image name="selectedmode" width="26" height="4"/>
+        <image name="smellClockDescending" width="30" height="30"/>
         <image name="smellDescending" width="320" height="1702"/>
+        <image name="smellSelectedBar" width="26" height="4"/>
+        <image name="smellTopBar" width="320" height="139"/>
         <image name="star" width="44" height="44"/>
         <image name="swipeleft" width="41" height="31"/>
         <image name="swipeleftred" width="41" height="31"/>
         <image name="swiperight" width="41" height="31"/>
         <image name="swiperightgreen" width="41" height="31"/>
         <image name="today" width="320" height="568"/>
-        <image name="topbar" width="320" height="139"/>
+        <image name="topbar" width="320" height="133"/>
         <image name="wish1" width="960" height="75"/>
         <image name="wish2" width="960" height="75"/>
         <image name="wish3" width="960" height="75"/>
