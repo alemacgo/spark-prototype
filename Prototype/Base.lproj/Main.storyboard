@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M1b-uH-Q4w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HZk-wc-kWz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -440,13 +440,27 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="descending" translatesAutoresizingMaskIntoConstraints="NO" id="9Bn-Ef-8Oc">
                                 <rect key="frame" x="106" y="96" width="30" height="30"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPy-FT-Xzy">
+                                <rect key="frame" x="0.0" y="137" width="320" height="182"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="Ykq-ki-beZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="2900" height="1484"/>
+                                    </imageView>
+                                </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="HZk-wc-kWz" id="8Vr-bd-XuY"/>
+                                </connections>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
                                 <rect key="frame" x="0.0" y="137" width="320" height="431"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
                                     </imageView>
                                 </subviews>
+                                <connections>
+                                    <outlet property="delegate" destination="HZk-wc-kWz" id="fer-2b-Eci"/>
+                                </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-G2-sNM">
                                 <rect key="frame" x="99" y="90" width="44" height="44"/>
@@ -477,6 +491,7 @@
                         <outlet property="clockIcon" destination="9Bn-Ef-8Oc" id="S4T-bS-9kh"/>
                         <outlet property="feedImage" destination="whA-mn-klP" id="09Z-Xo-aro"/>
                         <outlet property="feedView" destination="emx-BC-JtT" id="MGv-Pq-cwo"/>
+                        <outlet property="mapView" destination="gPy-FT-Xzy" id="dLZ-fe-UIG"/>
                         <outlet property="selectedModeBar" destination="Lt0-Bj-Tcs" id="70V-Q8-f1l"/>
                     </connections>
                 </viewController>
@@ -487,7 +502,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-165" y="2502"/>
+            <point key="canvasLocation" x="-173" y="2489"/>
         </scene>
         <!--Master View Controller-->
         <scene sceneID="JNd-jR-aKq">
@@ -587,6 +602,7 @@
         <image name="createText" width="320" height="156"/>
         <image name="descending" width="30" height="30"/>
         <image name="download" width="320" height="568"/>
+        <image name="map" width="1450" height="742"/>
         <image name="message" width="203" height="98"/>
         <image name="pickBlue" width="34" height="39"/>
         <image name="pickGreen" width="34" height="39"/>
@@ -596,7 +612,7 @@
         <image name="profileLog" width="320" height="537"/>
         <image name="profilemenu" width="320" height="136"/>
         <image name="selectedmode" width="26" height="4"/>
-        <image name="smellDescending" width="320" height="1705"/>
+        <image name="smellDescending" width="320" height="1702"/>
         <image name="star" width="44" height="44"/>
         <image name="swipeleft" width="41" height="31"/>
         <image name="swipeleftred" width="41" height="31"/>
