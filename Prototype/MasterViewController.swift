@@ -36,7 +36,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         UIView.animateWithDuration(0.5) {
             self.pageControl.center.y = 494.5
         }
-        if (scrollView.contentOffset.x >= 320) {
+        if (scrollView.contentOffset.x >= 640) {
             UIView.animateWithDuration(0.3, delay: 0.2, options: nil, animations: {
                 self.starButton.layer.opacity = 1
                 self.downButton.layer.opacity = 1
@@ -45,7 +45,6 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         
         switch (scrollView.contentOffset.x) {
             case 320:
-                println("a")
                 pageControl.currentPage = 0
                 UIView.animateWithDuration(0.5) {
                     self.starButton.layer.opacity = 0
@@ -76,6 +75,13 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
                 self.downButton.layer.opacity = 0
             }
         }
+    }
+    
+    @IBAction func didTapCurrentButton(sender: UIButton) {
+        UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.9, options: nil, animations: {
+                self.pageView.contentOffset.x = 1920
+            }, completion: {_ in
+                self.scrollViewDidEndDecelerating(self.pageView)})
     }
     
     // MARK: Camera functionality

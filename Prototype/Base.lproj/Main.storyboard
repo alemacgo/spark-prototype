@@ -524,13 +524,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="2560" height="568"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-PZ-pCL">
-                                        <rect key="frame" x="1651" y="267" width="217" height="224"/>
+                                        <rect key="frame" x="1971" y="267" width="217" height="224"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
                                         </accessibility>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKS-eO-ohx">
-                                        <rect key="frame" x="1690" y="299" width="140" height="140"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKS-eO-ohx" userLabel="Camera Button">
+                                        <rect key="frame" x="2010" y="299" width="140" height="140"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" none="YES" button="YES" notEnabled="YES"/>
                                         </accessibility>
@@ -539,6 +539,15 @@
                                         </state>
                                         <connections>
                                             <action selector="didTapCameraButton:" destination="M1b-uH-Q4w" eventType="touchUpInside" id="vK5-EI-WxA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaT-4u-M7l" userLabel="Back to Today">
+                                        <rect key="frame" x="573" y="25" width="52" height="52"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapCurrentButton:" destination="M1b-uH-Q4w" eventType="touchUpInside" id="unX-9R-BOe"/>
                                         </connections>
                                     </button>
                                 </subviews>
