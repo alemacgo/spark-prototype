@@ -13,6 +13,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var logView: UIScrollView!
+    
     @IBOutlet weak var cameraImage: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var starButton: UIButton!
@@ -28,6 +30,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         pageView.contentSize = CGSizeMake(320*6, 568)
         pageView.contentOffset = CGPointMake(1920, 0)
         pageView.contentInset = UIEdgeInsetsMake(0, -320, 0, 320)
+        
+        logView.contentSize = logView.subviews[0].size!
+        
         challenge = .Smell
     }
 
@@ -73,6 +78,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
             UIView.animateWithDuration(0.5) {
                 self.starButton.layer.opacity = 0
                 self.downButton.layer.opacity = 0
+                self.pageControl.center.y = 525
             }
         }
     }

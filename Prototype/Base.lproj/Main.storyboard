@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M1b-uH-Q4w">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Create View Controller-->
@@ -517,12 +518,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cq8-Ib-eGw">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cq8-Ib-eGw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="lJr-ch-RkU">
                                         <rect key="frame" x="0.0" y="0.0" width="2560" height="568"/>
                                     </imageView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppJ-9j-ldX">
+                                        <rect key="frame" x="320" y="90" width="320" height="400"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="log" translatesAutoresizingMaskIntoConstraints="NO" id="ASA-Xc-al7">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="516"/>
+                                            </imageView>
+                                        </subviews>
+                                    </scrollView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-PZ-pCL">
                                         <rect key="frame" x="1971" y="267" width="217" height="224"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -557,11 +566,11 @@
                                     <outlet property="delegate" destination="M1b-uH-Q4w" id="wSZ-16-PNn"/>
                                 </connections>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="5" translatesAutoresizingMaskIntoConstraints="NO" id="JJo-Vu-zSQ">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" currentPage="5" translatesAutoresizingMaskIntoConstraints="NO" id="JJo-Vu-zSQ">
                                 <rect key="frame" x="107" y="476" width="105" height="37"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh9-Fi-OKR">
-                                <rect key="frame" x="137" y="511" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh9-Fi-OKR">
+                                <rect key="frame" x="138" y="511" width="44" height="44"/>
                                 <state key="normal" image="arrow">
                                     <color key="titleColor" red="1" green="1" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -570,8 +579,8 @@
                                     <segue destination="HZk-wc-kWz" kind="custom" identifier="masterToFeed" id="Bq4-SJ-VPj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szg-Z4-bWA">
-                                <rect key="frame" x="137" y="23" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szg-Z4-bWA">
+                                <rect key="frame" x="138" y="23" width="44" height="44"/>
                                 <state key="normal" image="star">
                                     <color key="titleColor" red="1" green="1" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -583,12 +592,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="vh9-Fi-OKR" firstAttribute="centerX" secondItem="cq8-Ib-eGw" secondAttribute="centerX" id="3YA-NU-H41"/>
+                            <constraint firstAttribute="centerX" secondItem="JJo-Vu-zSQ" secondAttribute="centerX" id="D4g-hY-zLF"/>
+                            <constraint firstItem="XsA-0u-2ml" firstAttribute="top" secondItem="JJo-Vu-zSQ" secondAttribute="bottom" constant="55" id="NO4-LX-G80"/>
+                            <constraint firstItem="szg-Z4-bWA" firstAttribute="top" secondItem="4HY-rF-UpW" secondAttribute="bottom" constant="3" id="O7t-bf-av5"/>
+                            <constraint firstAttribute="centerX" secondItem="szg-Z4-bWA" secondAttribute="centerX" id="QBZ-on-XSN"/>
+                            <constraint firstItem="JJo-Vu-zSQ" firstAttribute="leading" secondItem="lNt-Tb-vQ1" secondAttribute="leadingMargin" constant="91" id="QOY-HS-mgl"/>
+                            <constraint firstItem="szg-Z4-bWA" firstAttribute="centerX" secondItem="cq8-Ib-eGw" secondAttribute="centerX" id="gwi-0L-Bpy"/>
+                            <constraint firstItem="XsA-0u-2ml" firstAttribute="top" secondItem="vh9-Fi-OKR" secondAttribute="bottom" constant="13" id="sHQ-dF-g0M"/>
+                            <constraint firstAttribute="centerX" secondItem="vh9-Fi-OKR" secondAttribute="centerX" id="yL5-m9-WlN"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="cameraButton" destination="hKS-eO-ohx" id="Yqk-Ea-Fz9"/>
                         <outlet property="cameraImage" destination="ca0-PZ-pCL" id="YgM-cN-BSQ"/>
                         <outlet property="downButton" destination="vh9-Fi-OKR" id="ASQ-A3-pXu"/>
+                        <outlet property="logView" destination="ppJ-9j-ldX" id="Wo7-aq-szk"/>
                         <outlet property="pageControl" destination="JJo-Vu-zSQ" id="034-1f-Was"/>
                         <outlet property="pageView" destination="cq8-Ib-eGw" id="F1W-Ha-qdD"/>
                         <outlet property="starButton" destination="szg-Z4-bWA" id="YCq-3M-whT"/>
@@ -605,12 +626,13 @@
         <image name="addgreen" width="40" height="49"/>
         <image name="addpink" width="40" height="49"/>
         <image name="arrow" width="44" height="44"/>
-        <image name="backgrounds" width="2560" height="568"/>
+        <image name="backgrounds" width="2559" height="568"/>
         <image name="badgealert" width="300" height="438"/>
         <image name="camera" width="217" height="224"/>
         <image name="create" width="320" height="568"/>
         <image name="createText" width="320" height="156"/>
         <image name="download" width="320" height="568"/>
+        <image name="log" width="320" height="516"/>
         <image name="map" width="1450" height="742"/>
         <image name="message" width="203" height="98"/>
         <image name="pickBlue" width="34" height="39"/>
