@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 enum DisplayMode {
     case Descending
     case Ascending
@@ -17,42 +18,15 @@ enum DisplayMode {
 enum Challenge {
     case Smell
     case Green
+    case Smile
+    case Napkin
+    case Looks
 }
 
 enum Longitude {
     case East
     case West
 }
-
-enum BarX: CGFloat {
-    case Clock = 121
-    case World = 192
-}
-
-enum FeedCenter: CGFloat {
-    case Original = 355.5
-    case Low = 537.5 // Original + mapView.frame.size.height
-}
-
-let LisbonCenter = CGPoint(x: 1141.5, y: 446)
-
-let smellClockAscending = UIImage(named: "smellClockAscending")
-let smellClockDescending = UIImage(named: "smellClockDescending")
-let smellTopBar = UIImage(named: "smellTopBar")
-let smellSelectedBar = UIImage(named: "smellSelectedBar")
-let smellAscending = UIImage(named: "smellAscending")
-let smellDescending = UIImage(named: "smellDescending")
-let smellEast = UIImage(named: "smellEast")
-let smellWest = UIImage(named: "smellWest")
-
-let greenClockAscending = UIImage(named: "greenClockAscending")
-let greenClockDescending = UIImage(named: "greenClockDescending")
-let greenTopBar = UIImage(named: "greenTopBar")
-let greenSelectedBar = UIImage(named: "greenSelectedBar")
-let greenAscending = UIImage(named: "greenAscending")
-let greenDescending = UIImage(named: "greenDescending")
-let greenEast = UIImage(named: "greenEast")
-let greenWest = UIImage(named: "greenWest")
 
 class FeedViewController: UIViewController, UIScrollViewDelegate {
   
@@ -75,19 +49,8 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         feedView.contentSize = feedView.subviews[0].size!
         mapView.contentSize = mapView.subviews[0].size!
         mapView.contentOffset = LisbonCenter
-
-        switch (challenge!) {
-            case .Smell:
-                topBar.image = smellTopBar
-                selectedModeBar.image = smellSelectedBar
-                clockAscending = smellClockAscending
-                clockDescending = smellClockDescending
-            default: // Green
-                topBar.image = greenTopBar
-                selectedModeBar.image = greenSelectedBar
-                clockAscending = greenClockAscending
-                clockDescending = greenClockDescending
-        }
+        
+        loadChallengeData()
         displayMode = .Descending
         longitude = .East
         updateFeed()
@@ -106,69 +69,6 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func didTapOnWorld(sender: UIButton) {
         displayMode = .Map
         updateFeed()
-    }
-    
-    func updateFeed() {
-        if displayMode == .Descending {
-            clockIcon.image = clockDescending
-            UIView.animateWithDuration(0.3) {
-                self.selectedModeBar.center.x = BarX.Clock.rawValue
-            }
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-                self.mapView.layer.opacity = 0
-                self.feedView.center.y = FeedCenter.Original.rawValue
-                }, completion: nil)
-        }
-        else if displayMode == .Ascending {
-            clockIcon.image = clockAscending
-        }
-        else { // Map mode
-            UIView.animateWithDuration(0.3) {
-                self.selectedModeBar.center.x = BarX.World.rawValue
-            }
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-                self.mapView.layer.opacity = 1
-                self.feedView.center.y = FeedCenter.Low.rawValue
-            }, completion: nil)
-        }
-        
-        if challenge == .Smell {
-            if displayMode == .Descending {
-                feedImage.image = smellDescending
-            }
-            else if displayMode == .Ascending {
-                feedImage.image = smellAscending
-            }
-            else if displayMode == .Map {
-                if longitude == .East {
-                    feedImage.image = smellEast
-                }
-                else {
-                    feedImage.image = smellWest
-                }
-            }
-        }
-        else if challenge == .Green {
-            if displayMode == .Descending {
-                feedImage.image = greenDescending
-            }
-            else if displayMode == .Ascending {
-                feedImage.image = greenAscending
-            }
-            else if displayMode == .Map {
-                if longitude == .East {
-                    feedImage.image = greenEast
-                }
-                else {
-                    feedImage.image = greenWest
-                }
-            }
-        }
-        
-        
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.feedView.contentOffset.y = 0 // Bring the feed to the top image
-        }, completion: nil)
     }
     
     // MARK: Scroll View Custom Behaviors
@@ -205,6 +105,149 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         if scrollView == mapView {
             updateFeed()
         }
+    }
+    
+    // MARK: Challenge-specific code
+    func loadChallengeData() {
+        switch (challenge!) {
+            case .Smell:
+                topBar.image = smellTopBar
+                selectedModeBar.image = smellSelectedBar
+                clockAscending = smellClockAscending
+                clockDescending = smellClockDescending
+            case .Green:
+                topBar.image = greenTopBar
+                selectedModeBar.image = greenSelectedBar
+                clockAscending = greenClockAscending
+                clockDescending = greenClockDescending
+            case .Smile:
+                topBar.image = smileTopBar
+                selectedModeBar.image = smileSelectedBar
+                clockAscending = smileClockAscending
+                clockDescending = smileClockDescending
+            case .Napkin:
+                topBar.image = napkinTopBar
+                selectedModeBar.image = napkinSelectedBar
+                clockAscending = napkinClockAscending
+                clockDescending = napkinClockDescending
+            default: // Looks
+                topBar.image = looksTopBar
+                selectedModeBar.image = looksSelectedBar
+                clockAscending = looksClockAscending
+                clockDescending = looksClockDescending
+        }
+    }
+
+    
+    
+    func updateFeed() {
+        if displayMode == .Descending {
+            clockIcon.image = clockDescending
+            UIView.animateWithDuration(0.3) {
+                self.selectedModeBar.center.x = BarX.Clock.rawValue
+            }
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+                self.mapView.layer.opacity = 0
+                self.feedView.center.y = FeedCenter.Original.rawValue
+                }, completion: nil)
+        }
+        else if displayMode == .Ascending {
+            clockIcon.image = clockAscending
+        }
+        else { // Map mode
+            UIView.animateWithDuration(0.3) {
+                self.selectedModeBar.center.x = BarX.World.rawValue
+            }
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+                self.mapView.layer.opacity = 1
+                self.feedView.center.y = FeedCenter.Low.rawValue
+                }, completion: nil)
+        }
+        
+        if challenge == .Smell {
+            if displayMode == .Descending {
+                feedImage.image = smellDescending
+            }
+            else if displayMode == .Ascending {
+                feedImage.image = smellAscending
+            }
+            else if displayMode == .Map {
+                if longitude == .East {
+                    feedImage.image = smellEast
+                }
+                else {
+                    feedImage.image = smellWest
+                }
+            }
+        }
+        else if challenge == .Green {
+            if displayMode == .Descending {
+                feedImage.image = greenDescending
+            }
+            else if displayMode == .Ascending {
+                feedImage.image = greenAscending
+            }
+            else if displayMode == .Map {
+                if longitude == .East {
+                    feedImage.image = greenEast
+                }
+                else {
+                    feedImage.image = greenWest
+                }
+            }
+        }
+        else if challenge == .Smile {
+            if displayMode == .Descending {
+                feedImage.image = smileDescending
+            }
+            else if displayMode == .Ascending {
+                feedImage.image = smileAscending
+            }
+            else if displayMode == .Map {
+                if longitude == .East {
+                    feedImage.image = smileEast
+                }
+                else {
+                    feedImage.image = smileWest
+                }
+            }
+        }
+        else if challenge == .Napkin {
+            if displayMode == .Descending {
+                feedImage.image = napkinDescending
+            }
+            else if displayMode == .Ascending {
+                feedImage.image = napkinAscending
+            }
+            else if displayMode == .Map {
+                if longitude == .East {
+                    feedImage.image = napkinEast
+                }
+                else {
+                    feedImage.image = napkinWest
+                }
+            }
+        }
+        else { // challenge == .Looks {
+            if displayMode == .Descending {
+                feedImage.image = looksDescending
+            }
+            else if displayMode == .Ascending {
+                feedImage.image = looksAscending
+            }
+            else if displayMode == .Map {
+                if longitude == .East {
+                    feedImage.image = looksEast
+                }
+                else {
+                    feedImage.image = looksWest
+                }
+            }
+        }
+        
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.feedView.contentOffset.y = 0 // Bring the feed to the top image
+            }, completion: nil)
     }
 
 }

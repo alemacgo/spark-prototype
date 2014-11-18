@@ -58,10 +58,13 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
                 }
             case 640:
                 pageControl.currentPage = 1
+                challenge = .Looks
             case 960:
                 pageControl.currentPage = 2
+                challenge = .Napkin
             case 1280:
                 pageControl.currentPage = 3
+                challenge = .Smile
             case 1600:
                 pageControl.currentPage = 4
                 challenge = .Green
