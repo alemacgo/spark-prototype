@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voy-D9-OjU">
-                                <rect key="frame" x="0.0" y="221" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="103" width="320" height="75"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish1" translatesAutoresizingMaskIntoConstraints="NO" id="che-mH-kiu">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
@@ -36,7 +36,7 @@
                                 </connections>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PH9-TG-MHg">
-                                <rect key="frame" x="0.0" y="294" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="176" width="320" height="75"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish2" translatesAutoresizingMaskIntoConstraints="NO" id="Z2B-bf-h5V">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhi-Gy-X9H">
-                                <rect key="frame" x="0.0" y="366" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="248" width="320" height="75"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish3" translatesAutoresizingMaskIntoConstraints="NO" id="dSa-W6-k6F">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
@@ -66,7 +66,7 @@
                                 </connections>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eao-tT-ku8">
-                                <rect key="frame" x="0.0" y="438" width="320" height="75"/>
+                                <rect key="frame" x="0.0" y="320" width="320" height="75"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish4" translatesAutoresizingMaskIntoConstraints="NO" id="hm2-RR-fnM">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
@@ -81,16 +81,16 @@
                                 </connections>
                             </scrollView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swipeleft" translatesAutoresizingMaskIntoConstraints="NO" id="9Na-b1-WzR">
-                                <rect key="frame" x="20" y="178" width="41" height="31"/>
+                                <rect key="frame" x="20" y="80" width="41" height="31"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swiperight" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-Vs-e5O">
-                                <rect key="frame" x="260" y="178" width="41" height="31"/>
+                                <rect key="frame" x="260" y="80" width="41" height="31"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swiperightgreen" translatesAutoresizingMaskIntoConstraints="NO" id="CG6-jA-UfA">
-                                <rect key="frame" x="260" y="178" width="41" height="31"/>
+                                <rect key="frame" x="260" y="80" width="41" height="31"/>
                             </imageView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swipeleftred" translatesAutoresizingMaskIntoConstraints="NO" id="ACM-Ra-72c">
-                                <rect key="frame" x="20" y="178" width="41" height="31"/>
+                                <rect key="frame" x="20" y="80" width="41" height="31"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIC-XC-HXM">
                                 <rect key="frame" x="137" y="41" width="50" height="50"/>
@@ -98,21 +98,15 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="oc3-JM-IM0">
-                                <rect key="frame" x="43" y="64" width="13" height="13"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="jhd-xq-V4t">
-                                <rect key="frame" x="128" y="28" width="13" height="13"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="xfA-pG-E6c">
-                                <rect key="frame" x="296" y="131" width="13" height="13"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="95V-Ai-tbD">
-                                <rect key="frame" x="288" y="41" width="13" height="13"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="mWb-2l-J0q">
-                                <rect key="frame" x="102" y="78" width="13" height="13"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPV-WU-97C">
+                                <rect key="frame" x="140" y="506" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3DL-7s-GNi" kind="unwind" unwindAction="unwindMasterFromFuture:" id="lnw-td-yJN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29677635732323238" green="0.29677635732323238" blue="0.29677635732323238" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -122,11 +116,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="star0" destination="oc3-JM-IM0" id="AlY-eV-OBv"/>
-                        <outlet property="star1" destination="mWb-2l-J0q" id="lig-ZN-j4p"/>
-                        <outlet property="star2" destination="xfA-pG-E6c" id="39M-8a-nn6"/>
-                        <outlet property="star3" destination="95V-Ai-tbD" id="Oft-3t-3xH"/>
-                        <outlet property="star4" destination="jhd-xq-V4t" id="BeC-oj-o9V"/>
                         <outlet property="swipeButton" destination="Voy-D9-OjU" id="jRl-au-0iO"/>
                         <outlet property="swipeButton2" destination="PH9-TG-MHg" id="kfx-SW-e0g"/>
                         <outlet property="swipeButton3" destination="dhi-Gy-X9H" id="p4y-4z-YHk"/>

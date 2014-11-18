@@ -186,7 +186,6 @@ class TodayViewController: UIViewController, UIImagePickerControllerDelegate, UI
                 case .TodayToWishList:
                     toViewController.transitioningDelegate = self.verticalManager
                     let wishListViewController = toViewController as WishListViewController
-                    wishListViewController.originViewController = .Today
                 default: // SegueIdentifier.TodayToProfile:
                     toViewController.transitioningDelegate = self.horizontalManager
             }
