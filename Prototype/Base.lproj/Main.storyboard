@@ -521,7 +521,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgrounds" translatesAutoresizingMaskIntoConstraints="NO" id="lJr-ch-RkU">
-                                        <rect key="frame" x="0.0" y="0.0" width="1920" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="2560" height="568"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-PZ-pCL">
                                         <rect key="frame" x="1651" y="267" width="217" height="224"/>
@@ -596,7 +596,7 @@
         <image name="addgreen" width="40" height="49"/>
         <image name="addpink" width="40" height="49"/>
         <image name="arrow" width="44" height="44"/>
-        <image name="backgrounds" width="1920" height="568"/>
+        <image name="backgrounds" width="2560" height="568"/>
         <image name="badgealert" width="300" height="438"/>
         <image name="camera" width="217" height="224"/>
         <image name="create" width="320" height="568"/>

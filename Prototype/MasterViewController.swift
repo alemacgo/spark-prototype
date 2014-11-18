@@ -25,8 +25,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageView.contentSize = pageView.subviews[0].size!
-        pageView.contentOffset = CGPointMake(1600, 0)
+        pageView.contentSize = CGSizeMake(320*6, 568)
+        pageView.contentOffset = CGPointMake(1920, 0)
+        pageView.contentInset = UIEdgeInsetsMake(0, -320, 0, 320)
         challenge = .Smell
     }
 
@@ -35,31 +36,32 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         UIView.animateWithDuration(0.5) {
             self.pageControl.center.y = 494.5
         }
-        if (scrollView.contentOffset.x != 0) {
+        if (scrollView.contentOffset.x >= 320) {
             UIView.animateWithDuration(0.3, delay: 0.2, options: nil, animations: {
                 self.starButton.layer.opacity = 1
                 self.downButton.layer.opacity = 1
-            }, completion: nil)
+                }, completion: nil)
         }
         
         switch (scrollView.contentOffset.x) {
-            case 0:
+            case 320:
+                println("a")
                 pageControl.currentPage = 0
                 UIView.animateWithDuration(0.5) {
                     self.starButton.layer.opacity = 0
                     self.downButton.layer.opacity = 0
                     self.pageControl.center.y = 525
                 }
-            case 320:
-                pageControl.currentPage = 1
             case 640:
-                pageControl.currentPage = 2
+                pageControl.currentPage = 1
             case 960:
-                pageControl.currentPage = 3
+                pageControl.currentPage = 2
             case 1280:
+                pageControl.currentPage = 3
+            case 1600:
                 pageControl.currentPage = 4
                 challenge = .Green
-            case 1600:
+            case 1920:
                 pageControl.currentPage = 5
                 challenge = .Smell
             default:
@@ -68,7 +70,7 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.contentOffset.x < 320 {
+        if scrollView.contentOffset.x < 640 {
             UIView.animateWithDuration(0.5) {
                 self.starButton.layer.opacity = 0
                 self.downButton.layer.opacity = 0
