@@ -1,109 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M1b-uH-Q4w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LUy-cd-Z1K">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Create View Controller-->
-        <scene sceneID="yZa-Yc-hPA">
-            <objects>
-                <viewController id="x9E-2C-jt8" customClass="CreateViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WI2-5p-kc3"/>
-                        <viewControllerLayoutGuide type="bottom" id="atj-Fe-zrA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="P4G-cx-Wbi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="create" translatesAutoresizingMaskIntoConstraints="NO" id="haS-m9-XGP">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1d-UD-Gmi">
-                                <rect key="frame" x="261" y="514" width="44" height="44"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="3G6-NO-iZl" kind="unwind" unwindAction="unwindWishListFromCreate:" id="BVF-y4-cx9"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="createText" translatesAutoresizingMaskIntoConstraints="NO" id="QVK-pA-7rm">
-                                <rect key="frame" x="-8" y="103" width="320" height="156"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="pickGreen" translatesAutoresizingMaskIntoConstraints="NO" id="SvV-he-AxV">
-                                <rect key="frame" x="102" y="399" width="34" height="39"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="pickPink" translatesAutoresizingMaskIntoConstraints="NO" id="oZE-G4-hYQ">
-                                <rect key="frame" x="188" y="398" width="34" height="40"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="pickBlue" translatesAutoresizingMaskIntoConstraints="NO" id="4dm-wN-Pfh">
-                                <rect key="frame" x="59" y="398" width="34" height="39"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="pickRed" translatesAutoresizingMaskIntoConstraints="NO" id="NVW-jS-c2n">
-                                <rect key="frame" x="230" y="400" width="34" height="39"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="pickYellow" translatesAutoresizingMaskIntoConstraints="NO" id="wRU-TK-4YJ">
-                                <rect key="frame" x="143" y="398" width="34" height="40"/>
-                            </imageView>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="addblue" translatesAutoresizingMaskIntoConstraints="NO" id="BTe-TL-6j4">
-                                <rect key="frame" x="141" y="462" width="40" height="49"/>
-                            </imageView>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="addgreen" translatesAutoresizingMaskIntoConstraints="NO" id="z3p-Pj-r9k">
-                                <rect key="frame" x="141" y="462" width="40" height="49"/>
-                            </imageView>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="addpink" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-Il-Wv5">
-                                <rect key="frame" x="141" y="462" width="40" height="49"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HF-ay-VVX">
-                                <rect key="frame" x="138" y="462" width="46" height="54"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapDiamond:" destination="x9E-2C-jt8" eventType="touchUpInside" id="XLL-QD-zuD"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="erh-Ch-vuy">
-                                <rect key="frame" x="10" y="78" width="300" height="438"/>
-                                <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="badgealert" translatesAutoresizingMaskIntoConstraints="NO" id="Il6-rq-lpE">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="438"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4YG-jC-Pgi">
-                                        <rect key="frame" x="225" y="19" width="44" height="44"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTapCancel:" destination="x9E-2C-jt8" eventType="touchUpInside" id="gl8-0F-W4F"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="9Eg-BC-U0N" appends="YES" id="uni-KC-8LN"/>
-                        </connections>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="badgePopup" destination="erh-Ch-vuy" id="DAC-FS-RxT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OT5-B0-7GQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="up" id="9Eg-BC-U0N">
-                    <connections>
-                        <segue destination="3G6-NO-iZl" kind="unwind" unwindAction="unwindWishListFromCreate:" id="isd-zj-iMR"/>
-                    </connections>
-                </swipeGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="-165" y="-232"/>
-        </scene>
         <!--Wish List View Controller-->
         <scene sceneID="aAX-xD-ynF">
             <objects>
@@ -238,7 +139,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOS-iQ-QoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="3G6-NO-iZl" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="up" id="7Rf-iT-wqb">
                     <connections>
                         <segue destination="3DL-7s-GNi" kind="unwind" unwindAction="unwindMasterFromFuture:" id="1LI-mU-JhM"/>
@@ -285,9 +185,6 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="ZKf-5c-lT5" kind="custom" identifier="todayToProfile" id="Fjh-fD-XRN"/>
-                                </connections>
                             </button>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8B-Ko-qQZ">
                                 <rect key="frame" x="0.0" y="131" width="320" height="437"/>
@@ -320,7 +217,7 @@
                 <swipeGestureRecognizer direction="down" id="qzh-N3-Fc8"/>
                 <swipeGestureRecognizer direction="up" id="jAD-yb-nUf"/>
             </objects>
-            <point key="canvasLocation" x="-165" y="436"/>
+            <point key="canvasLocation" x="245" y="1809"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="qf1-su-R6v">
@@ -343,7 +240,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="BzY-gy-zQa"/>
+                                    <segue destination="M1b-uH-Q4w" kind="presentation" id="OWm-9J-c88"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -353,71 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="755-xb-TxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="448" y="444"/>
-        </scene>
-        <!--Profile View Controller-->
-        <scene sceneID="dpz-6s-rm2">
-            <objects>
-                <viewController id="ZKf-5c-lT5" customClass="ProfileViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZUx-IC-YT8"/>
-                        <viewControllerLayoutGuide type="bottom" id="ROe-Sf-x3y"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rXC-Jb-dzB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xF9-8n-PZW">
-                                <rect key="frame" x="0.0" y="119" width="320" height="461"/>
-                                <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="profileLog" translatesAutoresizingMaskIntoConstraints="NO" id="gFm-WM-l0B">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="807"/>
-                                    </imageView>
-                                </subviews>
-                            </scrollView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="profilemenu" translatesAutoresizingMaskIntoConstraints="NO" id="ZTq-am-vL4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TyI-fO-Wr4">
-                                <rect key="frame" x="275" y="24" width="44" height="44"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="CKX-uy-cPU" kind="unwind" unwindAction="unwindTodayFromUser:" id="cdb-Mh-Uy3"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3g-Bl-kS8">
-                                <rect key="frame" x="88" y="71" width="44" height="44"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapTrophy:" destination="ZKf-5c-lT5" eventType="touchUpInside" id="5K3-pd-8Dg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lpc-3b-BrQ">
-                                <rect key="frame" x="140" y="71" width="44" height="44"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapBook:" destination="ZKf-5c-lT5" eventType="touchUpInside" id="eeQ-Ue-Wl1"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                    </view>
-                    <navigationItem key="navigationItem" id="HyY-Ww-LGx"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="scrollView" destination="xF9-8n-PZW" id="sEv-7i-CRO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CM4-b6-hj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-565" y="444"/>
+            <point key="canvasLocation" x="-593" y="1809"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="uJZ-hE-Onc">
@@ -622,26 +455,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="addblue" width="40" height="49"/>
-        <image name="addgreen" width="40" height="49"/>
-        <image name="addpink" width="40" height="49"/>
         <image name="arrow" width="44" height="44"/>
         <image name="backgrounds" width="2559" height="568"/>
-        <image name="badgealert" width="300" height="438"/>
         <image name="camera" width="217" height="224"/>
-        <image name="create" width="320" height="568"/>
-        <image name="createText" width="320" height="156"/>
         <image name="download" width="320" height="568"/>
         <image name="log" width="320" height="516"/>
         <image name="map" width="1450" height="742"/>
         <image name="message" width="203" height="98"/>
-        <image name="pickBlue" width="34" height="39"/>
-        <image name="pickGreen" width="34" height="39"/>
-        <image name="pickPink" width="34" height="40"/>
-        <image name="pickRed" width="34" height="39"/>
-        <image name="pickYellow" width="34" height="40"/>
-        <image name="profileLog" width="320" height="537"/>
-        <image name="profilemenu" width="320" height="136"/>
         <image name="smellClockDescending" width="30" height="30"/>
         <image name="smellDescending" width="320" height="1702"/>
         <image name="smellSelectedBar" width="26" height="4"/>
