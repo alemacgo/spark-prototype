@@ -8,8 +8,9 @@
 
 import UIKit
 
-let votingReject: CGFloat = 480
-let votingAccept: CGFloat = 160
+let votingReject: CGFloat = 400
+let votingAccept: CGFloat = 240
+let middle: CGFloat = 320
 
 class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIScrollViewDelegate {    
     @IBOutlet weak var swipeRightImage: UIImageView!
@@ -21,6 +22,12 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     @IBOutlet weak var swipeButton2: UIScrollView!
     @IBOutlet weak var swipeButton3: UIScrollView!
     @IBOutlet weak var swipeButton4: UIScrollView!
+    
+    @IBOutlet weak var voteNo1: UIImageView!
+    @IBOutlet weak var voteYes1: UIImageView!
+    
+    var votedYes = false
+    var votedNo = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,18 +69,46 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let vote = scrollView.contentOffset.x
+        if vote < middle {
+            voteYes1.hidden = false
+            voteNo1.hidden = true
+        }
+        else if vote > middle {
+            voteYes1.hidden = true
+            voteNo1.hidden = false
+        }
         if vote >= votingReject {
-            swipeRightGreenImage.layer.opacity = 0
-            swipeLeftRedImage.layer.opacity = 1
+            println("NO")
+            votedNo = true
+            votedYes = false
         }
         else if vote <= votingAccept {
-            swipeRightGreenImage.layer.opacity = 1
-            swipeLeftRedImage.layer.opacity = 0
+            println("YES")
+            votedYes = true
+            votedNo = false
         }
         else {
-            swipeRightGreenImage.layer.opacity = 0
-            swipeLeftRedImage.layer.opacity = 0
+            println("NEUTRAL")
+            votedYes = false
+            votedNo = false
         }
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        println("RELEASE")
+        scrollView.userInteractionEnabled = false
+        if votedYes {
+            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+                scrollView.contentOffset.x = 0
+                }, completion: nil)
+        }
+        else if votedNo {
+            UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+                scrollView.contentOffset.x = 640
+                }, completion: nil)
+        }
+        votedYes = false
+        votedNo = false
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
