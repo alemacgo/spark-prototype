@@ -44,40 +44,34 @@
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteYes" translatesAutoresizingMaskIntoConstraints="NO" id="5T7-C2-JO7">
                                 <rect key="frame" x="13" y="167" width="295" height="73"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PH9-TG-MHg">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfX-bh-twf">
                                 <rect key="frame" x="0.0" y="166" width="320" height="75"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish2" translatesAutoresizingMaskIntoConstraints="NO" id="Z2B-bf-h5V">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish2" translatesAutoresizingMaskIntoConstraints="NO" id="uoF-rH-Qcn">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="cbw-zp-XHB"/>
-                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <connections>
-                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="6D4-9G-v3k"/>
+                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="fwG-ch-3CH"/>
                                 </connections>
                             </scrollView>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteYes" translatesAutoresizingMaskIntoConstraints="NO" id="5B3-tU-oi3">
-                                <rect key="frame" x="13" y="250" width="295" height="73"/>
-                            </imageView>
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteNo" translatesAutoresizingMaskIntoConstraints="NO" id="HLp-fr-JtE">
                                 <rect key="frame" x="13" y="250" width="295" height="73"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhi-Gy-X9H">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteYes" translatesAutoresizingMaskIntoConstraints="NO" id="5B3-tU-oi3">
+                                <rect key="frame" x="13" y="250" width="295" height="73"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLy-yc-f7h">
                                 <rect key="frame" x="0.0" y="249" width="320" height="75"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish3" translatesAutoresizingMaskIntoConstraints="NO" id="dSa-W6-k6F">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish3" translatesAutoresizingMaskIntoConstraints="NO" id="Bsb-rI-qLI">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="1Ni-UO-7C8"/>
-                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <connections>
-                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="9aa-6D-ta1"/>
+                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="XEG-su-G0a"/>
                                 </connections>
                             </scrollView>
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteNo" translatesAutoresizingMaskIntoConstraints="NO" id="gHu-ah-e7Y">
@@ -86,19 +80,16 @@
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteYes" translatesAutoresizingMaskIntoConstraints="NO" id="9XV-jT-QM9">
                                 <rect key="frame" x="13" y="333" width="295" height="73"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eao-tT-ku8">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGN-N3-WKE">
                                 <rect key="frame" x="0.0" y="332" width="320" height="75"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish4" translatesAutoresizingMaskIntoConstraints="NO" id="hm2-RR-fnM">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish4" translatesAutoresizingMaskIntoConstraints="NO" id="7Qe-ec-weQ">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="CTy-hB-bEL"/>
-                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <connections>
-                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="hvT-JD-qN2"/>
+                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="6ve-oK-R9H"/>
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPV-WU-97C">
@@ -119,14 +110,18 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="swipeButton" destination="VG6-u0-vYj" id="dn6-j8-Fk2"/>
-                        <outlet property="swipeButton2" destination="PH9-TG-MHg" id="kfx-SW-e0g"/>
-                        <outlet property="swipeButton3" destination="dhi-Gy-X9H" id="p4y-4z-YHk"/>
-                        <outlet property="swipeButton4" destination="eao-tT-ku8" id="5ka-44-c8U"/>
-                        <outlet property="voteNoImage1" destination="MKZ-zr-FHa" id="gHa-hn-916"/>
-                        <outlet property="voteNoImage2" destination="py8-Nv-H67" id="f7p-5D-coe"/>
-                        <outlet property="voteYesImage1" destination="Edd-nm-UZi" id="51g-T2-YdL"/>
-                        <outlet property="voteYesImage2" destination="5T7-C2-JO7" id="dbl-nD-K7h"/>
+                        <outlet property="swipeButton0" destination="VG6-u0-vYj" id="2AE-We-7FK"/>
+                        <outlet property="swipeButton1" destination="FfX-bh-twf" id="i5y-v2-SBF"/>
+                        <outlet property="swipeButton2" destination="DLy-yc-f7h" id="qD2-mI-f1p"/>
+                        <outlet property="swipeButton3" destination="wGN-N3-WKE" id="rjN-P6-CEE"/>
+                        <outlet property="voteNoImage0" destination="MKZ-zr-FHa" id="RYy-cL-bYV"/>
+                        <outlet property="voteNoImage1" destination="py8-Nv-H67" id="lZF-J4-0ch"/>
+                        <outlet property="voteNoImage2" destination="HLp-fr-JtE" id="Amx-iD-cIi"/>
+                        <outlet property="voteNoImage3" destination="gHu-ah-e7Y" id="nKk-Vw-ahS"/>
+                        <outlet property="voteYesImage0" destination="Edd-nm-UZi" id="aQH-Hn-6G3"/>
+                        <outlet property="voteYesImage1" destination="5T7-C2-JO7" id="LbN-xp-aY0"/>
+                        <outlet property="voteYesImage2" destination="5B3-tU-oi3" id="Yee-a7-CIe"/>
+                        <outlet property="voteYesImage3" destination="9XV-jT-QM9" id="gfP-QC-Nd6"/>
                         <segue destination="CKX-uy-cPU" kind="unwind" identifier="exitWishListToToday" unwindAction="unwindTodayFromWishList:" id="l09-LG-XsF"/>
                     </connections>
                 </viewController>

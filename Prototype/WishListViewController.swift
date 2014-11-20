@@ -12,43 +12,46 @@ let votingReject: CGFloat = 480
 let votingAccept: CGFloat = 160
 let middle: CGFloat = 320
 
-enum Vote {
-    case Yes
-    case No
-    case Neutral
-}
+let wish1Green = UIImage(named: "wish1green")
 
 class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIScrollViewDelegate {
     
-    @IBOutlet weak var swipeButton: UIScrollView!
+    @IBOutlet weak var swipeButton0: UIScrollView!
+    @IBOutlet weak var swipeButton1: UIScrollView!
     @IBOutlet weak var swipeButton2: UIScrollView!
     @IBOutlet weak var swipeButton3: UIScrollView!
-    @IBOutlet weak var swipeButton4: UIScrollView!
     
+    @IBOutlet weak var voteNoImage0: UIImageView!
+    @IBOutlet weak var voteYesImage0: UIImageView!
     @IBOutlet weak var voteNoImage1: UIImageView!
     @IBOutlet weak var voteYesImage1: UIImageView!
     @IBOutlet weak var voteNoImage2: UIImageView!
     @IBOutlet weak var voteYesImage2: UIImageView!
+    @IBOutlet weak var voteNoImage3: UIImageView!
+    @IBOutlet weak var voteYesImage3: UIImageView!
     
-    var vote: Vote!
+    var voteNoImages: [UIImageView]!
+    var voteYesImages: [UIImageView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        swipeButton.contentSize = swipeButton.subviews[0].size!
-        swipeButton.contentOffset.x = 320
+        swipeButton0.contentSize = swipeButton0.subviews[0].size!
+        swipeButton0.contentOffset.x = 320
+        swipeButton1.contentSize = swipeButton2.subviews[0].size!
+        swipeButton1.contentOffset.x = 320
         swipeButton2.contentSize = swipeButton2.subviews[0].size!
         swipeButton2.contentOffset.x = 320
         swipeButton3.contentSize = swipeButton2.subviews[0].size!
         swipeButton3.contentOffset.x = 320
-        swipeButton4.contentSize = swipeButton2.subviews[0].size!
-        swipeButton4.contentOffset.x = 320
         
-        swipeButton.tag = 0
-        swipeButton2.tag = 1
-        swipeButton3.tag = 2
-        swipeButton4.tag = 3
+        swipeButton0.tag = 0
+        swipeButton1.tag = 1
+        swipeButton2.tag = 2
+        swipeButton3.tag = 3
         
-        vote = .Neutral
+        voteNoImages = [voteNoImage0, voteNoImage1, voteNoImage2, voteNoImage3]
+        voteYesImages = [voteYesImage0, voteYesImage1, voteYesImage2, voteYesImage3]
+        
         // Do any additional setup after loading the view.
     }
     
@@ -64,53 +67,44 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         let scroll = scrollView.contentOffset.x
-        println("didScroll \(scroll)")
 
         if scroll < middle {
-            voteYesImage1.hidden = false
-            voteNoImage1.hidden = true
+            voteYesImages[scrollView.tag].hidden = false
+            voteNoImages[scrollView.tag].hidden = true
         }
         else if scroll > middle {
-            voteYesImage1.hidden = true
-            voteNoImage1.hidden = false
+            voteYesImages[scrollView.tag].hidden = true
+            voteNoImages[scrollView.tag].hidden = false
         }
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        acceptOrReject(scrollView, duration: 1.5)
+    }
+
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        acceptOrReject(scrollView, duration: 0.2)
+    }
+    
+    func acceptOrReject(scrollView: UIScrollView, duration: NSTimeInterval) {
         let scroll = scrollView.contentOffset.x
-        println("dragging \(scroll)")
-        if scroll >= votingReject {
-            vote = .No
-        }
-        else if scroll <= votingAccept {
-            println("e")
-            vote = .Yes
-        }
-        else {
-            vote = .Neutral
-        }
-        if vote == .Yes {
-            UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-                    self.voteYesImage1.center.x = 640
+
+        if scroll <= votingAccept {
+            UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+                self.voteYesImages[scrollView.tag].center.x = 640
                 }, completion: {_ in
                     //self.voteYesImage1.hidden = true
                     //self.voteYesImage1.center.x = 160.5
-                })
+            })
         }
-        else if vote == .No {
-            UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-                    self.voteNoImage1.center.x = -320
+        else if scroll >= votingReject {
+            UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
+                self.voteNoImages[scrollView.tag].center.x = -320
                 }, completion: {_ in
                     //self.voteNoImage1.hidden = true
                     //self.voteNoImage1.center.x = 160.5
             })
         }
-        vote = .Neutral
-    }
-    
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-
-        //move centers
     }
 
 }
