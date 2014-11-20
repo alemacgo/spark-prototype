@@ -26,21 +26,24 @@
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteYes" translatesAutoresizingMaskIntoConstraints="NO" id="Edd-nm-UZi">
                                 <rect key="frame" x="13" y="85" width="295" height="73"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Voy-D9-OjU">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG6-u0-vYj">
                                 <rect key="frame" x="0.0" y="84" width="320" height="75"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish1" translatesAutoresizingMaskIntoConstraints="NO" id="che-mH-kiu">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish1" translatesAutoresizingMaskIntoConstraints="NO" id="63A-3F-CVR">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="y63-KW-sZp" appends="YES" id="eL9-Ln-YSP"/>
-                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <connections>
-                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="DW6-kW-bBh"/>
+                                    <outlet property="delegate" destination="LUy-cd-Z1K" id="Bjg-sd-HGj"/>
                                 </connections>
                             </scrollView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteNo" translatesAutoresizingMaskIntoConstraints="NO" id="py8-Nv-H67">
+                                <rect key="frame" x="13" y="167" width="295" height="73"/>
+                            </imageView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteYes" translatesAutoresizingMaskIntoConstraints="NO" id="5T7-C2-JO7">
+                                <rect key="frame" x="13" y="167" width="295" height="73"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PH9-TG-MHg">
                                 <rect key="frame" x="0.0" y="166" width="320" height="75"/>
                                 <subviews>
@@ -56,6 +59,12 @@
                                     <outlet property="delegate" destination="LUy-cd-Z1K" id="6D4-9G-v3k"/>
                                 </connections>
                             </scrollView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteYes" translatesAutoresizingMaskIntoConstraints="NO" id="5B3-tU-oi3">
+                                <rect key="frame" x="13" y="250" width="295" height="73"/>
+                            </imageView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteNo" translatesAutoresizingMaskIntoConstraints="NO" id="HLp-fr-JtE">
+                                <rect key="frame" x="13" y="250" width="295" height="73"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhi-Gy-X9H">
                                 <rect key="frame" x="0.0" y="249" width="320" height="75"/>
                                 <subviews>
@@ -71,6 +80,12 @@
                                     <outlet property="delegate" destination="LUy-cd-Z1K" id="9aa-6D-ta1"/>
                                 </connections>
                             </scrollView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteNo" translatesAutoresizingMaskIntoConstraints="NO" id="gHu-ah-e7Y">
+                                <rect key="frame" x="13" y="333" width="295" height="73"/>
+                            </imageView>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="voteYes" translatesAutoresizingMaskIntoConstraints="NO" id="9XV-jT-QM9">
+                                <rect key="frame" x="13" y="333" width="295" height="73"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eao-tT-ku8">
                                 <rect key="frame" x="0.0" y="332" width="320" height="75"/>
                                 <subviews>
@@ -86,24 +101,6 @@
                                     <outlet property="delegate" destination="LUy-cd-Z1K" id="hvT-JD-qN2"/>
                                 </connections>
                             </scrollView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swipeleft" translatesAutoresizingMaskIntoConstraints="NO" id="9Na-b1-WzR">
-                                <rect key="frame" x="20" y="31" width="41" height="31"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swiperight" translatesAutoresizingMaskIntoConstraints="NO" id="LS6-Vs-e5O">
-                                <rect key="frame" x="260" y="31" width="41" height="31"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swiperightgreen" translatesAutoresizingMaskIntoConstraints="NO" id="CG6-jA-UfA">
-                                <rect key="frame" x="260" y="31" width="41" height="31"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="swipeleftred" translatesAutoresizingMaskIntoConstraints="NO" id="ACM-Ra-72c">
-                                <rect key="frame" x="20" y="31" width="41" height="31"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIC-XC-HXM">
-                                <rect key="frame" x="137" y="41" width="50" height="50"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPV-WU-97C">
                                 <rect key="frame" x="140" y="506" width="44" height="44"/>
                                 <state key="normal">
@@ -122,16 +119,14 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="swipeButton" destination="Voy-D9-OjU" id="jRl-au-0iO"/>
+                        <outlet property="swipeButton" destination="VG6-u0-vYj" id="dn6-j8-Fk2"/>
                         <outlet property="swipeButton2" destination="PH9-TG-MHg" id="kfx-SW-e0g"/>
                         <outlet property="swipeButton3" destination="dhi-Gy-X9H" id="p4y-4z-YHk"/>
                         <outlet property="swipeButton4" destination="eao-tT-ku8" id="5ka-44-c8U"/>
-                        <outlet property="swipeLeftImage" destination="9Na-b1-WzR" id="fWS-xi-WIr"/>
-                        <outlet property="swipeLeftRedImage" destination="ACM-Ra-72c" id="f10-fm-dUj"/>
-                        <outlet property="swipeRightGreenImage" destination="CG6-jA-UfA" id="EZH-3u-DMu"/>
-                        <outlet property="swipeRightImage" destination="LS6-Vs-e5O" id="9Ro-hf-im5"/>
-                        <outlet property="voteNo1" destination="MKZ-zr-FHa" id="goV-aj-h0L"/>
-                        <outlet property="voteYes1" destination="Edd-nm-UZi" id="6Lb-Fu-Nuu"/>
+                        <outlet property="voteNoImage1" destination="MKZ-zr-FHa" id="gHa-hn-916"/>
+                        <outlet property="voteNoImage2" destination="py8-Nv-H67" id="f7p-5D-coe"/>
+                        <outlet property="voteYesImage1" destination="Edd-nm-UZi" id="51g-T2-YdL"/>
+                        <outlet property="voteYesImage2" destination="5T7-C2-JO7" id="dbl-nD-K7h"/>
                         <segue destination="CKX-uy-cPU" kind="unwind" identifier="exitWishListToToday" unwindAction="unwindTodayFromWishList:" id="l09-LG-XsF"/>
                     </connections>
                 </viewController>
@@ -464,10 +459,6 @@
         <image name="smellSelectedBar" width="26" height="4"/>
         <image name="smellTopBar" width="320" height="139"/>
         <image name="star" width="44" height="44"/>
-        <image name="swipeleft" width="41" height="31"/>
-        <image name="swipeleftred" width="41" height="31"/>
-        <image name="swiperight" width="41" height="31"/>
-        <image name="swiperightgreen" width="41" height="31"/>
         <image name="today" width="320" height="568"/>
         <image name="topbar" width="320" height="133"/>
         <image name="voteNo" width="295" height="73"/>
