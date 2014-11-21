@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LUy-cd-Z1K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M1b-uH-Q4w">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -133,6 +133,15 @@
                                     <segue destination="3DL-7s-GNi" kind="unwind" unwindAction="unwindMasterFromFuture:" id="lnw-td-yJN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5C-Jn-Asp">
+                                <rect key="frame" x="43" y="423" width="235" height="41"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="JTM-tF-AVv" kind="presentation" modalTransitionStyle="crossDissolve" id="dkc-JA-DcW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29677635732323238" green="0.29677635732323238" blue="0.29677635732323238" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -166,6 +175,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOS-iQ-QoL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="A3a-ga-DuA" userLabel="Exit" sceneMemberID="exit"/>
                 <swipeGestureRecognizer direction="up" id="7Rf-iT-wqb">
                     <connections>
                         <segue destination="3DL-7s-GNi" kind="unwind" unwindAction="unwindMasterFromFuture:" id="1LI-mU-JhM"/>
@@ -179,6 +189,39 @@
                 </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-165" y="1126"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="TUE-Pv-et6">
+            <objects>
+                <viewController id="JTM-tF-AVv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PrT-eb-XpO"/>
+                        <viewControllerLayoutGuide type="bottom" id="0oL-9V-K58"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JOE-xv-azo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="createOverlay" translatesAutoresizingMaskIntoConstraints="NO" id="eUd-l9-sWy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tag-8k-pMi">
+                                <rect key="frame" x="16" y="15" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="A3a-ga-DuA" kind="unwind" unwindAction="unwindWishListFromCreate:" id="WGO-SG-X66"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LfN-kL-u6R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="326" y="1126"/>
         </scene>
         <!--Today View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -485,6 +528,7 @@
         <image name="arrow" width="44" height="44"/>
         <image name="backgrounds" width="2559" height="568"/>
         <image name="camera" width="217" height="224"/>
+        <image name="createOverlay" width="320" height="568"/>
         <image name="download" width="320" height="568"/>
         <image name="log" width="320" height="516"/>
         <image name="map" width="1450" height="742"/>

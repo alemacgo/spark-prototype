@@ -184,5 +184,9 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
             })
         }
     }
+    
+    @IBAction func unwindWishListFromCreate(sender: UIStoryboardSegue) {
+        
+    }
 
 }
