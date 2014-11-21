@@ -33,6 +33,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
                                     </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish1green" translatesAutoresizingMaskIntoConstraints="NO" id="KUh-1N-22I">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish1red" translatesAutoresizingMaskIntoConstraints="NO" id="J0G-0o-wbK">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="LUy-cd-Z1K" id="Bjg-sd-HGj"/>
@@ -48,6 +56,14 @@
                                 <rect key="frame" x="0.0" y="166" width="320" height="75"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish2" translatesAutoresizingMaskIntoConstraints="NO" id="uoF-rH-Qcn">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish2green" translatesAutoresizingMaskIntoConstraints="NO" id="xFN-ph-Fdn">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish2red" translatesAutoresizingMaskIntoConstraints="NO" id="IVX-Bv-6m8">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
                                     </imageView>
@@ -69,6 +85,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
                                     </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish3green" translatesAutoresizingMaskIntoConstraints="NO" id="NWV-XY-D15">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish3red" translatesAutoresizingMaskIntoConstraints="NO" id="dWJ-kQ-FeW">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="LUy-cd-Z1K" id="XEG-su-G0a"/>
@@ -84,6 +108,14 @@
                                 <rect key="frame" x="0.0" y="332" width="320" height="75"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish4" translatesAutoresizingMaskIntoConstraints="NO" id="7Qe-ec-weQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish4green" translatesAutoresizingMaskIntoConstraints="NO" id="r7m-lw-0tr">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="wish4red" translatesAutoresizingMaskIntoConstraints="NO" id="KQy-Yw-eKV">
                                         <rect key="frame" x="0.0" y="0.0" width="960" height="75"/>
                                         <gestureRecognizers/>
                                     </imageView>
@@ -122,6 +154,14 @@
                         <outlet property="voteYesImage1" destination="5T7-C2-JO7" id="LbN-xp-aY0"/>
                         <outlet property="voteYesImage2" destination="5B3-tU-oi3" id="Yee-a7-CIe"/>
                         <outlet property="voteYesImage3" destination="9XV-jT-QM9" id="gfP-QC-Nd6"/>
+                        <outlet property="wish1Green" destination="KUh-1N-22I" id="ekg-yP-5BG"/>
+                        <outlet property="wish1Red" destination="J0G-0o-wbK" id="JDT-0f-cbf"/>
+                        <outlet property="wish2Green" destination="xFN-ph-Fdn" id="Ftj-mU-4aL"/>
+                        <outlet property="wish2Red" destination="IVX-Bv-6m8" id="Tax-Fy-NVw"/>
+                        <outlet property="wish3Green" destination="NWV-XY-D15" id="BvC-yk-gbY"/>
+                        <outlet property="wish3Red" destination="dWJ-kQ-FeW" id="hhB-cN-LWr"/>
+                        <outlet property="wish4Green" destination="r7m-lw-0tr" id="H8n-Vh-C2b"/>
+                        <outlet property="wish4Red" destination="KQy-Yw-eKV" id="h47-7W-lF5"/>
                         <segue destination="CKX-uy-cPU" kind="unwind" identifier="exitWishListToToday" unwindAction="unwindTodayFromWishList:" id="l09-LG-XsF"/>
                     </connections>
                 </viewController>
@@ -459,9 +499,17 @@
         <image name="voteNo" width="295" height="73"/>
         <image name="voteYes" width="295" height="73"/>
         <image name="wish1" width="960" height="74"/>
+        <image name="wish1green" width="960" height="74"/>
+        <image name="wish1red" width="960" height="74"/>
         <image name="wish2" width="960" height="74"/>
+        <image name="wish2green" width="960" height="74"/>
+        <image name="wish2red" width="960" height="74"/>
         <image name="wish3" width="960" height="74"/>
+        <image name="wish3green" width="960" height="74"/>
+        <image name="wish3red" width="960" height="74"/>
         <image name="wish4" width="960" height="74"/>
+        <image name="wish4green" width="960" height="74"/>
+        <image name="wish4red" width="960" height="74"/>
         <image name="wishlist" width="320" height="568"/>
     </resources>
 </document>
