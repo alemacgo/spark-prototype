@@ -37,6 +37,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
         logView.contentSize = logView.subviews[0].size!
         
         challenge = .Smell
+        
+        picker.delegate = self
     }
 
     // MARK: Page-specific code
@@ -139,8 +141,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
                             theImage = info[UIImagePickerControllerOriginalImage] as UIImage
                         }
                         
-                        let width = 640/2 as CGFloat //theImage.size.width
-                        let height = 416/2 as CGFloat // theImage.size.height
+                        let width = theImage.size.width
+                        let height = theImage.size.height
                         if (height != width) {
                             var newDimension = min(width, height);
                             var widthOffset = (width - newDimension) / 2;
@@ -155,10 +157,13 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
                         
                         photo = theImage
                         cameraButton.removeFromSuperview()
-                        performSegueWithIdentifier("masterToFeed", sender: self)
                     }
                 }
             }
+            
+            picker.dismissViewControllerAnimated(false, completion: {
+                self.performSegueWithIdentifier("masterToFeed", sender: self)
+            })
     }
     
     

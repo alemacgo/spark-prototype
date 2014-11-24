@@ -16,6 +16,11 @@ enum FeedCenter: CGFloat {
     case Low = 537.5 // Original + mapView.frame.size.height
 }
 
+enum FeedImageCenter: CGFloat {
+    case Original = 852.5
+    case Low = 1062.5
+}
+
 let LisbonCenter = CGPoint(x: 1141.5, y: 446)
 
 let smellClockAscending = UIImage(named: "smellClockAscending")

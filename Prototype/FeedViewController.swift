@@ -47,6 +47,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     
     var photo: UIImage?
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var placeLabel: UIImageView!
     
     override func viewDidLoad() {
         feedView.contentSize = feedView.subviews[0].size!
@@ -57,6 +58,12 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         displayMode = .Descending
         longitude = .East
         updateFeed()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if photo != nil {
+            updateFeed()
+        }
     }
     
     @IBAction func didTapOnClock(sender: UIButton) {
@@ -140,10 +147,12 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 clockDescending = looksClockDescending
         }
     }
-
-    
     
     func updateFeed() {
+        feedImage.center.y = FeedImageCenter.Original.rawValue
+        photoView.hidden = true
+        placeLabel.hidden = true
+        
         if displayMode == .Descending {
             clockIcon.image = clockDescending
             UIView.animateWithDuration(0.3) {
@@ -171,7 +180,10 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
             if displayMode == .Descending {
                 feedImage.image = smellDescending
                 if photo != nil {
+                    feedImage.center.y = FeedImageCenter.Low.rawValue
                     photoView.image = photo
+                    photoView.hidden = false
+                    placeLabel.hidden = false
                 }
             }
             else if displayMode == .Ascending {
@@ -252,7 +264,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         }
         
         UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.feedView.contentOffset.y = 0 // Bring the feed to the top image
+                self.feedView.contentOffset.y = 0 // Bring the feed to the top image
             }, completion: nil)
     }
 

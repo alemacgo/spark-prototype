@@ -358,12 +358,21 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
                                 <rect key="frame" x="0.0" y="140" width="320" height="431"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahz-rX-S1H">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
-                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rj1-lf-Icr">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1915"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
+                                                <rect key="frame" x="0.0" y="244" width="320" height="1705"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahz-rX-S1H">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lisbonLabel" translatesAutoresizingMaskIntoConstraints="NO" id="veV-34-KEE">
+                                                <rect key="frame" x="0.0" y="194" width="320" height="51"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="HZk-wc-kWz" id="fer-2b-Eci"/>
@@ -396,10 +405,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="clockIcon" destination="9Bn-Ef-8Oc" id="S4T-bS-9kh"/>
-                        <outlet property="feedImage" destination="whA-mn-klP" id="09Z-Xo-aro"/>
+                        <outlet property="feedImage" destination="whA-mn-klP" id="DvF-e8-way"/>
                         <outlet property="feedView" destination="emx-BC-JtT" id="MGv-Pq-cwo"/>
                         <outlet property="mapView" destination="gPy-FT-Xzy" id="dLZ-fe-UIG"/>
                         <outlet property="photoView" destination="ahz-rX-S1H" id="d8J-Sb-SEr"/>
+                        <outlet property="placeLabel" destination="veV-34-KEE" id="TXJ-v9-ZkK"/>
                         <outlet property="selectedModeBar" destination="Lt0-Bj-Tcs" id="70V-Q8-f1l"/>
                         <outlet property="topBar" destination="cJu-pO-bcd" id="TTx-QV-SuM"/>
                     </connections>
@@ -534,6 +544,7 @@
         <image name="camera" width="217" height="224"/>
         <image name="createOverlay" width="320" height="568"/>
         <image name="download" width="320" height="568"/>
+        <image name="lisbonLabel" width="320" height="51"/>
         <image name="log" width="320" height="516"/>
         <image name="map" width="1450" height="742"/>
         <image name="message" width="203" height="98"/>
