@@ -26,13 +26,17 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
     
     var challenge: Challenge!
     
-    var photo: UIImage?
+    @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var placeLabel: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pageView.contentSize = CGSizeMake(320*6, 568)
         pageView.contentOffset = CGPointMake(1920, 0)
         pageView.contentInset = UIEdgeInsetsMake(0, -320, 0, 320)
+        
+        photoView.layer.opacity = 0
+        placeLabel.layer.opacity = 0
         
         logView.contentSize = logView.subviews[0].size!
         
@@ -155,14 +159,19 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
                             UIGraphicsEndImageContext();
                         }
                         
-                        photo = theImage
-                        cameraButton.removeFromSuperview()
+                        photoView.image = theImage
+                        cameraImage.hidden = true
                     }
                 }
             }
             
             picker.dismissViewControllerAnimated(false, completion: {
-                self.performSegueWithIdentifier("masterToFeed", sender: self)
+                self.photoView.layer.opacity = 0
+                self.placeLabel.layer.opacity = 0
+                UIView.animateWithDuration(1) {
+                    self.photoView.layer.opacity = 1
+                    self.placeLabel.layer.opacity = 1
+                }
             })
     }
     
@@ -204,7 +213,6 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
             toViewController.transitioningDelegate = self.reverseVerticalManager
             var feedViewController = segue.destinationViewController as FeedViewController
             feedViewController.challenge = challenge
-            feedViewController.photo = photo
         }
     }
 }

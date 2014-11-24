@@ -358,21 +358,9 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
                                 <rect key="frame" x="0.0" y="140" width="320" height="431"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rj1-lf-Icr">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1915"/>
-                                        <subviews>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
-                                                <rect key="frame" x="0.0" y="244" width="320" height="1705"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahz-rX-S1H">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
-                                            </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lisbonLabel" translatesAutoresizingMaskIntoConstraints="NO" id="veV-34-KEE">
-                                                <rect key="frame" x="0.0" y="194" width="320" height="51"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
+                                    </imageView>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="HZk-wc-kWz" id="fer-2b-Eci"/>
@@ -408,8 +396,6 @@
                         <outlet property="feedImage" destination="whA-mn-klP" id="DvF-e8-way"/>
                         <outlet property="feedView" destination="emx-BC-JtT" id="MGv-Pq-cwo"/>
                         <outlet property="mapView" destination="gPy-FT-Xzy" id="dLZ-fe-UIG"/>
-                        <outlet property="photoView" destination="ahz-rX-S1H" id="d8J-Sb-SEr"/>
-                        <outlet property="placeLabel" destination="veV-34-KEE" id="TXJ-v9-ZkK"/>
                         <outlet property="selectedModeBar" destination="Lt0-Bj-Tcs" id="70V-Q8-f1l"/>
                         <outlet property="topBar" destination="cJu-pO-bcd" id="TTx-QV-SuM"/>
                     </connections>
@@ -449,6 +435,12 @@
                                             </imageView>
                                         </subviews>
                                     </scrollView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCe-10-0Eh">
+                                        <rect key="frame" x="1926" y="239" width="308" height="203"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="funchalLabel" translatesAutoresizingMaskIntoConstraints="NO" id="RXH-Ef-8Ya">
+                                        <rect key="frame" x="1926" y="443" width="308" height="26"/>
+                                    </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-PZ-pCL">
                                         <rect key="frame" x="1971" y="267" width="217" height="224"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -529,6 +521,8 @@
                         <outlet property="logView" destination="ppJ-9j-ldX" id="Wo7-aq-szk"/>
                         <outlet property="pageControl" destination="JJo-Vu-zSQ" id="034-1f-Was"/>
                         <outlet property="pageView" destination="cq8-Ib-eGw" id="F1W-Ha-qdD"/>
+                        <outlet property="photoView" destination="wCe-10-0Eh" id="aP8-qP-L7x"/>
+                        <outlet property="placeLabel" destination="RXH-Ef-8Ya" id="jm1-zI-0vN"/>
                         <outlet property="starButton" destination="szg-Z4-bWA" id="YCq-3M-whT"/>
                     </connections>
                 </viewController>
@@ -544,7 +538,7 @@
         <image name="camera" width="217" height="224"/>
         <image name="createOverlay" width="320" height="568"/>
         <image name="download" width="320" height="568"/>
-        <image name="lisbonLabel" width="320" height="51"/>
+        <image name="funchalLabel" width="308" height="26"/>
         <image name="log" width="320" height="516"/>
         <image name="map" width="1450" height="742"/>
         <image name="message" width="203" height="98"/>

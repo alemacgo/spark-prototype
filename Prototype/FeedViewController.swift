@@ -45,10 +45,6 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     var clockAscending: UIImage!
     var clockDescending: UIImage!
     
-    var photo: UIImage?
-    @IBOutlet weak var photoView: UIImageView!
-    @IBOutlet weak var placeLabel: UIImageView!
-    
     override func viewDidLoad() {
         feedView.contentSize = feedView.subviews[0].size!
         mapView.contentSize = mapView.subviews[0].size!
@@ -58,12 +54,6 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         displayMode = .Descending
         longitude = .East
         updateFeed()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        if photo != nil {
-            updateFeed()
-        }
     }
     
     @IBAction func didTapOnClock(sender: UIButton) {
@@ -148,11 +138,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func updateFeed() {
-        feedImage.center.y = FeedImageCenter.Original.rawValue
-        photoView.hidden = true
-        placeLabel.hidden = true
-        
+    func updateFeed() {        
         if displayMode == .Descending {
             clockIcon.image = clockDescending
             UIView.animateWithDuration(0.3) {
@@ -179,12 +165,6 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         if challenge == .Smell {
             if displayMode == .Descending {
                 feedImage.image = smellDescending
-                if photo != nil {
-                    feedImage.center.y = FeedImageCenter.Low.rawValue
-                    photoView.image = photo
-                    photoView.hidden = false
-                    placeLabel.hidden = false
-                }
             }
             else if displayMode == .Ascending {
                 feedImage.image = smellAscending
