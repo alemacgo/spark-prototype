@@ -45,6 +45,9 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     var clockAscending: UIImage!
     var clockDescending: UIImage!
     
+    var photo: UIImage?
+    @IBOutlet weak var photoView: UIImageView!
+    
     override func viewDidLoad() {
         feedView.contentSize = feedView.subviews[0].size!
         mapView.contentSize = mapView.subviews[0].size!
@@ -167,6 +170,9 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         if challenge == .Smell {
             if displayMode == .Descending {
                 feedImage.image = smellDescending
+                if photo != nil {
+                    photoView.image = photo
+                }
             }
             else if displayMode == .Ascending {
                 feedImage.image = smellAscending

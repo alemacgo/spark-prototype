@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class MasterViewController: UIViewController, UIScrollViewDelegate {
+class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var pageView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -24,6 +25,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     let reverseVerticalManager = ReverseVerticalTransitionManager()
     
     var challenge: Challenge!
+    
+    var photo: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,9 +97,75 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // MARK: Camera functionality
+    let picker = UIImagePickerController()
+    
     @IBAction func didTapCameraButton(sender: UIButton) {
-        println("a")
+            picker.sourceType = .Camera
+            
+            var f = picker.view.bounds
+            f.size.height -= picker.navigationBar.bounds.size.height
+            let barHeight = f.size.height/2 - f.size.width/2
+            UIGraphicsBeginImageContext(f.size)
+            UIRectFillUsingBlendMode(CGRectMake(0, 0, f.size.width, barHeight), kCGBlendModeNormal);
+            UIRectFillUsingBlendMode(CGRectMake(0, f.size.height - barHeight, f.size.width, 0.75*barHeight), kCGBlendModeNormal);
+            let overlayImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            let overlayIV = UIImageView(frame: f)
+            overlayIV.image = overlayImage;
+            picker.cameraOverlayView?.userInteractionEnabled = false
+            picker.cameraOverlayView?.addSubview(overlayIV)
+            
+            self.presentViewController(picker, animated: true, completion: nil)
     }
+
+    func imagePickerController(picker: UIImagePickerController!,
+        didFinishPickingMediaWithInfo info: [NSObject : AnyObject]!){
+            
+            println("Picker returned successfully")
+            
+            let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+            
+            if let type:AnyObject = mediaType {
+                if type is String {
+                    let stringType = type as String
+                    
+                    if stringType == kUTTypeImage as NSString {
+                        
+                        var theImage: UIImage!
+                        
+                        if picker.allowsEditing {
+                            theImage = info[UIImagePickerControllerEditedImage] as UIImage
+                        } else {
+                            theImage = info[UIImagePickerControllerOriginalImage] as UIImage
+                        }
+                        
+                        let width = 640/2 as CGFloat //theImage.size.width
+                        let height = 416/2 as CGFloat // theImage.size.height
+                        if (height != width) {
+                            var newDimension = min(width, height);
+                            var widthOffset = (width - newDimension) / 2;
+                            let heightOffset = (height - newDimension) / 2;
+                            UIGraphicsBeginImageContextWithOptions(CGSizeMake(newDimension, newDimension), false, 0.0);
+                            theImage.drawAtPoint(CGPointMake(-widthOffset, -heightOffset),
+                                blendMode:kCGBlendModeCopy,
+                                alpha:1.0)
+                            theImage = UIGraphicsGetImageFromCurrentImageContext();
+                            UIGraphicsEndImageContext();
+                        }
+                        
+                        photo = theImage
+                        cameraButton.removeFromSuperview()
+                        performSegueWithIdentifier("masterToFeed", sender: self)
+                    }
+                }
+            }
+    }
+    
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     // MARK: Animations
     func move(action: () -> Void, completion: () -> Void = {}) {
@@ -128,7 +197,9 @@ class MasterViewController: UIViewController, UIScrollViewDelegate {
         }
         if segue.identifier! == "masterToFeed" {
             toViewController.transitioningDelegate = self.reverseVerticalManager
-            (segue.destinationViewController as FeedViewController).challenge = challenge
+            var feedViewController = segue.destinationViewController as FeedViewController
+            feedViewController.challenge = challenge
+            feedViewController.photo = photo
         }
     }
 }

@@ -60,7 +60,7 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
         
         voteNoImages = [voteNoImage0, voteNoImage1, voteNoImage2, voteNoImage3]
         voteYesImages = [voteYesImage0, voteYesImage1, voteYesImage2, voteYesImage3]
-        
+       
         greenImages = [wish1Green, wish2Green, wish3Green, wish4Green]
         redImages = [wish1Red, wish2Red, wish3Red, wish4Red]
         
@@ -70,10 +70,16 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
         for image in redImages {
             image.layer.opacity = 0
         }
-        
-        // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        for image in voteNoImages {
+            image.hidden = true
+        }
+        for image in voteYesImages {
+            image.hidden = true
+        }
+    }
     
     @IBAction func didTouchSwipeButton(sender: UILongPressGestureRecognizer) {
         if sender.state == .Ended {
@@ -121,11 +127,11 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     
     var addedWish = false
     func addNextWish(tag: Int) {
+        swipeButtons[tag].removeFromSuperview()
+        voteYesImages[tag].hidden = true
+        voteNoImages[tag].hidden = true
+        
         if (!addedWish) {
-            swipeButtons[tag].removeFromSuperview()
-            voteYesImages[tag].hidden = true
-            voteNoImages[tag].hidden = true
-
             let y = tagToWishY[tag]!
             var wish = UIScrollView(frame: CGRectMake(0, y, 320, 75))
 

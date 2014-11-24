@@ -320,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="755-xb-TxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-593" y="1809"/>
+            <point key="canvasLocation" x="-650" y="1832"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="uJZ-hE-Onc">
@@ -361,6 +361,9 @@
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahz-rX-S1H">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
+                                    </imageView>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="HZk-wc-kWz" id="fer-2b-Eci"/>
@@ -396,6 +399,7 @@
                         <outlet property="feedImage" destination="whA-mn-klP" id="09Z-Xo-aro"/>
                         <outlet property="feedView" destination="emx-BC-JtT" id="MGv-Pq-cwo"/>
                         <outlet property="mapView" destination="gPy-FT-Xzy" id="dLZ-fe-UIG"/>
+                        <outlet property="photoView" destination="ahz-rX-S1H" id="d8J-Sb-SEr"/>
                         <outlet property="selectedModeBar" destination="Lt0-Bj-Tcs" id="70V-Q8-f1l"/>
                         <outlet property="topBar" destination="cJu-pO-bcd" id="TTx-QV-SuM"/>
                     </connections>
