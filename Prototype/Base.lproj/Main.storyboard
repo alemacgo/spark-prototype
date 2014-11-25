@@ -334,7 +334,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellTopBar" translatesAutoresizingMaskIntoConstraints="NO" id="cJu-pO-bcd">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="smellTopBar" translatesAutoresizingMaskIntoConstraints="NO" id="cJu-pO-bcd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -344,7 +344,7 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellClockDescending" translatesAutoresizingMaskIntoConstraints="NO" id="9Bn-Ef-8Oc">
                                 <rect key="frame" x="106" y="98" width="30" height="30"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPy-FT-Xzy">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPy-FT-Xzy">
                                 <rect key="frame" x="0.0" y="140" width="320" height="182"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="Ykq-ki-beZ">
@@ -355,7 +355,10 @@
                                     <outlet property="delegate" destination="HZk-wc-kWz" id="8Vr-bd-XuY"/>
                                 </connections>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" image="mapOverlay" translatesAutoresizingMaskIntoConstraints="NO" id="cMU-PQ-J5x">
+                                <rect key="frame" x="109" y="187" width="102" height="93"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
                                 <rect key="frame" x="0.0" y="140" width="320" height="431"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
@@ -389,6 +392,14 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cMU-PQ-J5x" firstAttribute="top" secondItem="cJu-pO-bcd" secondAttribute="bottom" constant="48" id="85o-AL-p7k"/>
+                            <constraint firstItem="cMU-PQ-J5x" firstAttribute="centerX" secondItem="cJu-pO-bcd" secondAttribute="centerX" id="FJz-8l-o5v"/>
+                            <constraint firstItem="Ij1-ft-iIc" firstAttribute="top" secondItem="cMU-PQ-J5x" secondAttribute="bottom" constant="288" id="UFj-4A-gud"/>
+                            <constraint firstItem="cMU-PQ-J5x" firstAttribute="centerX" secondItem="emx-BC-JtT" secondAttribute="centerX" id="hnk-X3-EgS"/>
+                            <constraint firstItem="cMU-PQ-J5x" firstAttribute="centerX" secondItem="gPy-FT-Xzy" secondAttribute="centerX" id="nt2-Ee-VPT"/>
+                            <constraint firstAttribute="centerX" secondItem="cMU-PQ-J5x" secondAttribute="centerX" id="rR2-Tu-xHt"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -541,6 +552,7 @@
         <image name="funchalLabel" width="308" height="26"/>
         <image name="log" width="320" height="516"/>
         <image name="map" width="1450" height="742"/>
+        <image name="mapOverlay" width="102" height="93"/>
         <image name="message" width="203" height="98"/>
         <image name="smellClockDescending" width="30" height="30"/>
         <image name="smellDescending" width="320" height="1702"/>

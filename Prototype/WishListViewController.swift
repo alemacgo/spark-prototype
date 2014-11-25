@@ -127,7 +127,7 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     
     var addedWish = false
     func addNextWish(tag: Int) {
-        swipeButtons[tag].removeFromSuperview()
+        swipeButtons[tag].hidden = true
         voteYesImages[tag].hidden = true
         voteNoImages[tag].hidden = true
         
