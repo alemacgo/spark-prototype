@@ -45,6 +45,10 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     var greenImages: [UIImageView]!
     var redImages: [UIImageView]!
     
+    let wishImage = UIImageView(image: UIImage(named: "wish5"))
+    let wishImageGreen = UIImageView(image: UIImage(named: "wish5green"))
+    let wishImageRed = UIImageView(image: UIImage(named: "wish5red"))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeButtons = [swipeButton0, swipeButton1, swipeButton2, swipeButton3]
@@ -122,22 +126,19 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
     }
 
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        acceptOrReject(scrollView, duration: 0.2)
+        acceptOrReject(scrollView, duration: 0.5)
     }
     
     var addedWish = false
     func addNextWish(tag: Int) {
-        swipeButtons[tag].hidden = true
-        voteYesImages[tag].hidden = true
-        voteNoImages[tag].hidden = true
-        
         if (!addedWish) {
+            swipeButtons[tag].hidden = true
+            voteYesImages[tag].hidden = true
+            voteNoImages[tag].hidden = true
+            
             let y = tagToWishY[tag]!
             var wish = UIScrollView(frame: CGRectMake(0, y, 320, 75))
 
-            let wishImage = UIImageView(image: UIImage(named: "wish5"))
-            let wishImageGreen = UIImageView(image: UIImage(named: "wish5green"))
-            let wishImageRed = UIImageView(image: UIImage(named: "wish5red"))
             wish.addSubview(wishImage)
             wish.addSubview(wishImageGreen)
             wish.addSubview(wishImageRed)
@@ -161,15 +162,11 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
             self.view.addSubview(wish)
 
             UIView.animateWithDuration(1, animations: {
-                wishImage.layer.opacity = 1
+                self.wishImage.layer.opacity = 1
                 }, completion: {_ in
-                    self.voteYesImages[tag].hidden = false
-                    self.voteNoImages[tag].hidden = false
+                    self.addedWish = true
             })
-            
-            
         }
-        addedWish = true
     }
     
     func acceptOrReject(scrollView: UIScrollView, duration: NSTimeInterval) {
