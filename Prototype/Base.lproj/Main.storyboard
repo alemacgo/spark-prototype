@@ -337,10 +337,16 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="smellTopBar" translatesAutoresizingMaskIntoConstraints="NO" id="cJu-pO-bcd">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="mjn-qM-GZS" appends="YES" id="Eet-v9-5nt"/>
-                                </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncl-49-2CC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3DL-7s-GNi" kind="unwind" unwindAction="unwindMasterFromFeed:" id="2DR-eo-0Zy"/>
+                                </connections>
+                            </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellClockDescending" translatesAutoresizingMaskIntoConstraints="NO" id="9Bn-Ef-8Oc">
                                 <rect key="frame" x="106" y="98" width="30" height="30"/>
                             </imageView>
@@ -355,7 +361,7 @@
                                     <outlet property="delegate" destination="HZk-wc-kWz" id="8Vr-bd-XuY"/>
                                 </connections>
                             </scrollView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" image="mapOverlay" translatesAutoresizingMaskIntoConstraints="NO" id="cMU-PQ-J5x">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" image="mapOverlay" translatesAutoresizingMaskIntoConstraints="NO" id="cMU-PQ-J5x">
                                 <rect key="frame" x="109" y="187" width="102" height="93"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
@@ -364,6 +370,10 @@
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
                                     </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSs-FV-h96">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <connections>
                                     <outlet property="delegate" destination="HZk-wc-kWz" id="fer-2b-Eci"/>
@@ -406,17 +416,14 @@
                         <outlet property="clockIcon" destination="9Bn-Ef-8Oc" id="S4T-bS-9kh"/>
                         <outlet property="feedImage" destination="whA-mn-klP" id="DvF-e8-way"/>
                         <outlet property="feedView" destination="emx-BC-JtT" id="MGv-Pq-cwo"/>
+                        <outlet property="mapCover" destination="tSs-FV-h96" id="H5e-Cl-QsS"/>
+                        <outlet property="mapOverlay" destination="cMU-PQ-J5x" id="nEV-4S-Zfh"/>
                         <outlet property="mapView" destination="gPy-FT-Xzy" id="dLZ-fe-UIG"/>
                         <outlet property="selectedModeBar" destination="Lt0-Bj-Tcs" id="70V-Q8-f1l"/>
                         <outlet property="topBar" destination="cJu-pO-bcd" id="TTx-QV-SuM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tx8-Wi-ohl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="mjn-qM-GZS">
-                    <connections>
-                        <segue destination="3DL-7s-GNi" kind="unwind" unwindAction="unwindMasterFromFeed:" id="QBb-Bd-3vj"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-173" y="2489"/>
         </scene>

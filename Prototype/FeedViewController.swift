@@ -44,11 +44,15 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var selectedModeBar: UIImageView!
     var clockAscending: UIImage!
     var clockDescending: UIImage!
+    @IBOutlet weak var mapOverlay: UIImageView!
+    
+    @IBOutlet weak var mapCover: UIView!
     
     override func viewDidLoad() {
         feedView.contentSize = feedView.subviews[0].size!
         mapView.contentSize = mapView.subviews[0].size!
         mapView.contentOffset = LisbonCenter
+        mapCover.layer.opacity = 0
         
         loadChallengeData()
         displayMode = .Descending
@@ -74,12 +78,19 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     // MARK: Scroll View Custom Behaviors
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         if scrollView == feedView {
+            // When trying to scroll feed on map view
+            mapOverlay.hidden = true
             if scrollView.center.y != FeedCenter.Original.rawValue {
                 UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: nil,
                     animations: {
                         self.mapView.layer.opacity = 0
                         scrollView.center.y = FeedCenter.Original.rawValue
                     }, nil)
+            }
+        }
+        else {
+            UIView.animateWithDuration(0.3) {
+                self.mapCover.layer.opacity = 1
             }
         }
     }
@@ -98,12 +109,18 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == mapView && !decelerate {
             updateFeed()
+            UIView.animateWithDuration(0.5) {
+                self.mapCover.layer.opacity = 0
+            }
         }
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         if scrollView == mapView {
             updateFeed()
+            UIView.animateWithDuration(0.5) {
+                self.mapCover.layer.opacity = 0
+            }
         }
     }
     
@@ -140,6 +157,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     
     func updateFeed() {        
         if displayMode == .Descending {
+            mapOverlay.hidden = true
             clockIcon.image = clockDescending
             UIView.animateWithDuration(0.3) {
                 self.selectedModeBar.center.x = BarX.Clock.rawValue
@@ -150,9 +168,11 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 }, completion: nil)
         }
         else if displayMode == .Ascending {
+            mapOverlay.hidden = true
             clockIcon.image = clockAscending
         }
         else { // Map mode
+            mapOverlay.hidden = false
             UIView.animateWithDuration(0.3) {
                 self.selectedModeBar.center.x = BarX.World.rawValue
             }
