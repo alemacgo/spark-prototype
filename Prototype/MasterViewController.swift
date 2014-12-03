@@ -29,6 +29,8 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var placeLabel: UIImageView!
     
+    var detailImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pageView.contentSize = CGSizeMake(320*6, 568)
@@ -100,6 +102,21 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
                 self.pageView.contentOffset.x = 1920
             }, completion: {_ in
                 self.scrollViewDidEndDecelerating(self.pageView)})
+    }
+    
+    // MARK: Log expansion
+    @IBAction func didTapLogElement(sender: UIButton) {
+        switch (sender.tag) {
+            case 0:
+                detailImage = UIImage(named: "logImage1")
+            case 1:
+                detailImage = UIImage(named: "logImage2")
+            case 2:
+                detailImage = UIImage(named: "logImage3")
+            default: // case 3
+                detailImage = UIImage(named: "logImage4")
+        }
+        performSegueWithIdentifier("masterToDetail", sender: self)
     }
     
     // MARK: Camera functionality
@@ -200,6 +217,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
         
     }
     
+    @IBAction func unwindMasterFromDetail(sender: UIStoryboardSegue) {
+        
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // this gets a reference to the screen that we're about to transition to
         let toViewController = segue.destinationViewController as UIViewController
@@ -213,6 +234,10 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
             toViewController.transitioningDelegate = self.reverseVerticalManager
             var feedViewController = segue.destinationViewController as FeedViewController
             feedViewController.challenge = challenge
+        }
+        if segue.identifier == "masterToDetail" {
+            var detailViewController = segue.destinationViewController as DetailViewController
+            detailViewController.detailImage = detailImage!
         }
     }
 }
