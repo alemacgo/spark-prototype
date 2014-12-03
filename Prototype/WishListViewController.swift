@@ -76,21 +76,19 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
         }
     }
     
+    @IBAction func wishWasTapped(sender: UITapGestureRecognizer) {
+        UIView.animateWithDuration(0.7, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
+                (sender.view as UIScrollView).contentOffset.x -= 30
+            }, completion: {_ in
+            })
+    }
+    
     override func viewDidAppear(animated: Bool) {
         for image in voteNoImages {
             image.hidden = true
         }
         for image in voteYesImages {
             image.hidden = true
-        }
-    }
-    
-    @IBAction func didTouchSwipeButton(sender: UILongPressGestureRecognizer) {
-        if sender.state == .Ended {
-            // end wobble
-        }
-        else {
-            // wobble
         }
     }
     
@@ -160,6 +158,9 @@ class WishListViewController: UIViewController, UIGestureRecognizerDelegate, UIS
             wishImageRed.layer.opacity = 0
             wishImageGreen.layer.opacity = 0
             self.view.addSubview(wish)
+            
+            let gestureRecognizer = UITapGestureRecognizer(target: self, action: "wishWasTapped:")
+            wish.addGestureRecognizer(gestureRecognizer)
 
             UIView.animateWithDuration(1, animations: {
                 self.wishImage.layer.opacity = 1
