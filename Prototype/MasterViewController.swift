@@ -108,13 +108,13 @@ class MasterViewController: UIViewController, UIScrollViewDelegate, UIImagePicke
     @IBAction func didTapLogElement(sender: UIButton) {
         switch (sender.tag) {
             case 0:
-                detailImage = UIImage(named: "logImage1")
+                detailImage = logImage1
             case 1:
-                detailImage = UIImage(named: "logImage2")
+                detailImage = logImage2
             case 2:
-                detailImage = UIImage(named: "logImage3")
+                detailImage = logImage3
             default: // case 3
-                detailImage = UIImage(named: "logImage4")
+                detailImage = logImage4
         }
         performSegueWithIdentifier("masterToDetail", sender: self)
     }

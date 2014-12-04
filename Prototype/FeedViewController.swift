@@ -47,6 +47,8 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var mapOverlay: UIImageView!
     
     @IBOutlet weak var mapCover: UIView!
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var dismissDetailButton: UIButton!
     
     override func viewDidLoad() {
         feedView.contentSize = feedView.subviews[0].size!
@@ -72,6 +74,31 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func didTapOnWorld(sender: UIButton) {
         displayMode = .Map
+        updateFeed()
+    }
+    
+    // MARK: Feed expansion
+    @IBAction func didTapFeedElement(sender: UIButton) {
+        if displayMode != .Map || challenge != .Smell || longitude != .East {
+            return
+        }
+        switch (sender.tag) {
+            case 0:
+                detailImageView.image = feedImage1
+            case 1:
+                detailImageView.image = feedImage2
+            case 2:
+                detailImageView.image = feedImage3
+            default: // case 3
+                detailImageView.image = feedImage4
+        }
+        dismissDetailButton.hidden = false
+        detailImageView.hidden = false
+    }
+    
+    @IBAction func didTapDismissButton(sender: UIButton) {
+        dismissDetailButton.hidden = true
+        detailImageView.hidden = true
         updateFeed()
     }
     
@@ -155,7 +182,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func updateFeed() {        
+    func updateFeed() {
         if displayMode == .Descending {
             mapOverlay.hidden = true
             clockIcon.image = clockDescending
@@ -190,6 +217,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 feedImage.image = smellAscending
             }
             else if displayMode == .Map {
+                mapOverlay.image = smellMapOverlay
                 if longitude == .East {
                     feedImage.image = smellEast
                 }
@@ -206,6 +234,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 feedImage.image = greenAscending
             }
             else if displayMode == .Map {
+                mapOverlay.image = greenMapOverlay
                 if longitude == .East {
                     feedImage.image = greenEast
                 }
@@ -222,6 +251,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 feedImage.image = smileAscending
             }
             else if displayMode == .Map {
+                mapOverlay.image = smileMapOverlay
                 if longitude == .East {
                     feedImage.image = smileEast
                 }
@@ -238,6 +268,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 feedImage.image = napkinAscending
             }
             else if displayMode == .Map {
+                mapOverlay.image = napkinMapOverlay
                 if longitude == .East {
                     feedImage.image = napkinEast
                 }
@@ -254,6 +285,7 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
                 feedImage.image = looksAscending
             }
             else if displayMode == .Map {
+                mapOverlay.image = looksMapOverlay
                 if longitude == .East {
                     feedImage.image = looksEast
                 }

@@ -318,7 +318,7 @@
                                     <outlet property="delegate" destination="HZk-wc-kWz" id="8Vr-bd-XuY"/>
                                 </connections>
                             </scrollView>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" image="mapOverlay" translatesAutoresizingMaskIntoConstraints="NO" id="cMU-PQ-J5x">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" image="smellMapOverlay" translatesAutoresizingMaskIntoConstraints="NO" id="cMU-PQ-J5x">
                                 <rect key="frame" x="109" y="187" width="102" height="93"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
@@ -327,8 +327,44 @@
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellDescending" translatesAutoresizingMaskIntoConstraints="NO" id="whA-mn-klP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSs-FV-h96">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1705"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zy8-1d-GOm">
+                                        <rect key="frame" x="6" y="10" width="154" height="134"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapFeedElement:" destination="HZk-wc-kWz" eventType="touchUpInside" id="QYk-K1-uy9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sW2-GL-CLr">
+                                        <rect key="frame" x="161" y="10" width="154" height="134"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapFeedElement:" destination="HZk-wc-kWz" eventType="touchUpInside" id="iwc-1j-Taq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVo-1R-0bt">
+                                        <rect key="frame" x="6" y="147" width="154" height="134"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapFeedElement:" destination="HZk-wc-kWz" eventType="touchUpInside" id="L37-kT-3Ez"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccW-T9-VYK">
+                                        <rect key="frame" x="161" y="147" width="154" height="134"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapFeedElement:" destination="HZk-wc-kWz" eventType="touchUpInside" id="mgz-qt-FNq"/>
+                                        </connections>
+                                    </button>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSs-FV-h96" userLabel="Map Cover">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -357,6 +393,19 @@
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellSelectedBar" translatesAutoresizingMaskIntoConstraints="NO" id="Lt0-Bj-Tcs">
                                 <rect key="frame" x="108" y="129" width="26" height="4"/>
                             </imageView>
+                            <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JDg-NF-kzb" userLabel="Detail View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <accessibility key="accessibilityConfiguration" label=""/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSv-87-HHa" userLabel="Dismiss Button">
+                                <rect key="frame" x="15" y="39" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapDismissButton:" destination="HZk-wc-kWz" eventType="touchUpInside" id="Rew-Ow-n3E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -371,6 +420,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="clockIcon" destination="9Bn-Ef-8Oc" id="S4T-bS-9kh"/>
+                        <outlet property="detailImageView" destination="JDg-NF-kzb" id="ogi-xu-fhR"/>
+                        <outlet property="dismissDetailButton" destination="FSv-87-HHa" id="4fL-Og-aus"/>
                         <outlet property="feedImage" destination="whA-mn-klP" id="DvF-e8-way"/>
                         <outlet property="feedView" destination="emx-BC-JtT" id="MGv-Pq-cwo"/>
                         <outlet property="mapCover" destination="tSs-FV-h96" id="H5e-Cl-QsS"/>
@@ -582,7 +633,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ba8-oz-bKI">
-                                <rect key="frame" x="15" y="8" width="44" height="44"/>
+                                <rect key="frame" x="15" y="38" width="44" height="44"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -600,7 +651,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s45-T4-Cih" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="326" y="1814"/>
+            <point key="canvasLocation" x="326" y="1809"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="MgV-RF-ChO">
+            <objects>
+                <viewController id="GmI-NC-k7b" customClass="DetailViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="48a-6J-FWa"/>
+                        <viewControllerLayoutGuide type="bottom" id="vNy-1R-PE8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SIp-Y8-G44">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIw-vV-cEi">
+                                <rect key="frame" x="16" y="15" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feedImage1" translatesAutoresizingMaskIntoConstraints="NO" id="TE3-bI-epl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C11-Gm-Kq3">
+                                <rect key="frame" x="15" y="39" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="detailImageView" destination="TE3-bI-epl" id="hYO-Jd-y6d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oOk-KB-pkw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="326" y="2496"/>
         </scene>
     </scenes>
     <resources>
@@ -609,13 +699,14 @@
         <image name="camera" width="217" height="224"/>
         <image name="createOverlay" width="320" height="568"/>
         <image name="download" width="320" height="568"/>
+        <image name="feedImage1" width="320" height="568"/>
         <image name="funchalLabel" width="308" height="26"/>
         <image name="log" width="320" height="724"/>
         <image name="logImage1" width="320" height="568"/>
         <image name="map" width="1450" height="742"/>
-        <image name="mapOverlay" width="102" height="93"/>
         <image name="smellClockDescending" width="30" height="30"/>
         <image name="smellDescending" width="320" height="1702"/>
+        <image name="smellMapOverlay" width="102" height="93"/>
         <image name="smellSelectedBar" width="26" height="4"/>
         <image name="smellTopBar" width="320" height="139"/>
         <image name="star" width="44" height="44"/>
