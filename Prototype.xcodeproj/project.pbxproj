@@ -18,6 +18,7 @@
 		A9212CC719F00E0100247FCA /* VerticalTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9212CC619F00E0100247FCA /* VerticalTransitionManager.swift */; };
 		A93773D619F97CC600503F9C /* ReverseVerticalTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93773D519F97CC600503F9C /* ReverseVerticalTransitionManager.swift */; };
 		A941186E1A1C034800CF0CE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A941186D1A1C034800CF0CE1 /* Constants.swift */; };
+		A944E6C11A30CDA300C6965E /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944E6C01A30CDA300C6965E /* InstructionsViewController.swift */; };
 		A9605E1A1A128EFC008D8892 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9605E191A128EFC008D8892 /* FeedViewController.swift */; };
 		A96B5EF519F7D12A004D8606 /* FeedViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */; };
 		A98F8D4F1A2F7FCA0095254D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F8D4E1A2F7FCA0095254D /* DetailViewController.swift */; };
@@ -52,6 +53,7 @@
 		A93773D519F97CC600503F9C /* ReverseVerticalTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReverseVerticalTransitionManager.swift; sourceTree = "<group>"; };
 		A93F13AE19F13EB600F8F325 /* Lookback-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Lookback-Bridging-Header.h"; path = "../Pods/Lookback-Bridging-Header.h"; sourceTree = "<group>"; };
 		A941186D1A1C034800CF0CE1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A944E6C01A30CDA300C6965E /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		A9605E191A128EFC008D8892 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A96B5EF419F7D12A004D8606 /* FeedViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewDelegate.swift; sourceTree = "<group>"; };
 		A98F8D4E1A2F7FCA0095254D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				A9212C7219EFCCCF00247FCA /* Main.storyboard */,
+				A944E6C01A30CDA300C6965E /* InstructionsViewController.swift */,
 				A98F8D4E1A2F7FCA0095254D /* DetailViewController.swift */,
 				A9CCD6F41A0CE80E00CFD00B /* MasterViewController.swift */,
 				A9605E191A128EFC008D8892 /* FeedViewController.swift */,
@@ -309,6 +312,7 @@
 				A98F8D4F1A2F7FCA0095254D /* DetailViewController.swift in Sources */,
 				A9212CC719F00E0100247FCA /* VerticalTransitionManager.swift in Sources */,
 				A994298319F326B6002EF706 /* SegueIdentifier.swift in Sources */,
+				A944E6C11A30CDA300C6965E /* InstructionsViewController.swift in Sources */,
 				A9CCD6F51A0CE80E00CFD00B /* MasterViewController.swift in Sources */,
 				A9212C6F19EFCCCF00247FCA /* AppDelegate.swift in Sources */,
 				A941186E1A1C034800CF0CE1 /* Constants.swift in Sources */,

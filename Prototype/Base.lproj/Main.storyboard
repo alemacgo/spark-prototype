@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M1b-uH-Q4w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Wi8-5n-I8i">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -264,7 +264,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="M1b-uH-Q4w" kind="presentation" id="OWm-9J-c88"/>
+                                    <segue destination="fZK-wK-ZpJ" kind="presentation" modalTransitionStyle="crossDissolve" id="a5c-J4-mfl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -274,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="755-xb-TxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-651" y="1809"/>
+            <point key="canvasLocation" x="-1016" y="1809"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="uJZ-hE-Onc">
@@ -439,6 +439,65 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-165" y="2496"/>
+        </scene>
+        <!--Instructions View Controller-->
+        <scene sceneID="qUO-8c-Zqm">
+            <objects>
+                <viewController id="fZK-wK-ZpJ" customClass="InstructionsViewController" customModule="Prototype" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="202-dc-d54"/>
+                        <viewControllerLayoutGuide type="bottom" id="gtY-3k-N9C"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C0r-KH-TMX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVq-6W-rv4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instructions" translatesAutoresizingMaskIntoConstraints="NO" id="qvh-hh-cdk">
+                                        <rect key="frame" x="0.0" y="0.0" width="960" height="568"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLs-4k-awe">
+                                        <rect key="frame" x="680" y="496" width="239" height="45"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="M1b-uH-Q4w" kind="presentation" modalTransitionStyle="crossDissolve" id="gSu-Nn-9w7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxX-6C-mgI">
+                                        <rect key="frame" x="138" y="497" width="44" height="44"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="advance1:" destination="fZK-wK-ZpJ" eventType="touchUpInside" id="G7O-Lw-MO0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjN-yi-CFQ">
+                                        <rect key="frame" x="458" y="497" width="44" height="44"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="advance2:" destination="fZK-wK-ZpJ" eventType="touchUpInside" id="zvW-Gw-fZC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="scrollView" destination="LVq-6W-rv4" id="nj0-71-lds"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAh-7G-lOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-602" y="1809"/>
         </scene>
         <!--Master View Controller-->
         <scene sceneID="JNd-jR-aKq">
@@ -701,6 +760,7 @@
         <image name="download" width="320" height="568"/>
         <image name="feedImage1" width="320" height="568"/>
         <image name="funchalLabel" width="308" height="26"/>
+        <image name="instructions" width="960" height="568"/>
         <image name="log" width="320" height="724"/>
         <image name="logImage1" width="320" height="568"/>
         <image name="map" width="1450" height="742"/>
