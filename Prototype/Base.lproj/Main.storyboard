@@ -321,6 +321,27 @@
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" image="smellMapOverlay" translatesAutoresizingMaskIntoConstraints="NO" id="cMU-PQ-J5x">
                                 <rect key="frame" x="109" y="187" width="102" height="93"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-G2-sNM">
+                                <rect key="frame" x="99" y="93" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnClock:" destination="HZk-wc-kWz" eventType="touchUpInside" id="HjU-Yj-7kL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzH-Uv-TCn">
+                                <rect key="frame" x="171" y="90" width="44" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnWorld:" destination="HZk-wc-kWz" eventType="touchUpInside" id="rTT-32-rZj"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellSelectedBar" translatesAutoresizingMaskIntoConstraints="NO" id="Lt0-Bj-Tcs">
+                                <rect key="frame" x="108" y="129" width="26" height="4"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emx-BC-JtT">
                                 <rect key="frame" x="0.0" y="140" width="320" height="431"/>
                                 <subviews>
@@ -363,6 +384,18 @@
                                             <action selector="didTapFeedElement:" destination="HZk-wc-kWz" eventType="touchUpInside" id="mgz-qt-FNq"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="popupReport" translatesAutoresizingMaskIntoConstraints="NO" id="SyA-Sq-Ub3">
+                                        <rect key="frame" x="137" y="97" width="167" height="114"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cp4-Jk-ctC">
+                                        <rect key="frame" x="273" y="206" width="44" height="44"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapOptionsButton:" destination="HZk-wc-kWz" eventType="touchUpInside" id="gv3-Tg-XmQ"/>
+                                        </connections>
+                                    </button>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tSs-FV-h96" userLabel="Map Cover">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -372,27 +405,6 @@
                                     <outlet property="delegate" destination="HZk-wc-kWz" id="fer-2b-Eci"/>
                                 </connections>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kx-G2-sNM">
-                                <rect key="frame" x="99" y="93" width="44" height="44"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapOnClock:" destination="HZk-wc-kWz" eventType="touchUpInside" id="HjU-Yj-7kL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UzH-Uv-TCn">
-                                <rect key="frame" x="171" y="90" width="44" height="44"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapOnWorld:" destination="HZk-wc-kWz" eventType="touchUpInside" id="rTT-32-rZj"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="smellSelectedBar" translatesAutoresizingMaskIntoConstraints="NO" id="Lt0-Bj-Tcs">
-                                <rect key="frame" x="108" y="129" width="26" height="4"/>
-                            </imageView>
                             <imageView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JDg-NF-kzb" userLabel="Detail View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <accessibility key="accessibilityConfiguration" label=""/>
@@ -427,6 +439,7 @@
                         <outlet property="mapCover" destination="tSs-FV-h96" id="H5e-Cl-QsS"/>
                         <outlet property="mapOverlay" destination="cMU-PQ-J5x" id="nEV-4S-Zfh"/>
                         <outlet property="mapView" destination="gPy-FT-Xzy" id="dLZ-fe-UIG"/>
+                        <outlet property="popupReport" destination="SyA-Sq-Ub3" id="lYF-RS-Fgg"/>
                         <outlet property="selectedModeBar" destination="Lt0-Bj-Tcs" id="70V-Q8-f1l"/>
                         <outlet property="topBar" destination="cJu-pO-bcd" id="TTx-QV-SuM"/>
                     </connections>
@@ -561,7 +574,9 @@
                                             </button>
                                         </subviews>
                                     </scrollView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCe-10-0Eh"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wCe-10-0Eh">
+                                        <rect key="frame" x="1926" y="239" width="308" height="203"/>
+                                    </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="funchalLabel" translatesAutoresizingMaskIntoConstraints="NO" id="RXH-Ef-8Ya">
                                         <rect key="frame" x="1926" y="443" width="308" height="26"/>
                                     </imageView>
@@ -764,6 +779,7 @@
         <image name="log" width="320" height="724"/>
         <image name="logImage1" width="320" height="568"/>
         <image name="map" width="1450" height="742"/>
+        <image name="popupReport" width="167" height="118"/>
         <image name="smellClockDescending" width="30" height="30"/>
         <image name="smellDescending" width="320" height="1702"/>
         <image name="smellMapOverlay" width="102" height="93"/>

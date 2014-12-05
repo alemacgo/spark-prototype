@@ -50,6 +50,9 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var dismissDetailButton: UIButton!
     
+    @IBOutlet weak var popupReport: UIImageView!
+    
+    
     override func viewDidLoad() {
         feedView.contentSize = feedView.subviews[0].size!
         mapView.contentSize = mapView.subviews[0].size!
@@ -102,8 +105,13 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
         updateFeed()
     }
     
+    @IBAction func didTapOptionsButton(sender: UIButton) {
+        popupReport.hidden = false
+    }
+    
     // MARK: Scroll View Custom Behaviors
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        popupReport.hidden = true
         if scrollView == feedView {
             // When trying to scroll feed on map view
             mapOverlay.hidden = true
@@ -183,6 +191,8 @@ class FeedViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func updateFeed() {
+        popupReport.hidden = true
+
         if displayMode == .Descending {
             mapOverlay.hidden = true
             clockIcon.image = clockDescending
